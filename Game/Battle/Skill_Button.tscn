@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Battle/Skill_Button.gd" type="Script" id=1]
+
+[node name="Skill_Button" type="TextureButton"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -736.0
+margin_bottom = -536.0
+rect_min_size = Vector2( 64, 64 )
+script = ExtResource( 1 )
+[connection signal="pressed" from="." to="." method="_on_Skill_Button_pressed"]

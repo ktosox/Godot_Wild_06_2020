@@ -23,6 +23,10 @@ func reset_path(target):
 		var path = get_parent().path_from_2_points($Location.global_position,get_global_mouse_position())
 		for pnt in range(path.size()):
 			curve.add_point(path[pnt])
+		if($Location.global_position.x -get_global_mouse_position().x >0):
+			$Location/AnimatedSprite.scale.x=-1
+		else:
+			$Location/AnimatedSprite.scale.x=1
 	else:
 		curve.add_point($Location.position)
 		curve.add_point(target)
@@ -40,7 +44,8 @@ func reset_path(target):
 func _process(delta):
 	if (moving):
 		$Location.offset+= delta * speed
-		if($Location.unit_offset==1):
+		if($Location.unit_offset==1 or curve.get_baked_length()<0.01):
 			moving = false
 			$AnimationPlayer.stop()
 	pass
+	

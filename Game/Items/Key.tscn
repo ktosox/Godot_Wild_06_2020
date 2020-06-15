@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Dungeon/Dungeon_Tileset.png" type="Texture" id=1]
+[ext_resource path="res://Items/Key.gd" type="Script" id=2]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 8.32756
+
+[node name="Key" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0, -1.39179 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 144, 144, 16, 16 )
+
+[node name="HitBox" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+shape = SubResource( 1 )
+[connection signal="area_entered" from="HitBox" to="." method="_on_HitBox_area_entered"]

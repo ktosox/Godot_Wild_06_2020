@@ -82,7 +82,6 @@ shape = SubResource( 3 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Location"]
 position = Vector2( 0.142395, -2.99031 )
 frames = SubResource( 4 )
-frame = 3
 playing = true
 
 [node name="Camera2D" type="Camera2D" parent="Location"]
@@ -98,3 +97,8 @@ drag_margin_bottom = 0.7
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 playback_speed = 6.0
 anims/loop = SubResource( 5 )
+
+[node name="TimerMouseCheck" type="Timer" parent="."]
+wait_time = 0.3
+autostart = true
+[connection signal="timeout" from="TimerMouseCheck" to="." method="_on_TimerMouseCheck_timeout"]

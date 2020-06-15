@@ -49,3 +49,9 @@ func _process(delta):
 			$AnimationPlayer.stop()
 	pass
 	
+
+
+func _on_TimerMouseCheck_timeout():
+	if(Input.is_action_pressed("LMB")):
+		reset_path(get_local_mouse_position())
+	pass # Replace with function body.

@@ -9,4 +9,7 @@ margin_right = -736.0
 margin_bottom = -536.0
 rect_min_size = Vector2( 64, 64 )
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="pressed" from="." to="." method="_on_Skill_Button_pressed"]

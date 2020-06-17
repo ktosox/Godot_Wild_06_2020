@@ -12,8 +12,8 @@ func _ready():
 
 
 func accept_key():
-	var tile1 = Vector2(1+int(global_position.x - 8) / 16 , 1+int( (global_position.y)/16 ) -1)
-	var tile2 = Vector2(1+int(global_position.x - 8) / 16 , 1+int( (global_position.y)/16 ))
+	var tile1 = Vector2(int(global_position.x - 8) / 16 , int( (global_position.y)/16 ) -1)
+	var tile2 = Vector2(int(global_position.x - 8) / 16 , int( (global_position.y)/16 ))
 	#MY EYES, THE SPAGHET IS BURNING MY EYES
 
 	print(tile1,tile2)

@@ -1,4 +1,4 @@
-extends Control
+extends CanvasLayer
 
 
 # Declare member variables here. Examples:

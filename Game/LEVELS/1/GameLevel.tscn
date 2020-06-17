@@ -1,10 +1,11 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://Dungeon_Template/GameLevel.gd" type="Script" id=1]
 [ext_resource path="res://Dungeon/Dungeon_Tileset.png" type="Texture" id=2]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Doors/Exit.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Doors/Door_UP.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Battle/Battle_View.tscn" type="PackedScene" id=6]
 
 [sub_resource type="NavigationPolygon" id=1]
 vertices = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
@@ -511,5 +512,7 @@ text = "LEVEL1"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Battle_View" parent="." instance=ExtResource( 6 )]
 
 [editable path="Player"]

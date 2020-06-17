@@ -4,21 +4,14 @@
 [ext_resource path="res://Battle/AvatarScene.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Battle/Skill_Button.tscn" type="PackedScene" id=3]
 
-[node name="Battle_View" type="Control"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_right = 6.10352e-05
-rect_min_size = Vector2( 800, 600 )
-rect_scale = Vector2( 0.375, 0.375 )
+[node name="Battle_View" type="CanvasLayer"]
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="ColorRect" type="ColorRect" parent="."]
 modulate = Color( 1, 1, 1, 0.45098 )
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 2
 color = Color( 0.305882, 0.305882, 0.305882, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -27,6 +20,10 @@ __meta__ = {
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="ActorSpace" type="ColorRect" parent="VBoxContainer"]
 self_modulate = Color( 1, 1, 1, 0 )
@@ -37,22 +34,23 @@ size_flags_vertical = 3
 
 [node name="Enemy" parent="VBoxContainer/ActorSpace" instance=ExtResource( 2 )]
 margin_left = 736.0
-margin_top = 48.0
+margin_top = 96.0
 margin_right = 192.0
-margin_bottom = -92.0
+margin_bottom = -44.0
 rect_scale = Vector2( -1, 1 )
 
 [node name="Player" parent="VBoxContainer/ActorSpace" instance=ExtResource( 2 )]
-margin_left = 64.0
-margin_top = 48.0
-margin_right = -480.0
-margin_bottom = -92.0
+margin_left = 80.0
+margin_top = 96.0
+margin_right = -464.0
+margin_bottom = -44.0
 
 [node name="ButtonSpace" type="ColorRect" parent="VBoxContainer"]
 margin_top = 400.0
 margin_right = 800.0
 margin_bottom = 600.0
 rect_min_size = Vector2( 0, 200 )
+mouse_filter = 2
 color = Color( 0, 0, 0, 1 )
 
 [node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/ButtonSpace"]
@@ -93,8 +91,24 @@ margin_left = 129.507
 margin_top = 111.795
 margin_right = -606.493
 margin_bottom = -24.2054
+hint_tooltip = "HEBUBUE
+jgjhgjgjyyyy
+-thrhrh"
 
-[node name="Camera2D" type="Camera2D" parent="."]
-anchor_mode = 0
-current = true
-zoom = Vector2( 0.375, 0.375 )
+[node name="ColorRect2" type="ColorRect" parent="."]
+margin_left = 32.0
+margin_top = 32.0
+margin_right = 768.0
+margin_bottom = 80.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="ColorRect2"]
+margin_right = 368.0
+margin_bottom = 24.0
+rect_scale = Vector2( 2, 2 )
+text = "FREE REALESTATE FREE REALESTATE FREE REALESTATE"
+align = 1
+valign = 1

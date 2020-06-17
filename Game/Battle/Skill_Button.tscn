@@ -9,6 +9,11 @@ anchor_bottom = 1.0
 margin_right = -736.0
 margin_bottom = -536.0
 rect_min_size = Vector2( 64, 64 )
+hint_tooltip = "HEBUBUE
+fsfsfsff
+-sdfsfsdf
+-fsdfs
+-thrhrh"
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture_normal = ExtResource( 2 )
@@ -19,10 +24,16 @@ __meta__ = {
 
 [node name="Border" type="ColorRect" parent="."]
 show_behind_parent = true
-margin_left = -8.0
-margin_top = -8.0
-margin_right = 72.0
-margin_bottom = 72.0
-rect_min_size = Vector2( 80, 80 )
-color = Color( 0.396078, 0.396078, 0.396078, 1 )
+margin_left = -3.0
+margin_top = -3.0
+margin_right = 67.0
+margin_bottom = 67.0
+rect_min_size = Vector2( 70, 70 )
+mouse_filter = 2
+color = Color( 0.105882, 1, 0.435294, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="mouse_entered" from="." to="." method="_on_Skill_Button_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_Skill_Button_mouse_exited"]
 [connection signal="pressed" from="." to="." method="_on_Skill_Button_pressed"]

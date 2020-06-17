@@ -21,6 +21,7 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+ID = 1
 
 [node name="Border" type="ColorRect" parent="."]
 show_behind_parent = true
@@ -30,7 +31,6 @@ margin_right = 67.0
 margin_bottom = 67.0
 rect_min_size = Vector2( 70, 70 )
 mouse_filter = 2
-color = Color( 0.105882, 1, 0.435294, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }

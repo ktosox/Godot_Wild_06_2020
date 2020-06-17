@@ -31,7 +31,7 @@ window/stretch/aspect="keep"
 
 [gui]
 
-timers/tooltip_delay_sec=0.0
+timers/tooltip_delay_sec=0.1
 
 [input]
 

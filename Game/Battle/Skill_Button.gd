@@ -6,7 +6,7 @@ extends TextureButton
 # var b = "text"
 export var ID = 0
 
-export var skill_ready = true
+var is_ready = true
 
 var selected = Color("bcec82")
 var open = Color("1bff6f")
@@ -15,37 +15,38 @@ var closed = Color("500101")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	toggle_border()
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
-func toggle_border():
+func toggle_border(skill_ready):
 	if(skill_ready):
 		$Border.color = open
+		is_ready = true
 	else:
 		$Border.color = closed
+		is_ready = false
 	pass
 
 func select_skill():
 	print("skill selected")
+	emit_signal("skill",ID)
 	pass
 	
 func _on_Skill_Button_pressed():
-	if(skill_ready):
+	if(is_ready):
 		select_skill()
 	pass # Replace with function body.
 
-func re_roll_skill():
-	pass
 
 func _on_Skill_Button_mouse_entered():
-	if(skill_ready):
+	if(is_ready):
 		$Border.color = selected
 	pass # Replace with function body.
 
 
 func _on_Skill_Button_mouse_exited():
-	toggle_border()
+	if(is_ready):
+		$Border.color = open
 	pass # Replace with function body.

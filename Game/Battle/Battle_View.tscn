@@ -1,8 +1,52 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Battle/Battle_View.gd" type="Script" id=1]
 [ext_resource path="res://Battle/AvatarScene.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Battle/Skill_Button.tscn" type="PackedScene" id=3]
+
+[sub_resource type="Animation" id=2]
+resource_name = "lower"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.9 ),
+"transitions": PoolRealArray( 2 ),
+"update": 3,
+"values": [ Vector2( 800, 600 ) ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("..")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "close_battleview"
+} ]
+}
+
+[sub_resource type="Animation" id=1]
+resource_name = "rise"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.1, 1 ),
+"transitions": PoolRealArray( 1, 2 ),
+"update": 0,
+"values": [ Vector2( 800, 600 ), Vector2( 800, 0 ) ]
+}
 
 [node name="Battle_View" type="CanvasLayer"]
 script = ExtResource( 1 )
@@ -68,7 +112,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Skill_Button" parent="VBoxContainer/ButtonSpace" instance=ExtResource( 3 )]
+[node name="Skill_Button1" parent="VBoxContainer/ButtonSpace" instance=ExtResource( 3 )]
 margin_left = 35.6825
 margin_top = 24.3521
 margin_right = -700.317
@@ -95,6 +139,14 @@ hint_tooltip = "HEBUBUE
 jgjhgjgjyyyy
 -thrhrh"
 
+[node name="ButtonBlocker" type="Control" parent="VBoxContainer/ButtonSpace"]
+visible = false
+margin_right = 234.0
+margin_bottom = 200.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="ColorRect2" type="ColorRect" parent="."]
 margin_left = 32.0
 margin_top = 32.0
@@ -112,3 +164,20 @@ rect_scale = Vector2( 2, 2 )
 text = "FREE REALESTATE FREE REALESTATE FREE REALESTATE"
 align = 1
 valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Curatin" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 6.10352e-05
+margin_bottom = -600.0
+color = Color( 0.376471, 0.0117647, 0.0117647, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Animator" type="AnimationPlayer" parent="Curatin"]
+anims/lower = SubResource( 2 )
+anims/rise = SubResource( 1 )

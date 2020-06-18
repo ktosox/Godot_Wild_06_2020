@@ -494,7 +494,7 @@ position = Vector2( 1.15661, 9.12438 )
 position = Vector2( 206.138, 67.3534 )
 
 [node name="AnimatedSprite" parent="Player/Location" index="1"]
-frame = 1
+frame = 3
 
 [node name="Items" type="Node2D" parent="."]
 
@@ -510,6 +510,7 @@ position = Vector2( 208.01, 149.042 )
 position = Vector2( 17.608, 59.48 )
 
 [node name="Label" type="Label" parent="."]
+visible = false
 margin_left = 189.055
 margin_top = 21.8866
 margin_right = 233.055

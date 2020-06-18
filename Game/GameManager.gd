@@ -8,6 +8,8 @@ var battleViewScene = preload("res://Battle/Battle_View.tscn")
 
 var current_level
 
+var currentBattle
+
 var playerHP = 6
 var playerSTAM = 10
 
@@ -28,7 +30,7 @@ func load_battle(enemyID):
 	#get_tree().paused = true
 	inBattle = true
 	var newBattle = battleViewScene.instance()
-	add_child(newBattle)
+	GM.current_level.add_child(newBattle)
 	
 	pass
 

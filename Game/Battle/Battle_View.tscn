@@ -42,9 +42,9 @@ tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0, 0.3, 1 ),
-"transitions": PoolRealArray( 1, 1, 2 ),
+"transitions": PoolRealArray( 1, -2, 2 ),
 "update": 0,
-"values": [ Vector2( 800, 600 ), Vector2( 800, 0 ), Vector2( 800, 0 ) ]
+"values": [ Vector2( 800, 600 ), Vector2( 800, 600 ), Vector2( 800, 0 ) ]
 }
 
 [node name="Battle_View" type="CanvasLayer"]
@@ -71,37 +71,45 @@ __meta__ = {
 }
 
 [node name="ActorSpace" type="ColorRect" parent="VBoxContainer"]
-self_modulate = Color( 1, 1, 1, 0 )
+self_modulate = Color( 0.717647, 0.717647, 0.717647, 0.196078 )
 margin_right = 800.0
-margin_bottom = 396.0
+margin_bottom = 342.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Enemy" parent="VBoxContainer/ActorSpace" instance=ExtResource( 2 )]
-margin_left = 736.0
-margin_top = 96.0
-margin_right = 192.0
-margin_bottom = -44.0
+margin_left = 768.0
+margin_top = 64.0
+margin_right = 224.0
+margin_bottom = -12.0
 rect_scale = Vector2( -1, 1 )
 
 [node name="Player" parent="VBoxContainer/ActorSpace" instance=ExtResource( 2 )]
-margin_left = 80.0
-margin_top = 96.0
-margin_right = -464.0
-margin_bottom = -44.0
+margin_left = 32.0
+margin_top = 64.0
+margin_right = -512.0
+margin_bottom = -12.0
+
+[node name="BarSpace" type="ColorRect" parent="VBoxContainer"]
+self_modulate = Color( 1, 1, 1, 0.741176 )
+margin_top = 346.0
+margin_right = 800.0
+margin_bottom = 406.0
+rect_min_size = Vector2( 0, 60 )
+color = Color( 0, 0.203922, 0.388235, 1 )
 
 [node name="ButtonSpace" type="ColorRect" parent="VBoxContainer"]
-margin_top = 400.0
+margin_top = 410.0
 margin_right = 800.0
 margin_bottom = 600.0
-rect_min_size = Vector2( 0, 200 )
+rect_min_size = Vector2( 0, 190 )
 mouse_filter = 2
 color = Color( 0, 0, 0, 1 )
 
 [node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/ButtonSpace"]
-margin_left = 311.0
-margin_top = 20.0
-margin_right = 766.0
+margin_left = 192.0
+margin_top = 62.0
+margin_right = 784.0
 margin_bottom = 177.0
 text = "HE BUE BUE LOREM IPSUM LOREM I{SUM HE BUE BUE LOREM IPSUM LOREM I{SUM
 HE BUE BUE LOREM IPSUM LOREM I{SUM
@@ -114,45 +122,83 @@ __meta__ = {
 }
 
 [node name="Skill_Button1" parent="VBoxContainer/ButtonSpace" instance=ExtResource( 3 )]
-margin_left = 35.6825
-margin_top = 24.3521
-margin_right = -700.317
-margin_bottom = -111.648
+margin_left = 24.0
+margin_top = 22.0
+margin_right = -712.0
+margin_bottom = -104.0
+bttnID = 1
 
 [node name="Skill_Button2" parent="VBoxContainer/ButtonSpace" instance=ExtResource( 3 )]
-margin_left = 130.323
-margin_top = 23.3392
-margin_right = -605.677
-margin_bottom = -112.661
+margin_left = 104.0
+margin_top = 22.0
+margin_right = -632.0
+margin_bottom = -104.0
+bttnID = 2
 
 [node name="Skill_Button3" parent="VBoxContainer/ButtonSpace" instance=ExtResource( 3 )]
-margin_left = 32.9539
-margin_top = 113.707
-margin_right = -703.046
-margin_bottom = -22.2934
+margin_left = 24.0
+margin_top = 102.0
+margin_right = -712.0
+margin_bottom = -24.0
+bttnID = 3
 
 [node name="Skill_Button4" parent="VBoxContainer/ButtonSpace" instance=ExtResource( 3 )]
-margin_left = 129.507
-margin_top = 111.795
-margin_right = -606.493
-margin_bottom = -24.2054
+margin_left = 104.0
+margin_top = 102.0
+margin_right = -632.0
+margin_bottom = -24.0
 hint_tooltip = "HEBUBUE
 jgjhgjgjyyyy
 -thrhrh"
+bttnID = 4
 
 [node name="ButtonBlocker" type="Control" parent="VBoxContainer/ButtonSpace"]
 visible = false
-margin_right = 234.0
-margin_bottom = 200.0
+margin_top = -2.0
+margin_right = 800.0
+margin_bottom = 190.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="VBoxContainer/ButtonSpace"]
+margin_left = 216.0
+margin_top = 14.0
+margin_right = 300.0
+margin_bottom = 34.0
+rect_scale = Vector2( 2, 2 )
+text = "ABCEDFG"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button2" type="Button" parent="VBoxContainer/ButtonSpace"]
+margin_left = 416.0
+margin_top = 14.0
+margin_right = 500.0
+margin_bottom = 34.0
+rect_scale = Vector2( 2, 2 )
+text = "ABCEDFG"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button3" type="Button" parent="VBoxContainer/ButtonSpace"]
+margin_left = 600.0
+margin_top = 14.0
+margin_right = 684.0
+margin_bottom = 34.0
+rect_scale = Vector2( 2, 2 )
+text = "END FIGHT"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="ColorRect2" type="ColorRect" parent="."]
 margin_left = 32.0
-margin_top = 32.0
+margin_top = 8.0
 margin_right = 768.0
-margin_bottom = 80.0
+margin_bottom = 56.0
 color = Color( 0, 0, 0, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -172,6 +218,7 @@ __meta__ = {
 [node name="Curatin" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_bottom = -600.0
 color = Color( 0.376471, 0.0117647, 0.0117647, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -181,14 +228,17 @@ __meta__ = {
 anims/lower = SubResource( 1 )
 anims/rise = SubResource( 2 )
 
-[node name="Button" type="Button" parent="."]
-margin_left = 180.0
-margin_top = 96.0
-margin_right = 319.0
-margin_bottom = 120.0
-rect_scale = Vector2( 4, 4 )
-text = "DEBUG END BATTLE"
+[node name="TimerEnemyAttack" type="Timer" parent="."]
+wait_time = 2.7
+one_shot = true
+
+[node name="TurnInd" type="ColorRect" parent="."]
+margin_left = 360.0
+margin_top = 80.0
+margin_right = 440.0
+margin_bottom = 160.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="VBoxContainer/ButtonSpace/Button3" to="." method="_on_Button3_pressed"]
+[connection signal="timeout" from="TimerEnemyAttack" to="." method="_on_TimerEnemyAttack_timeout"]

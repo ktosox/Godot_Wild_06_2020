@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/SpellBook02_39.png-3c1b14235f3ae106546a89f8fa8887b9.stex"
+path="res://.import/SpellBook6.png-7a3415548418ce8068f54ed97424533c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Battle/Icons/SpellBook02_39.png"
-dest_files=[ "res://.import/SpellBook02_39.png-3c1b14235f3ae106546a89f8fa8887b9.stex" ]
+source_file="res://Battle/Icons/SpellBook6.png"
+dest_files=[ "res://.import/SpellBook6.png-7a3415548418ce8068f54ed97424533c.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

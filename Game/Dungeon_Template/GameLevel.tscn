@@ -1,8 +1,9 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://Dungeon/Dungeon_Tileset.png" type="Texture" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Dungeon_Template/GameLevel.gd" type="Script" id=3]
+[ext_resource path="res://Doors/Door_SIDE.tscn" type="PackedScene" id=4]
 
 [sub_resource type="NavigationPolygon" id=1]
 vertices = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
@@ -460,6 +461,7 @@ script = ExtResource( 3 )
 tile_set = SubResource( 26 )
 cell_size = Vector2( 16, 16 )
 format = 1
+tile_data = PoolIntArray( 131076, 2, 0, 196612, 2, 0 )
 
 [node name="Walls" type="TileMap" parent="."]
 tile_set = SubResource( 27 )
@@ -476,6 +478,9 @@ format = 1
 
 [node name="Doors" type="Node2D" parent="."]
 
+[node name="Door_SIDE" parent="Doors" instance=ExtResource( 4 )]
+position = Vector2( 72.6021, 48.4435 )
+
 [node name="Player" parent="." instance=ExtResource( 2 )]
 curve = SubResource( 29 )
 
@@ -484,9 +489,6 @@ position = Vector2( 1.15661, 9.12438 )
 
 [node name="Location" parent="Player" index="1"]
 position = Vector2( 32.1772, 56.0328 )
-
-[node name="AnimatedSprite" parent="Player/Location" index="1"]
-frame = 3
 
 [node name="Items" type="Node2D" parent="."]
 

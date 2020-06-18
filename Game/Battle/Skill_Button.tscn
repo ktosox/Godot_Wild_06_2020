@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Battle/Skill_Button.gd" type="Script" id=1]
-[ext_resource path="res://Battle/Icons/SpellBook02_47.png" type="Texture" id=2]
+[ext_resource path="res://Battle/Icons/SpellBook5.png" type="Texture" id=2]
 
 [node name="Skill_Button" type="TextureButton"]
 anchor_right = 1.0
@@ -21,7 +21,6 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-ID = 1
 
 [node name="Border" type="ColorRect" parent="."]
 show_behind_parent = true

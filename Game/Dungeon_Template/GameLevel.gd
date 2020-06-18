@@ -26,7 +26,6 @@ func open_door(location1, location2):
 	$Floors.call_deferred("update_dirty_quadrants")
 	pass
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass

@@ -4,14 +4,13 @@ extends TextureButton
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-export var ID = 0
+export var bttnID = 0
 
 var is_ready = true
 
 var selected = Color("bcec82")
 var open = Color("1bff6f")
 var closed = Color("500101")
-
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -30,8 +29,7 @@ func toggle_border(skill_ready):
 	pass
 
 func select_skill():
-	print("skill selected")
-	emit_signal("skill",ID)
+	GM.currentBattle.use_skill(bttnID)
 	pass
 	
 func _on_Skill_Button_pressed():

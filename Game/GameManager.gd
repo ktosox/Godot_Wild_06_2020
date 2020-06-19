@@ -15,6 +15,9 @@ var playerSTAM = 10
 
 var inBattle = false
 
+export var colorLogical = Color()
+export var colorEmotion = Color()
+export var colorLawful = Color()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

@@ -4,7 +4,7 @@ extends Node2D
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-var type = 0
+var type = 5
 var enemy_types = {
 	0 : "vamp",
 	1 : "skull",
@@ -16,8 +16,10 @@ var enemy_types = {
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	randomize()
-	$Sprite.animation = enemy_types[randi()%enemy_types.size()]
+	if(!enemy_types.has(type)):
+		randomize()
+		type = randi()%enemy_types.size()
+	$Sprite.animation = enemy_types[type]
 	pass # Replace with function body.
 
 
@@ -27,5 +29,7 @@ func _ready():
 
 
 func _on_HitBox_area_entered(area):
+	$HitBox/CollisionShape2D.queue_free()
+	GM.load_battle(type)
 	print("START FIGHT")
 	pass # Replace with function body.

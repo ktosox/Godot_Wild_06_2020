@@ -9,6 +9,7 @@ export var moving = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+
 	pass # Replace with function body.
 
 
@@ -18,6 +19,8 @@ func _input(event):
 
 
 func reset_path(target):
+	if(GM.inBattle):
+		return
 	curve.clear_points()
 	if(get_parent().has_method("path_from_2_points")):
 		var path = get_parent().path_from_2_points($Location.global_position,get_global_mouse_position())
@@ -43,6 +46,10 @@ func reset_path(target):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if (moving):
+		if(GM.inBattle):
+			moving = false
+			$AnimationPlayer.stop()
+			return
 		$Location.offset+= delta * speed
 		if($Location.unit_offset==1 or curve.get_baked_length()<0.01):
 			moving = false

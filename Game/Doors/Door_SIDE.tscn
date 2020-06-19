@@ -4,7 +4,7 @@
 [ext_resource path="res://Doors/Door_SIDE.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 18.2397, 18.0488 )
+extents = Vector2( 27.248, 18.0488 )
 
 [node name="Door_SIDE" type="Node2D"]
 script = ExtResource( 2 )

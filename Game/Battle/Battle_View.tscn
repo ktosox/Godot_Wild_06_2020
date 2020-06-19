@@ -98,6 +98,46 @@ margin_bottom = 406.0
 rect_min_size = Vector2( 0, 60 )
 color = Color( 0, 0.203922, 0.388235, 1 )
 
+[node name="ProgressBar" type="ProgressBar" parent="VBoxContainer/BarSpace"]
+modulate = Color( 1, 0, 0, 1 )
+margin_left = 40.0
+margin_top = 6.0
+margin_right = 280.0
+margin_bottom = 30.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProgressBar2" type="ProgressBar" parent="VBoxContainer/BarSpace"]
+modulate = Color( 0, 1, 0, 1 )
+margin_left = 40.0
+margin_top = 30.0
+margin_right = 280.0
+margin_bottom = 54.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProgressBar3" type="ProgressBar" parent="VBoxContainer/BarSpace"]
+modulate = Color( 1, 0, 0, 1 )
+margin_left = 520.0
+margin_top = 6.0
+margin_right = 760.0
+margin_bottom = 30.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProgressBar4" type="ProgressBar" parent="VBoxContainer/BarSpace"]
+modulate = Color( 0, 1, 0, 1 )
+margin_left = 520.0
+margin_top = 30.0
+margin_right = 760.0
+margin_bottom = 54.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="ButtonSpace" type="ColorRect" parent="VBoxContainer"]
 margin_top = 410.0
 margin_right = 800.0
@@ -152,35 +192,24 @@ jgjhgjgjyyyy
 -thrhrh"
 bttnID = 4
 
-[node name="Button" type="Button" parent="VBoxContainer/ButtonSpace"]
-margin_left = 216.0
+[node name="Convince" type="Button" parent="VBoxContainer/ButtonSpace"]
+margin_left = 208.0
 margin_top = 14.0
-margin_right = 300.0
+margin_right = 392.0
 margin_bottom = 34.0
 rect_scale = Vector2( 2, 2 )
-text = "ABCEDFG"
+text = "CONVINCE OPPONENT"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Button2" type="Button" parent="VBoxContainer/ButtonSpace"]
-margin_left = 416.0
+[node name="MainMenu" type="Button" parent="VBoxContainer/ButtonSpace"]
+margin_left = 592.0
 margin_top = 14.0
-margin_right = 500.0
+margin_right = 683.0
 margin_bottom = 34.0
 rect_scale = Vector2( 2, 2 )
-text = "ABCEDFG"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Button3" type="Button" parent="VBoxContainer/ButtonSpace"]
-margin_left = 600.0
-margin_top = 14.0
-margin_right = 684.0
-margin_bottom = 34.0
-rect_scale = Vector2( 2, 2 )
-text = "END FIGHT"
+text = "MAIN MENU"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -240,5 +269,6 @@ margin_bottom = 160.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="pressed" from="VBoxContainer/ButtonSpace/Button3" to="." method="_on_Button3_pressed"]
+[connection signal="pressed" from="VBoxContainer/ButtonSpace/Convince" to="." method="_on_Convince_pressed"]
+[connection signal="pressed" from="VBoxContainer/ButtonSpace/MainMenu" to="." method="_on_MainMenu_pressed"]
 [connection signal="timeout" from="TimerEnemyAttack" to="." method="_on_TimerEnemyAttack_timeout"]

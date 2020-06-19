@@ -15,6 +15,8 @@ onready var bttn2 = $VBoxContainer/ButtonSpace/Skill_Button2
 onready var bttn3 = $VBoxContainer/ButtonSpace/Skill_Button3
 onready var bttn4 = $VBoxContainer/ButtonSpace/Skill_Button4
 
+onready var textField = $VBoxContainer/ButtonSpace/RichTextLabel
+
 var allSkillIDs = range(1,8)
 
 var button_map = {}
@@ -83,6 +85,13 @@ func use_skill(bttn,player=true):
 	enemy_turn()
 	pass
 
+func use_convience():
+	#check enemy morale
+	#if sucess -> end_battle()
+	#if fail ->  enemy_turn()
+
+	pass
+
 func update_button(bttn):
 	var trgt_bttn = button_map[bttn]
 	trgt_bttn.texture_normal = load("res://Battle/Icons/SpellBook"+String(skill_map[bttn])+".png")
@@ -108,11 +117,15 @@ func enemy_attack():
 
 
 
-func _on_Button3_pressed():
-	end_battle()
+func _on_TimerEnemyAttack_timeout():
+	enemy_attack()
 	pass # Replace with function body.
 
 
-func _on_TimerEnemyAttack_timeout():
-	enemy_attack()
+func _on_MainMenu_pressed():
+	pass # Replace with function body.
+
+
+func _on_Convince_pressed():
+	use_convience()
 	pass # Replace with function body.

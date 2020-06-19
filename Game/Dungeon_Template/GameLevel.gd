@@ -20,8 +20,9 @@ func path_from_2_points(start,end):
 func open_door(location1, location2):
 	$Floors.set_cellv(location1,3)
 	$Floors.set_cellv(location2,3)
+	
+	$Floors.update_bitmask_region(location1+Vector2(-1,-1),location2+Vector2(1,1))
 	$Floors.update()
-	$Floors.update_bitmask_region(location1,location2)
 	$Floors.call_deferred("update_dirty_quadrants")
 	pass
 

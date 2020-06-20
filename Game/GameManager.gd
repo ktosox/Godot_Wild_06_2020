@@ -10,8 +10,10 @@ var current_level
 
 var currentBattle
 
-var playerHP = 6
+var playerHP = 100
+var playerHPMax = 100
 var playerSTAM = 10
+var playerSTAMMax = 10
 
 var inBattle = false
 
@@ -26,7 +28,11 @@ func _ready():
 
 func next_level():
 	print("start next level")
-	get_tree().change_scene("res://LEVELS/"+String(current_level.ID+1)+"/GameLevel.tscn")
+	if(current_level == null):
+		get_tree().change_scene("res://LEVELS/1/GameLevel.tscn")
+	else:
+		
+		get_tree().change_scene("res://LEVELS/"+String(current_level.ID+1)+"/GameLevel.tscn")
 	pass
 
 func load_battle(enemyID):

@@ -16,7 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Jam_Game_06_2020"
-run/main_scene="res://LEVELS/1/GameLevel.tscn"
+run/main_scene="res://SplashScreen.tscn"
 config/icon="res://icon.png"
 
 [autoload]

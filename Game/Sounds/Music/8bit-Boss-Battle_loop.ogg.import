@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/8bit-Boss-Battle_loop.ogg-70e2e6476bc408e95cbfb906ddb642bb.oggstr"
+
+[deps]
+
+source_file="res://Sounds/Music/8bit-Boss-Battle_loop.ogg"
+dest_files=[ "res://.import/8bit-Boss-Battle_loop.ogg-70e2e6476bc408e95cbfb906ddb642bb.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

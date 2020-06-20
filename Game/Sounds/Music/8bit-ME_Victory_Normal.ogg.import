@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/8bit-ME_Victory_Normal.ogg-b26edec2500701fd903d236379878648.oggstr"
+
+[deps]
+
+source_file="res://Sounds/Music/8bit-ME_Victory_Normal.ogg"
+dest_files=[ "res://.import/8bit-ME_Victory_Normal.ogg-b26edec2500701fd903d236379878648.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

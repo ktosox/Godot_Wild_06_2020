@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Key_pickup_8bit.wav-bbd62ab29d918b9255f57f9aaeaddb15.sample"
+
+[deps]
+
+source_file="res://Sounds/Effects/Items/Key_pickup_8bit.wav"
+dest_files=[ "res://.import/Key_pickup_8bit.wav-bbd62ab29d918b9255f57f9aaeaddb15.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

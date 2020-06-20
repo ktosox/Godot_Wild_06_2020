@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/8bit-Epilogue01_Ending.ogg-7c55379c49b56e10fe89c240c31b3184.oggstr"
+
+[deps]
+
+source_file="res://Sounds/Music/8bit-Epilogue01_Ending.ogg"
+dest_files=[ "res://.import/8bit-Epilogue01_Ending.ogg-7c55379c49b56e10fe89c240c31b3184.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

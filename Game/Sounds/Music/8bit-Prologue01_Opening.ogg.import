@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/8bit-Prologue01_Opening.ogg-3508e7df029dacb5b7ee46ef2121c765.oggstr"
+
+[deps]
+
+source_file="res://Sounds/Music/8bit-Prologue01_Opening.ogg"
+dest_files=[ "res://.import/8bit-Prologue01_Opening.ogg-3508e7df029dacb5b7ee46ef2121c765.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

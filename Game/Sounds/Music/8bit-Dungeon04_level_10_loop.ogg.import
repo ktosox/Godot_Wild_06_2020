@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/8bit-Dungeon04_level_10_loop.ogg-bb62d0c83807c2f3f6887f88934945ee.oggstr"
+
+[deps]
+
+source_file="res://Sounds/Music/8bit-Dungeon04_level_10_loop.ogg"
+dest_files=[ "res://.import/8bit-Dungeon04_level_10_loop.ogg-bb62d0c83807c2f3f6887f88934945ee.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

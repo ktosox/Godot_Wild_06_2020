@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/8bit-Battle_loop.ogg-b207921beed94653dec48dc2509f4ab1.oggstr"
+
+[deps]
+
+source_file="res://Sounds/Music/8bit-Battle_loop.ogg"
+dest_files=[ "res://.import/8bit-Battle_loop.ogg-b207921beed94653dec48dc2509f4ab1.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

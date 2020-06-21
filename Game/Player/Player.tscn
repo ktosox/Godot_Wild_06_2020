@@ -110,6 +110,7 @@ shape = SubResource( 4 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Location"]
 position = Vector2( 0.142395, -2.99031 )
 frames = SubResource( 5 )
+frame = 3
 playing = true
 
 [node name="Camera2D" type="Camera2D" parent="Location"]
@@ -136,7 +137,7 @@ autostart = true
 modulate = Color( 0.945098, 1, 0.290196, 1 )
 margin_left = 56.0
 margin_top = 24.0
-margin_right = 744.0
+margin_right = 616.0
 margin_bottom = 56.0
 percent_visible = false
 __meta__ = {
@@ -144,12 +145,24 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="Overlay"]
-margin_left = 360.0
+margin_left = 264.0
 margin_top = 32.0
-margin_right = 481.0
+margin_right = 385.0
 margin_bottom = 46.0
 text = "CURRENT SUPPORT"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Button" type="Button" parent="Overlay"]
+margin_left = 640.0
+margin_top = 16.0
+margin_right = 711.0
+margin_bottom = 36.0
+rect_scale = Vector2( 2, 2 )
+text = "OPTIONS"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="timeout" from="TimerMouseCheck" to="." method="_on_TimerMouseCheck_timeout"]
+[connection signal="pressed" from="Overlay/Button" to="." method="_on_Button_pressed"]

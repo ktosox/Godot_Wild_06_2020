@@ -6,7 +6,7 @@
 [sub_resource type="CircleShape2D" id=1]
 radius = 5.97103
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=2]
 resource_name = "Idle"
 length = 4.0
 loop = true
@@ -23,8 +23,7 @@ tracks/0/keys = {
 "values": [ 0.0, -8.0, 0.0, 8.0, 0.0 ]
 }
 
-[sub_resource type="Animation" id=2]
-resource_name = "New Anim"
+[sub_resource type="Animation" id=3]
 length = 2.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:modulate")
@@ -62,9 +61,22 @@ tracks/2/keys = {
 "update": 0,
 "values": [ Vector2( 1, 1 ), Vector2( 3, 3 ) ]
 }
+tracks/3/type = "method"
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "queue_free"
+} ]
+}
 
 [node name="Potion" type="Node2D"]
-rotation = 0.0463138
 script = ExtResource( 2 )
 big = false
 
@@ -84,6 +96,6 @@ shape = SubResource( 1 )
 [node name="PickUp" type="AnimationPlayer" parent="."]
 autoplay = "Idle"
 playback_speed = 3.0
-anims/Idle = SubResource( 3 )
-"anims/New Anim" = SubResource( 2 )
+anims/Idle = SubResource( 2 )
+"anims/New Anim" = SubResource( 3 )
 [connection signal="area_entered" from="HitBox" to="." method="_on_HitBox_area_entered"]

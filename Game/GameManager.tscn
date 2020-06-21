@@ -4,7 +4,7 @@
 [ext_resource path="res://Sounds/Music/8bit-Battle_loop.ogg" type="AudioStream" id=2]
 [ext_resource path="res://Sounds/Music/8bit-Dungeon01_level_1-3_loop.ogg" type="AudioStream" id=3]
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=1]
 resource_name = "Start"
 length = 1.7
 tracks/0/type = "value"
@@ -20,7 +20,7 @@ tracks/0/keys = {
 "values": [ -80.0, -20.0, 0.0 ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=2]
 resource_name = "Stop"
 length = 0.6
 tracks/0/type = "value"
@@ -36,8 +36,7 @@ tracks/0/keys = {
 "values": [ 0.0, -80.0 ]
 }
 
-[sub_resource type="Animation" id=1]
-resource_name = "loop"
+[sub_resource type="Animation" id=3]
 length = 30.0
 loop = true
 tracks/0/type = "value"
@@ -83,13 +82,13 @@ autoplay = true
 bus = "Music"
 
 [node name="Manager" type="AnimationPlayer" parent="DungeonMusic"]
-anims/Start = SubResource( 2 )
-anims/Stop = SubResource( 3 )
+anims/Start = SubResource( 1 )
+anims/Stop = SubResource( 2 )
 
 [node name="Ambient" type="AudioStreamPlayer" parent="."]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Ambient"]
 autoplay = "loop"
-anims/loop = SubResource( 1 )
+anims/loop = SubResource( 3 )
 [connection signal="finished" from="BattleMusic" to="." method="_on_BattleMusic_finished"]
 [connection signal="finished" from="DungeonMusic" to="." method="_on_DungeonMusic_finished"]

@@ -36,4 +36,14 @@ func _ready():
 
 func _on_HitBox_area_entered(area):
 	$PickUp.play("New Anim")
+	if (health) :
+		if(big):
+			GM.set_player_HP(50)
+		else:
+			GM.set_player_HP(25)
+	else:
+		if(big):
+			GM.set_player_STAM(6)
+		else:
+			GM.set_player_STAM(3)
 	pass # Replace with function body.

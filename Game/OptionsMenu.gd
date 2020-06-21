@@ -8,6 +8,9 @@ extends CanvasLayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$Sound.value = AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Master"))
+	$Music.value = AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Music"))
+	$Effects.value = AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Sounds"))
 	get_tree().paused = true
 	pass # Replace with function body.
 

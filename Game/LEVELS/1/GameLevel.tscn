@@ -499,6 +499,9 @@ position = Vector2( 1.15661, 9.12438 )
 [node name="Location" parent="Player" index="1"]
 position = Vector2( -144.212, 133.01 )
 
+[node name="AnimatedSprite" parent="Player/Location" index="1"]
+frame = 1
+
 [node name="Items" type="Node2D" parent="."]
 position = Vector2( -31.4574, -1.54614 )
 
@@ -506,12 +509,12 @@ position = Vector2( -31.4574, -1.54614 )
 position = Vector2( -288.543, -22.4539 )
 
 [node name="Potion2" parent="Items" instance=ExtResource( 8 )]
-position = Vector2( -120.755, -230.454 )
+position = Vector2( -112.543, -246.454 )
 rotation = 0.0926276
 health = false
 
 [node name="Potion" parent="Items" instance=ExtResource( 8 )]
-position = Vector2( -105.469, -230.454 )
+position = Vector2( -112.543, -294.454 )
 
 [node name="Enemies" type="Node2D" parent="."]
 position = Vector2( -31.5876, -1.80499 )

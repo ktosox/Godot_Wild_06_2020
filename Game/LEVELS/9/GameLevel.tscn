@@ -501,7 +501,7 @@ position = Vector2( 1.15661, 9.12438 )
 position = Vector2( 0, 64 )
 
 [node name="AnimatedSprite" parent="Player/Location" index="1"]
-frame = 0
+frame = 3
 
 [node name="Items" type="Node2D" parent="."]
 

@@ -44,6 +44,8 @@ func _on_Skill_Button_mouse_entered():
 	pass # Replace with function body.
 
 
+
+
 func _on_Skill_Button_mouse_exited():
 	if(is_ready):
 		$Border.color = open

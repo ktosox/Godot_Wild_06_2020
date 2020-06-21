@@ -82,6 +82,7 @@ shape = SubResource( 3 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Location"]
 position = Vector2( 0.142395, -2.99031 )
 frames = SubResource( 4 )
+frame = 1
 playing = true
 
 [node name="Camera2D" type="Camera2D" parent="Location"]
@@ -101,4 +102,27 @@ anims/loop = SubResource( 5 )
 [node name="TimerMouseCheck" type="Timer" parent="."]
 wait_time = 0.3
 autostart = true
+
+[node name="Overlay" type="CanvasLayer" parent="."]
+
+[node name="Support" type="ProgressBar" parent="Overlay"]
+modulate = Color( 0.945098, 1, 0.290196, 1 )
+margin_left = 56.0
+margin_top = 24.0
+margin_right = 744.0
+margin_bottom = 56.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Overlay"]
+margin_left = 360.0
+margin_top = 32.0
+margin_right = 481.0
+margin_bottom = 46.0
+text = "CURRENT SUPPORT"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="timeout" from="TimerMouseCheck" to="." method="_on_TimerMouseCheck_timeout"]

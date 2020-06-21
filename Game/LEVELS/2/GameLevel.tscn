@@ -499,7 +499,7 @@ position = Vector2( 1.15661, 9.12438 )
 position = Vector2( 0, 16 )
 
 [node name="AnimatedSprite" parent="Player/Location" index="1"]
-frame = 3
+frame = 2
 
 [node name="Items" type="Node2D" parent="."]
 
@@ -518,9 +518,6 @@ position = Vector2( 144, -224 )
 
 [node name="Enemies" type="Node2D" parent="."]
 
-[node name="Enemy2" parent="Enemies" instance=ExtResource( 5 )]
-position = Vector2( 400, -184 )
-
 [node name="Enemy3" parent="Enemies" instance=ExtResource( 5 )]
 position = Vector2( 144, -312 )
 
@@ -532,9 +529,6 @@ position = Vector2( 48, -136 )
 
 [node name="Enemy5" parent="Enemies" instance=ExtResource( 5 )]
 position = Vector2( 400, -288 )
-
-[node name="Enemy6" parent="Enemies" instance=ExtResource( 5 )]
-position = Vector2( 144, -56 )
 
 [node name="Label" type="Label" parent="."]
 visible = false

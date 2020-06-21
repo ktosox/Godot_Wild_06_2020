@@ -19,7 +19,7 @@ func accept_key():
 	print(tile1,tile2)
 	GM.current_level.open_door(tile1,tile2)
 	$Sprite.visible = false
-
+	$AudioStreamPlayer2D.play()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
@@ -28,5 +28,6 @@ func accept_key():
 
 func _on_DetectionRange_area_entered(area):
 	area.get_parent().get_used()
+	$DetectionRange/CollisionShape2D.queue_free()
 	accept_key()
 	pass # Replace with function body.

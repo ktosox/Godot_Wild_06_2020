@@ -48,11 +48,15 @@ func _process(delta):
 	if (moving):
 		if(GM.inBattle):
 			moving = false
+			$Location/StepSound.playing = false
 			$AnimationPlayer.stop()
 			return
 		$Location.offset+= delta * speed
+		if(!$Location/StepSound.playing):
+			$Location/StepSound.play()
 		if($Location.unit_offset==1 or curve.get_baked_length()<0.01):
 			moving = false
+			$Location/StepSound.playing = false
 			$AnimationPlayer.stop()
 	pass
 	

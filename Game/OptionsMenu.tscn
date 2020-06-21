@@ -1,0 +1,121 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://OptionsMenu.gd" type="Script" id=1]
+[ext_resource path="res://optionsTitleFont.tres" type="DynamicFont" id=2]
+
+[node name="OptionsMenu" type="CanvasLayer"]
+pause_mode = 2
+layer = 5
+script = ExtResource( 1 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.176471, 0.34902, 0.301961, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+margin_top = 40.0
+margin_right = 800.0
+margin_bottom = 128.0
+rect_clip_content = false
+custom_fonts/normal_font = ExtResource( 2 )
+bbcode_enabled = true
+bbcode_text = "[center][wave amp = 10] OPTIONS MENU"
+text = " OPTIONS MENU"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sound" type="HSlider" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 40.0
+margin_top = 240.0
+margin_right = -24.0
+margin_bottom = -328.0
+size_flags_horizontal = 3
+min_value = -80.0
+max_value = 20.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Music" type="HSlider" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 40.0
+margin_top = 400.0
+margin_right = -24.0
+margin_bottom = -168.0
+size_flags_horizontal = 3
+min_value = -80.0
+max_value = 20.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Effects" type="HSlider" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 40.0
+margin_top = 528.0
+margin_right = -24.0
+margin_bottom = -40.0
+size_flags_horizontal = 3
+min_value = -80.0
+max_value = 20.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = 336.0
+margin_top = 200.0
+margin_right = 384.0
+margin_bottom = 214.0
+rect_scale = Vector2( 3, 3 )
+text = "SOUND"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="."]
+margin_left = 336.0
+margin_top = 328.0
+margin_right = 384.0
+margin_bottom = 342.0
+rect_scale = Vector2( 3, 3 )
+text = "MUSIC"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label3" type="Label" parent="."]
+margin_left = 328.0
+margin_top = 456.0
+margin_right = 376.0
+margin_bottom = 470.0
+rect_scale = Vector2( 3, 3 )
+text = "EFFECTS
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="."]
+margin_left = 32.0
+margin_top = 128.0
+margin_right = 71.0
+margin_bottom = 148.0
+rect_scale = Vector2( 3, 3 )
+text = "EXIT"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="value_changed" from="Sound" to="." method="_on_Sound_value_changed"]
+[connection signal="value_changed" from="Music" to="." method="_on_Music_value_changed"]
+[connection signal="value_changed" from="Effects" to="." method="_on_Effects_value_changed"]
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

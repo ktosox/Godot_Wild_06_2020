@@ -49,7 +49,6 @@ tracks/0/keys = {
 }
 
 [node name="Battle_View" type="CanvasLayer"]
-pause_mode = 2
 layer = 2
 script = ExtResource( 1 )
 
@@ -220,6 +219,85 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="EndScreen" type="ColorRect" parent="."]
+pause_mode = 2
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.172549, 0.133333, 0.329412, 0.878431 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EnemyDies" type="Label" parent="EndScreen"]
+visible = false
+margin_left = 144.0
+margin_top = 48.0
+margin_right = 268.0
+margin_bottom = 79.0
+rect_scale = Vector2( 4, 4 )
+text = "YOU HAVE DEATED 
+THE ENEMY"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ButtonEnemyDies" type="Button" parent="EndScreen/EnemyDies"]
+margin_left = 20.0
+margin_top = 56.0
+margin_right = 100.0
+margin_bottom = 78.0
+text = "CONTINUE"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayerDies" type="Label" parent="EndScreen"]
+visible = false
+margin_left = 112.0
+margin_top = 72.0
+margin_right = 249.0
+margin_bottom = 103.0
+rect_scale = Vector2( 4, 4 )
+text = "YOU HAVE LOST 
+YOUR WILL TO FIGHT"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ButtonPlayerDies" type="Button" parent="EndScreen/PlayerDies"]
+margin_left = 28.0
+margin_top = 50.0
+margin_right = 108.0
+margin_bottom = 72.0
+text = "CONTINUE"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayerVictory" type="Label" parent="EndScreen"]
+visible = false
+margin_left = 112.0
+margin_top = 72.0
+margin_right = 249.0
+margin_bottom = 103.0
+rect_scale = Vector2( 4, 4 )
+text = "YOU HAVE GAINED
+SUPPORT"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ButtonPlayerVictory" type="Button" parent="EndScreen/PlayerVictory"]
+margin_left = 28.0
+margin_top = 50.0
+margin_right = 108.0
+margin_bottom = 72.0
+text = "CONTINUE"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Curatin" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -248,4 +326,7 @@ __meta__ = {
 }
 [connection signal="pressed" from="VBoxContainer/ButtonSpace/Convince" to="." method="_on_Convince_pressed"]
 [connection signal="pressed" from="VBoxContainer/ButtonSpace/Options" to="." method="_on_Options_pressed"]
+[connection signal="pressed" from="EndScreen/EnemyDies/ButtonEnemyDies" to="." method="_on_ButtonEnemyDies_pressed"]
+[connection signal="pressed" from="EndScreen/PlayerDies/ButtonPlayerDies" to="." method="_on_ButtonPlayerDies_pressed"]
+[connection signal="pressed" from="EndScreen/PlayerVictory/ButtonPlayerVictory" to="." method="_on_ButtonPlayerVictory_pressed"]
 [connection signal="timeout" from="TimerEnemyAttack" to="." method="_on_TimerEnemyAttack_timeout"]

@@ -9,7 +9,7 @@ export var moving = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-
+	GM.currentPlayer = self
 	pass # Replace with function body.
 
 
@@ -62,3 +62,7 @@ func _on_TimerMouseCheck_timeout():
 	if(Input.is_action_pressed("LMB")):
 		reset_path(get_local_mouse_position())
 	pass # Replace with function body.
+
+func set_support(newSup):
+	$Overlay/Support.value = newSup
+	pass

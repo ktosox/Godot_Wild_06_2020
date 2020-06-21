@@ -6,7 +6,7 @@ extends Path2D
 # var b = "text"
 var optionsWindowScene = preload("res://OptionsMenu.tscn")
 
-var speed = 40
+var speed = 70
 export var moving = false
 
 # Called when the node enters the scene tree for the first time.

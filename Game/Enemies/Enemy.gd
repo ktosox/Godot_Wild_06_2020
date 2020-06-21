@@ -30,6 +30,7 @@ func _ready():
 
 func _on_HitBox_area_entered(area):
 	$HitBox/CollisionShape2D.queue_free()
+	GM.currentBattleCaller = type
 	GM.load_battle(type)
 	print("START FIGHT")
 	pass # Replace with function body.

@@ -65,6 +65,9 @@ var skill_map = {
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	avatarEnemy.ID=GM.currentBattleCaller
+	avatarEnemy.set_avatar()
+	avatarPlayer.set_avatar()
 	randomize()
 	load_battle()
 	print(skillPoolTop)
@@ -107,6 +110,14 @@ func close_battleview():
 
 func player_turn():
 	#unlock skill buttons
+	if GM.playerSTAM<0 :
+		GM.playerSTAM = 0
+	if (GM.playerSTAM==0):
+		bttn3.toggle_border(false)
+		bttn4.toggle_border(false)
+	else:
+		bttn3.toggle_border(true)
+		bttn4.toggle_border(true)
 	$TurnInd.color = Color(0,1,0)
 	$VBoxContainer/ButtonSpace/ButtonBlocker.visible = false
 	pass
@@ -134,7 +145,7 @@ func use_skill(bttn):
 	if(skill[4]<0):
 		print("deal "+String(bonus + skill[4]*2)+" dmg to enemy")
 		enemy_morale += bonus + skill[4]*2
-		if(enemy_morale<0):
+		if(enemy_morale<1):
 			enemy_defeat()
 		enemy_hp_bar.value = enemy_morale
 	if(skill[3]>0):

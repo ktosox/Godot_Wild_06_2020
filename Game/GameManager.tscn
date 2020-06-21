@@ -90,5 +90,4 @@ anims/Stop = SubResource( 2 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Ambient"]
 autoplay = "loop"
 anims/loop = SubResource( 3 )
-[connection signal="finished" from="BattleMusic" to="." method="_on_BattleMusic_finished"]
 [connection signal="finished" from="DungeonMusic" to="." method="_on_DungeonMusic_finished"]

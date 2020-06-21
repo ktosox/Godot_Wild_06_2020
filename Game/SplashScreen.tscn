@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://titleFont.tres" type="DynamicFont" id=1]
 [ext_resource path="res://SplashScreen.gd" type="Script" id=2]
+[ext_resource path="res://Battle/Avatars/skeleton_07.png" type="Texture" id=3]
 
 [node name="SplashScreen" type="Control"]
 anchor_right = 1.0
@@ -27,10 +28,10 @@ __meta__ = {
 }
 
 [node name="Button" type="Button" parent="."]
-margin_left = -15.9916
-margin_top = 367.169
-margin_right = 76.0084
-margin_bottom = 387.169
+margin_left = -16.0
+margin_top = 416.0
+margin_right = 76.0
+margin_bottom = 436.0
 rect_scale = Vector2( 9, 9 )
 text = "START GAME"
 __meta__ = {
@@ -38,14 +39,44 @@ __meta__ = {
 }
 
 [node name="Button2" type="Button" parent="."]
-margin_left = 504.0
-margin_top = 208.0
-margin_right = 575.0
-margin_bottom = 228.0
+margin_left = 520.0
+margin_top = 248.0
+margin_right = 591.0
+margin_bottom = 268.0
 rect_scale = Vector2( 3, 3 )
 text = "OPTIONS"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_left = 32.0
+margin_top = 112.0
+margin_right = 288.0
+margin_bottom = 368.0
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button3" type="Button" parent="."]
+margin_left = 296.0
+margin_top = 248.0
+margin_right = 340.0
+margin_bottom = 268.0
+rect_scale = Vector2( 3, 3 )
+text = "NEXT"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = 64.0
+margin_top = 376.0
+margin_right = 164.0
+margin_bottom = 390.0
+rect_scale = Vector2( 2, 2 )
+text = "pick your avatar"
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="Button2" to="." method="_on_Button2_pressed"]
+[connection signal="pressed" from="Button3" to="." method="_on_Button3_pressed"]

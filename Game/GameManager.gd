@@ -8,18 +8,28 @@ var battleViewScene = preload("res://Battle/Battle_View.tscn")
 
 var allDungeonMusic = []
 
+var vampPool = [load("res://Battle/Avatars/addons_097.png"),load("res://Battle/Avatars/ancient_vampire.png"),load("res://Battle/Avatars/banshee.png")]
+var skullPool = [load("res://Battle/Avatars/joker_01.png"),load("res://Battle/Avatars/joker_02.png")]
+var skelyPool = [load("res://Battle/Avatars/skeleton_03.png"),load("res://Battle/Avatars/skeleton_07.png"),load("res://Battle/Avatars/skeleton_05.png"),load("res://Battle/Avatars/skeleton_06.png")]
+var guardPool = [load("res://Battle/Avatars/dark_knight_04.png"),load("res://Battle/Avatars/living_armor_01.png"),load("res://Battle/Avatars/living_armor_03.png")]
+var dudePool = [load("res://Battle/Avatars/goblin_02.png"),load("res://Battle/Avatars/troll_01.png"),load("res://Battle/Avatars/orc_02.png")]
+
+
+
 var current_level
 var currentPlayer
 var currentBattle
 
 var playerHP = 100
 var playerHPMax = 100
-var playerSTAM = 10
+var playerSTAM = 1
 var playerSTAMMax = 10
-
+var playerAvatar = 1
 var SUPPORT = 0
 
 var inBattle = false
+
+var currentBattleCaller
 
 export var colorLogical = Color()
 export var colorEmotion = Color()
@@ -27,6 +37,7 @@ export var colorLawful = Color()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+
 	pass # Replace with function body.
 
 
@@ -53,8 +64,8 @@ func load_battle(enemyID):
 
 func unload_battle():
 	inBattle = false
-	$DungeonMusic/Manager.play("Start")
 	$BattleMusic.stop()
+	$DungeonMusic/Manager.play("Start")
 	pass
 
 func set_player_HP(change):
@@ -81,6 +92,3 @@ func _on_DungeonMusic_finished():
 	pass # Replace with function body.
 
 
-func _on_BattleMusic_finished():
-	$BattleMusic.play()
-	pass # Replace with function body.

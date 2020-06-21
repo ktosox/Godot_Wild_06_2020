@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/skeleton_04.png-cba22584bf536bd600868528f3bf9981.stex"
+path="res://.import/addons_097.png-fb2d9583e85380852af9ad8676656d86.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Battle/Avatars/skeleton_04.png"
-dest_files=[ "res://.import/skeleton_04.png-cba22584bf536bd600868528f3bf9981.stex" ]
+source_file="res://Battle/Avatars/addons_097.png"
+dest_files=[ "res://.import/addons_097.png-fb2d9583e85380852af9ad8676656d86.stex" ]
 
 [params]
 

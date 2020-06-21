@@ -1,6 +1,69 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://GameManager.gd" type="Script" id=1]
+[ext_resource path="res://Sounds/Music/8bit-Battle_loop.ogg" type="AudioStream" id=2]
+[ext_resource path="res://Sounds/Music/8bit-Dungeon01_level_1-3_loop.ogg" type="AudioStream" id=3]
+
+[sub_resource type="Animation" id=2]
+resource_name = "Start"
+length = 1.7
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.8, 1.7 ),
+"transitions": PoolRealArray( 2, -2, 0.5 ),
+"update": 0,
+"values": [ -80.0, -20.0, 0.0 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "Stop"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 2 ),
+"update": 0,
+"values": [ 0.0, -80.0 ]
+}
+
+[sub_resource type="Animation" id=1]
+resource_name = "loop"
+length = 30.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:pitch_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 9.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 1.0, 1.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:volume_db")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 5.3, 10.4, 12.6, 17.8, 24.2, 27.2, 30 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, -15.0, 0.0 ]
+}
 
 [node name="GameManager" type="Node"]
 pause_mode = 2
@@ -8,3 +71,25 @@ script = ExtResource( 1 )
 colorLogical = Color( 0.196078, 0.592157, 0.854902, 1 )
 colorEmotion = Color( 1, 0.470588, 0, 1 )
 colorLawful = Color( 0.709804, 0.0313726, 0.85098, 1 )
+
+[node name="BattleMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+bus = "Music"
+
+[node name="DungeonMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+volume_db = -80.0
+autoplay = true
+bus = "Music"
+
+[node name="Manager" type="AnimationPlayer" parent="DungeonMusic"]
+anims/Start = SubResource( 2 )
+anims/Stop = SubResource( 3 )
+
+[node name="Ambient" type="AudioStreamPlayer" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Ambient"]
+autoplay = "loop"
+anims/loop = SubResource( 1 )
+[connection signal="finished" from="BattleMusic" to="." method="_on_BattleMusic_finished"]
+[connection signal="finished" from="DungeonMusic" to="." method="_on_DungeonMusic_finished"]

@@ -1,0 +1,11 @@
+[gd_resource type="DynamicFont" load_steps=2 format=2]
+
+[ext_resource path="res://Fonts/OldGameFatty.ttf" type="DynamicFontData" id=1]
+
+[resource]
+size = 50
+outline_size = 2
+outline_color = Color( 0.12549, 0.835294, 1, 1 )
+use_filter = true
+extra_spacing_char = 12
+font_data = ExtResource( 1 )

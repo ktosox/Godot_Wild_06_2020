@@ -4,7 +4,7 @@ extends CanvasLayer
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-
+var optionsWindowScene = preload("res://OptionsMenu.tscn")
 
 onready var avatarPlayer = $VBoxContainer/ActorSpace/Player
 
@@ -264,6 +264,8 @@ func _on_Convince_pressed():
 
 
 func _on_Options_pressed():
+	var optionsMEnu = optionsWindowScene.instance()
+	add_child(optionsMEnu)
 	pass # Replace with function body.
 
 

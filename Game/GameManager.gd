@@ -6,6 +6,8 @@ extends Node
 # var b = "text"
 var battleViewScene = preload("res://Battle/Battle_View.tscn")
 
+var allDungeonMusic = []
+
 var current_level
 var currentPlayer
 var currentBattle
@@ -30,6 +32,7 @@ func _ready():
 
 func next_level():
 	print("start next level")
+	$DungeonMusic/Manager.play("Start")
 	if(current_level == null):
 		get_tree().change_scene("res://LEVELS/1/GameLevel.tscn")
 	else:
@@ -39,6 +42,8 @@ func next_level():
 
 func load_battle(enemyID):
 	#get_tree().paused = true
+	$DungeonMusic/Manager.play("Stop")
+	$BattleMusic.play()
 	inBattle = true
 	var newBattle = battleViewScene.instance()
 	GM.current_level.add_child(newBattle)
@@ -48,6 +53,8 @@ func load_battle(enemyID):
 
 func unload_battle():
 	inBattle = false
+	$DungeonMusic/Manager.play("Start")
+	$BattleMusic.stop()
 	pass
 
 func set_player_HP(change):
@@ -65,6 +72,15 @@ func update_support(newSup):
 	if(currentPlayer!=null):
 		currentPlayer.set_support(SUPPORT)
 	pass
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+
+
+
+
+func _on_DungeonMusic_finished():
+	$DungeonMusic.play()
+	pass # Replace with function body.
+
+
+func _on_BattleMusic_finished():
+	$BattleMusic.play()
+	pass # Replace with function body.

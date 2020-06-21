@@ -119,18 +119,27 @@ func enemy_turn():
 
 func use_skill(bttn):
 	var skill = allSkillTable[ skill_map[bttn] ]
+	var bonus = 0
 	textField.append_bbcode("You "+skill[0]+", ")
 	if(textField.get_line_count()>6):
 		textField.remove_line(0)
+	if(enemy_type == skill[2]):
+		textField.append_bbcode(" it was super persuasive!")
+		bonus = 6
+	else:
+		textField.append_bbcode(" it kinda worked.")
+	textField.newline()
+	if(textField.get_line_count()>6):
+		textField.remove_line(0)
 	if(skill[4]<0):
-		print("deal "+String(skill[4])+" dmg to enemy")
-		enemy_morale += skill[4]
+		print("deal "+String(bonus + skill[4]*2)+" dmg to enemy")
+		enemy_morale += bonus + skill[4]*2
 		if(enemy_morale<0):
 			enemy_defeat()
 		enemy_hp_bar.value = enemy_morale
 	if(skill[3]>0):
-		print("heal player for "+String(skill[3]))
-		GM.set_player_HP(skill[3])
+		print("heal player for "+String(skill[3]*2))
+		GM.set_player_HP(skill[3]*2)
 		player_hp_bar.value = GM.playerHP
 	if(skill[5]!=0):
 		print("change player stamina by ",String(skill[5]))
@@ -141,13 +150,7 @@ func use_skill(bttn):
 		enemy_stamina+=skill[6]
 		enemy_stam_bar.value = enemy_stamina
 	reroll_button(bttn)
-	if(enemy_type == skill[2]):
-		textField.append_bbcode(" it was super persuasive!")
-	else:
-		textField.append_bbcode(" it kinda worked.")
-	textField.newline()
-	if(textField.get_line_count()>6):
-		textField.remove_line(0)
+
 	enemy_turn()
 	pass
 

@@ -110,7 +110,6 @@ shape = SubResource( 4 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Location"]
 position = Vector2( 0.142395, -2.99031 )
 frames = SubResource( 5 )
-frame = 3
 playing = true
 
 [node name="Camera2D" type="Camera2D" parent="Location"]
@@ -134,6 +133,7 @@ autostart = true
 [node name="Overlay" type="CanvasLayer" parent="."]
 
 [node name="Support" type="ProgressBar" parent="Overlay"]
+visible = false
 modulate = Color( 0.945098, 1, 0.290196, 1 )
 margin_left = 56.0
 margin_top = 24.0
@@ -145,6 +145,7 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="Overlay"]
+visible = false
 margin_left = 264.0
 margin_top = 32.0
 margin_right = 385.0

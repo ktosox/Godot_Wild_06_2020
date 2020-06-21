@@ -6,6 +6,8 @@ extends Node
 # var b = "text"
 var battleViewScene = preload("res://Battle/Battle_View.tscn")
 
+var creditsScene = "res://Credits.tscn"
+
 var allDungeonMusic = []
 
 var vampPool = [load("res://Battle/Avatars/addons_097.png"),load("res://Battle/Avatars/ancient_vampire.png"),load("res://Battle/Avatars/banshee.png")]
@@ -90,5 +92,9 @@ func update_support(newSup):
 func _on_DungeonMusic_finished():
 	$DungeonMusic.play()
 	pass # Replace with function body.
+	
+func win_game():
+	get_tree().change_scene(creditsScene)
+	pass
 
 

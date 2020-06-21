@@ -1,9 +1,26 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Battle/Battle_View.gd" type="Script" id=1]
 [ext_resource path="res://Battle/AvatarScene.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Battle/Skill_Button.tscn" type="PackedScene" id=3]
 [ext_resource path="res://textfieldFont.tres" type="DynamicFont" id=4]
+[ext_resource path="res://Battle/StatBAr.shader" type="Shader" id=5]
+
+[sub_resource type="ShaderMaterial" id=4]
+shader = ExtResource( 5 )
+shader_param/modulate = Color( 1, 1, 1, 1 )
+
+[sub_resource type="ShaderMaterial" id=7]
+shader = ExtResource( 5 )
+shader_param/modulate = Color( 1, 1, 1, 1 )
+
+[sub_resource type="ShaderMaterial" id=5]
+shader = ExtResource( 5 )
+shader_param/modulate = Color( 1, 1, 1, 1 )
+
+[sub_resource type="ShaderMaterial" id=6]
+shader = ExtResource( 5 )
+shader_param/modulate = Color( 1, 1, 1, 1 )
 
 [sub_resource type="Animation" id=1]
 resource_name = "lower"
@@ -83,6 +100,7 @@ margin_top = 64.0
 margin_right = 224.0
 margin_bottom = -12.0
 rect_scale = Vector2( -1, 1 )
+ID = 1
 
 [node name="Player" parent="VBoxContainer/ActorSpace" instance=ExtResource( 2 )]
 margin_left = 32.0
@@ -100,42 +118,51 @@ color = Color( 0, 0.203922, 0.388235, 1 )
 
 [node name="PlayerHP" type="ProgressBar" parent="VBoxContainer/BarSpace"]
 modulate = Color( 1, 0, 0, 1 )
+material = SubResource( 4 )
 margin_left = 40.0
 margin_top = 6.0
 margin_right = 280.0
 margin_bottom = 30.0
+value = 50.0
+percent_visible = false
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="PlayerStamin" type="ProgressBar" parent="VBoxContainer/BarSpace"]
 modulate = Color( 0, 1, 0, 1 )
+material = SubResource( 7 )
 margin_left = 40.0
-margin_top = 30.0
+margin_top = 28.0
 margin_right = 280.0
-margin_bottom = 54.0
+margin_bottom = 52.0
 max_value = 10.0
+percent_visible = false
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="EnemyHP" type="ProgressBar" parent="VBoxContainer/BarSpace"]
 modulate = Color( 1, 0, 0, 1 )
+material = SubResource( 5 )
 margin_left = 520.0
 margin_top = 6.0
 margin_right = 760.0
 margin_bottom = 30.0
+percent_visible = false
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="EnemyStamina" type="ProgressBar" parent="VBoxContainer/BarSpace"]
 modulate = Color( 0, 1, 0, 1 )
+material = SubResource( 6 )
 margin_left = 520.0
 margin_top = 30.0
 margin_right = 760.0
 margin_bottom = 54.0
 max_value = 10.0
+percent_visible = false
 __meta__ = {
 "_edit_use_anchors_": false
 }

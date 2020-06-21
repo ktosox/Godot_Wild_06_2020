@@ -17,6 +17,7 @@ _global_script_class_icons={
 
 config/name="Jam_Game_06_2020"
 run/main_scene="res://SplashScreen.tscn"
+run/disable_stdout=true
 config/icon="res://icon.png"
 
 [autoload]

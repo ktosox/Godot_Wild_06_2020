@@ -460,6 +460,7 @@ _data = {
 
 [node name="GameLevel" type="Navigation2D"]
 script = ExtResource( 1 )
+ID = 4
 
 [node name="Floors" type="TileMap" parent="."]
 tile_set = SubResource( 26 )
@@ -499,9 +500,6 @@ position = Vector2( 1.15661, 9.12438 )
 
 [node name="Location" parent="Player" index="1"]
 position = Vector2( 16, -32 )
-
-[node name="AnimatedSprite" parent="Player/Location" index="1"]
-frame = 0
 
 [node name="Items" type="Node2D" parent="."]
 

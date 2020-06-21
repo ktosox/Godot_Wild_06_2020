@@ -3,7 +3,6 @@
 [ext_resource path="res://Dungeon_Template/GameLevel.gd" type="Script" id=1]
 [ext_resource path="res://Dungeon/Dungeon_Tileset.png" type="Texture" id=2]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Enemies/Enemy.tscn" type="PackedScene" id=4]
 
 [sub_resource type="NavigationPolygon" id=1]
 vertices = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
@@ -454,6 +453,9 @@ _data = {
 "points": PoolVector2Array(  )
 }
 
+[sub_resource type="RectangleShape2D" id=30]
+extents = Vector2( 128, 48 )
+
 [node name="GameLevel" type="Navigation2D"]
 script = ExtResource( 1 )
 
@@ -488,14 +490,21 @@ position = Vector2( 1.15661, 9.12438 )
 [node name="Location" parent="Player" index="1"]
 position = Vector2( 0, 64 )
 
-[node name="AnimatedSprite" parent="Player/Location" index="1"]
+[node name="AnimatedSprite" parent="Player/Location" index="2"]
 frame = 1
 
 [node name="Items" type="Node2D" parent="."]
 
 [node name="Enemies" type="Node2D" parent="."]
 
-[node name="Enemy" parent="Enemies" instance=ExtResource( 4 )]
-position = Vector2( 0, -288 )
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2( 0, -240 )
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 0, -48 )
+shape = SubResource( 30 )
+[connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
 
 [editable path="Player"]

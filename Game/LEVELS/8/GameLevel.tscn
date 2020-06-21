@@ -460,6 +460,7 @@ _data = {
 
 [node name="GameLevel" type="Navigation2D"]
 script = ExtResource( 1 )
+ID = 8
 
 [node name="Floors" type="TileMap" parent="."]
 tile_set = SubResource( 26 )

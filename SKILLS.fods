@@ -6,15 +6,15 @@
   <config:config-item-set config:name="ooo:view-settings">
    <config:config-item config:name="VisibleAreaTop" config:type="int">0</config:config-item>
    <config:config-item config:name="VisibleAreaLeft" config:type="int">0</config:config-item>
-   <config:config-item config:name="VisibleAreaWidth" config:type="int">21064</config:config-item>
-   <config:config-item config:name="VisibleAreaHeight" config:type="int">12513</config:config-item>
+   <config:config-item config:name="VisibleAreaWidth" config:type="int">39800</config:config-item>
+   <config:config-item config:name="VisibleAreaHeight" config:type="int">12518</config:config-item>
    <config:config-item-map-indexed config:name="Views">
     <config:config-item-map-entry>
      <config:config-item config:name="ViewId" config:type="string">view1</config:config-item>
      <config:config-item-map-named config:name="Tables">
       <config:config-item-map-entry config:name="Sheet1">
-       <config:config-item config:name="CursorPositionX" config:type="int">10</config:config-item>
-       <config:config-item config:name="CursorPositionY" config:type="int">21</config:config-item>
+       <config:config-item config:name="CursorPositionX" config:type="int">2</config:config-item>
+       <config:config-item config:name="CursorPositionY" config:type="int">12</config:config-item>
        <config:config-item config:name="HorizontalSplitMode" config:type="short">0</config:config-item>
        <config:config-item config:name="VerticalSplitMode" config:type="short">0</config:config-item>
        <config:config-item config:name="HorizontalSplitPosition" config:type="int">0</config:config-item>
@@ -64,7 +64,7 @@
    <config:config-item config:name="IsKernAsianPunctuation" config:type="boolean">false</config:config-item>
    <config:config-item config:name="CharacterCompressionType" config:type="short">0</config:config-item>
    <config:config-item config:name="ApplyUserData" config:type="boolean">false</config:config-item>
-   <config:config-item config:name="PrinterSetup" config:type="base64Binary">kQH+/0dlbmVyaWMgUHJpbnRlcgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAU0dFTlBSVAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWAAMAsgAAAAAAAAAEAAhSAAAEdAAASm9iRGF0YSAxCnByaW50ZXI9R2VuZXJpYyBQcmludGVyCm9yaWVudGF0aW9uPVBvcnRyYWl0CmNvcGllcz0xCm1hcmdpbmRhanVzdG1lbnQ9MCwwLDAsMApjb2xvcmRlcHRoPTI0CnBzbGV2ZWw9MApwZGZkZXZpY2U9MApjb2xvcmRldmljZT0wClBQRENvbnRleERhdGEKRHVwbGV4Ok5vbmUAUGFnZVNpemU6QTQAABIAQ09NUEFUX0RVUExFWF9NT0RFDwBEdXBsZXhNb2RlOjpPZmY=</config:config-item>
+   <config:config-item config:name="PrinterSetup" config:type="base64Binary">kQH+/0dlbmVyaWMgUHJpbnRlcgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAU0dFTlBSVAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWAAMAsgAAAAAAAAAEAAhSAAAEdAAASm9iRGF0YSAxCnByaW50ZXI9R2VuZXJpYyBQcmludGVyCm9yaWVudGF0aW9uPVBvcnRyYWl0CmNvcGllcz0xCm1hcmdpbmRhanVzdG1lbnQ9MCwwLDAsMApjb2xvcmRlcHRoPTI0CnBzbGV2ZWw9MApwZGZkZXZpY2U9MApjb2xvcmRldmljZT0wClBQRENvbnRleERhdGEKUGFnZVNpemU6QTQARHVwbGV4Ok5vbmUAABIAQ09NUEFUX0RVUExFWF9NT0RFDwBEdXBsZXhNb2RlOjpPZmY=</config:config-item>
    <config:config-item config:name="PrinterName" config:type="string">Generic Printer</config:config-item>
    <config:config-item-map-indexed config:name="ForbiddenCharacters">
     <config:config-item-map-entry>
@@ -205,7 +205,7 @@
    <style:table-column-properties fo:break-before="auto" style:column-width="172.09pt"/>
   </style:style>
   <style:style style:name="co3" style:family="table-column">
-   <style:table-column-properties fo:break-before="auto" style:column-width="112.71pt"/>
+   <style:table-column-properties fo:break-before="auto" style:column-width="643.8pt"/>
   </style:style>
   <style:style style:name="co4" style:family="table-column">
    <style:table-column-properties fo:break-before="auto" style:column-width="29.31pt"/>
@@ -229,7 +229,7 @@
    <style:table-row-properties style:row-height="15pt" fo:break-before="auto" style:use-optimal-row-height="true"/>
   </style:style>
   <style:style style:name="ro2" style:family="table-row">
-   <style:table-row-properties style:row-height="26.84pt" fo:break-before="auto" style:use-optimal-row-height="true"/>
+   <style:table-row-properties style:row-height="27.01pt" fo:break-before="auto" style:use-optimal-row-height="true"/>
   </style:style>
   <style:style style:name="ro3" style:family="table-row">
    <style:table-row-properties style:row-height="17.26pt" fo:break-before="auto" style:use-optimal-row-height="false"/>
@@ -290,7 +290,7 @@
      <text:p><text:sheet-name>???</text:sheet-name><text:s/>(<text:title>???</text:title>)</text:p>
     </style:region-left>
     <style:region-right>
-     <text:p><text:date style:data-style-name="N2" text:date-value="2020-06-21">00/00/0000</text:date>, <text:time style:data-style-name="N2" text:time-value="18:22:10.348894372">00:00:00</text:time></text:p>
+     <text:p><text:date style:data-style-name="N2" text:date-value="2020-06-21">00/00/0000</text:date>, <text:time style:data-style-name="N2" text:time-value="23:23:42.545364609">00:00:00</text:time></text:p>
     </style:region-right>
    </style:header>
    <style:header-left style:display="false"/>
@@ -349,7 +349,7 @@
       <text:p>Appeal to Emotion</text:p>
      </table:table-cell>
      <table:table-cell office:value-type="string" calcext:value-type="string">
-      <text:p>HINT</text:p>
+      <text:p>Reduce enemy morale by 6.</text:p>
      </table:table-cell>
      <table:table-cell office:value-type="float" office:value="1" calcext:value-type="float">
       <text:p>1</text:p>
@@ -364,8 +364,8 @@
       <text:p>0</text:p>
      </table:table-cell>
      <table:table-cell/>
-     <table:table-cell table:formula="of:=COM.MICROSOFT.CONCAT(CHAR(9);    [.A2];&quot; : [&quot;;CHAR(34);[.B2];CHAR(34);  &quot;,&quot; ; CHAR(34);[.C2];CHAR(34) ;  &quot;,&quot;;  [.D2] ; &quot;,&quot;;  [.E2] ; &quot;,&quot;;  [.F2] ; &quot;,&quot;;  [.G2] ; &quot;,&quot;;  [.H2] ; &quot;] ,&quot;)" office:value-type="string" office:string-value="&#x09;1 : [&quot;Appeal to Emotion&quot;,&quot;HINT&quot;,1,0,-6,0,0] ," calcext:value-type="string">
-      <text:p><text:tab/>1 : [&quot;Appeal to Emotion&quot;,&quot;HINT&quot;,1,0,-6,0,0] ,</text:p>
+     <table:table-cell table:formula="of:=COM.MICROSOFT.CONCAT(CHAR(9);    [.A2];&quot; : [&quot;;CHAR(34);[.B2];CHAR(34);  &quot;,&quot; ; CHAR(34);[.C2];CHAR(34) ;  &quot;,&quot;;  [.D2] ; &quot;,&quot;;  [.E2] ; &quot;,&quot;;  [.F2] ; &quot;,&quot;;  [.G2] ; &quot;,&quot;;  [.H2] ; &quot;] ,&quot;)" office:value-type="string" office:string-value="&#x09;1 : [&quot;Appeal to Emotion&quot;,&quot;Reduce enemy morale by 6.&quot;,1,0,-6,0,0] ," calcext:value-type="string">
+      <text:p><text:tab/>1 : [&quot;Appeal to Emotion&quot;,&quot;Reduce enemy morale by 6.&quot;,1,0,-6,0,0] ,</text:p>
      </table:table-cell>
     </table:table-row>
     <table:table-row table:style-name="ro1">
@@ -376,7 +376,7 @@
       <text:p>Appeal to Authority</text:p>
      </table:table-cell>
      <table:table-cell office:value-type="string" calcext:value-type="string">
-      <text:p>HINT</text:p>
+      <text:p>Reduce enemy morale by 6.</text:p>
      </table:table-cell>
      <table:table-cell office:value-type="float" office:value="2" calcext:value-type="float">
       <text:p>2</text:p>
@@ -391,8 +391,8 @@
       <text:p>0</text:p>
      </table:table-cell>
      <table:table-cell/>
-     <table:table-cell table:formula="of:=COM.MICROSOFT.CONCAT(CHAR(9);    [.A3];&quot; : [&quot;;CHAR(34);[.B3];CHAR(34);  &quot;,&quot; ; CHAR(34);[.C3];CHAR(34) ;  &quot;,&quot;;  [.D3] ; &quot;,&quot;;  [.E3] ; &quot;,&quot;;  [.F3] ; &quot;,&quot;;  [.G3] ; &quot;,&quot;;  [.H3] ; &quot;] ,&quot;)" office:value-type="string" office:string-value="&#x09;2 : [&quot;Appeal to Authority&quot;,&quot;HINT&quot;,2,0,-6,0,0] ," calcext:value-type="string">
-      <text:p><text:tab/>2 : [&quot;Appeal to Authority&quot;,&quot;HINT&quot;,2,0,-6,0,0] ,</text:p>
+     <table:table-cell table:formula="of:=COM.MICROSOFT.CONCAT(CHAR(9);    [.A3];&quot; : [&quot;;CHAR(34);[.B3];CHAR(34);  &quot;,&quot; ; CHAR(34);[.C3];CHAR(34) ;  &quot;,&quot;;  [.D3] ; &quot;,&quot;;  [.E3] ; &quot;,&quot;;  [.F3] ; &quot;,&quot;;  [.G3] ; &quot;,&quot;;  [.H3] ; &quot;] ,&quot;)" office:value-type="string" office:string-value="&#x09;2 : [&quot;Appeal to Authority&quot;,&quot;Reduce enemy morale by 6.&quot;,2,0,-6,0,0] ," calcext:value-type="string">
+      <text:p><text:tab/>2 : [&quot;Appeal to Authority&quot;,&quot;Reduce enemy morale by 6.&quot;,2,0,-6,0,0] ,</text:p>
      </table:table-cell>
     </table:table-row>
     <table:table-row table:style-name="ro1">
@@ -403,7 +403,7 @@
       <text:p>Use Facts And Logic</text:p>
      </table:table-cell>
      <table:table-cell office:value-type="string" calcext:value-type="string">
-      <text:p>HINT</text:p>
+      <text:p>Reduce enemy morale by 6.</text:p>
      </table:table-cell>
      <table:table-cell office:value-type="float" office:value="3" calcext:value-type="float">
       <text:p>3</text:p>
@@ -418,8 +418,8 @@
       <text:p>0</text:p>
      </table:table-cell>
      <table:table-cell/>
-     <table:table-cell table:formula="of:=COM.MICROSOFT.CONCAT(CHAR(9);    [.A4];&quot; : [&quot;;CHAR(34);[.B4];CHAR(34);  &quot;,&quot; ; CHAR(34);[.C4];CHAR(34) ;  &quot;,&quot;;  [.D4] ; &quot;,&quot;;  [.E4] ; &quot;,&quot;;  [.F4] ; &quot;,&quot;;  [.G4] ; &quot;,&quot;;  [.H4] ; &quot;] ,&quot;)" office:value-type="string" office:string-value="&#x09;3 : [&quot;Use Facts And Logic&quot;,&quot;HINT&quot;,3,0,-6,0,0] ," calcext:value-type="string">
-      <text:p><text:tab/>3 : [&quot;Use Facts And Logic&quot;,&quot;HINT&quot;,3,0,-6,0,0] ,</text:p>
+     <table:table-cell table:formula="of:=COM.MICROSOFT.CONCAT(CHAR(9);    [.A4];&quot; : [&quot;;CHAR(34);[.B4];CHAR(34);  &quot;,&quot; ; CHAR(34);[.C4];CHAR(34) ;  &quot;,&quot;;  [.D4] ; &quot;,&quot;;  [.E4] ; &quot;,&quot;;  [.F4] ; &quot;,&quot;;  [.G4] ; &quot;,&quot;;  [.H4] ; &quot;] ,&quot;)" office:value-type="string" office:string-value="&#x09;3 : [&quot;Use Facts And Logic&quot;,&quot;Reduce enemy morale by 6.&quot;,3,0,-6,0,0] ," calcext:value-type="string">
+      <text:p><text:tab/>3 : [&quot;Use Facts And Logic&quot;,&quot;Reduce enemy morale by 6.&quot;,3,0,-6,0,0] ,</text:p>
      </table:table-cell>
     </table:table-row>
     <table:table-row table:style-name="ro1">
@@ -430,26 +430,26 @@
       <text:p>Listen Carefully</text:p>
      </table:table-cell>
      <table:table-cell office:value-type="string" calcext:value-type="string">
-      <text:p>HINT</text:p>
+      <text:p>Increase your morale by 2 points. Restore 2 stamina.</text:p>
      </table:table-cell>
      <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
       <text:p>0</text:p>
      </table:table-cell>
-     <table:table-cell office:value-type="float" office:value="4" calcext:value-type="float">
-      <text:p>4</text:p>
+     <table:table-cell office:value-type="float" office:value="2" calcext:value-type="float">
+      <text:p>2</text:p>
      </table:table-cell>
      <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
       <text:p>0</text:p>
      </table:table-cell>
-     <table:table-cell office:value-type="float" office:value="1" calcext:value-type="float">
-      <text:p>1</text:p>
+     <table:table-cell office:value-type="float" office:value="2" calcext:value-type="float">
+      <text:p>2</text:p>
      </table:table-cell>
      <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
       <text:p>0</text:p>
      </table:table-cell>
      <table:table-cell/>
-     <table:table-cell table:formula="of:=COM.MICROSOFT.CONCAT(CHAR(9);    [.A5];&quot; : [&quot;;CHAR(34);[.B5];CHAR(34);  &quot;,&quot; ; CHAR(34);[.C5];CHAR(34) ;  &quot;,&quot;;  [.D5] ; &quot;,&quot;;  [.E5] ; &quot;,&quot;;  [.F5] ; &quot;,&quot;;  [.G5] ; &quot;,&quot;;  [.H5] ; &quot;] ,&quot;)" office:value-type="string" office:string-value="&#x09;4 : [&quot;Listen Carefully&quot;,&quot;HINT&quot;,0,4,0,1,0] ," calcext:value-type="string">
-      <text:p><text:tab/>4 : [&quot;Listen Carefully&quot;,&quot;HINT&quot;,0,4,0,1,0] ,</text:p>
+     <table:table-cell table:formula="of:=COM.MICROSOFT.CONCAT(CHAR(9);    [.A5];&quot; : [&quot;;CHAR(34);[.B5];CHAR(34);  &quot;,&quot; ; CHAR(34);[.C5];CHAR(34) ;  &quot;,&quot;;  [.D5] ; &quot;,&quot;;  [.E5] ; &quot;,&quot;;  [.F5] ; &quot;,&quot;;  [.G5] ; &quot;,&quot;;  [.H5] ; &quot;] ,&quot;)" office:value-type="string" office:string-value="&#x09;4 : [&quot;Listen Carefully&quot;,&quot;Increase your morale by 2 points. Restore 2 stamina.&quot;,0,2,0,2,0] ," calcext:value-type="string">
+      <text:p><text:tab/>4 : [&quot;Listen Carefully&quot;,&quot;Increase your morale by 2 points. Restore 2 stamina.&quot;,0,2,0,2,0] ,</text:p>
      </table:table-cell>
     </table:table-row>
     <table:table-row table:style-name="ro1">
@@ -460,7 +460,13 @@
       <text:p>Distract Your Opponent</text:p>
      </table:table-cell>
      <table:table-cell office:value-type="string" calcext:value-type="string">
-      <text:p>HINT</text:p>
+      <text:p>Increase your morale by 4 points. Reduce enemy stamina by 1 points. Restore 2 stamina.</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p>0</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="4" calcext:value-type="float">
+      <text:p>4</text:p>
      </table:table-cell>
      <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
       <text:p>0</text:p>
@@ -468,18 +474,12 @@
      <table:table-cell office:value-type="float" office:value="2" calcext:value-type="float">
       <text:p>2</text:p>
      </table:table-cell>
-     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
-      <text:p>0</text:p>
-     </table:table-cell>
-     <table:table-cell office:value-type="float" office:value="1" calcext:value-type="float">
-      <text:p>1</text:p>
-     </table:table-cell>
      <table:table-cell office:value-type="float" office:value="-1" calcext:value-type="float">
       <text:p>-1</text:p>
      </table:table-cell>
      <table:table-cell/>
-     <table:table-cell table:formula="of:=COM.MICROSOFT.CONCAT(CHAR(9);    [.A6];&quot; : [&quot;;CHAR(34);[.B6];CHAR(34);  &quot;,&quot; ; CHAR(34);[.C6];CHAR(34) ;  &quot;,&quot;;  [.D6] ; &quot;,&quot;;  [.E6] ; &quot;,&quot;;  [.F6] ; &quot;,&quot;;  [.G6] ; &quot;,&quot;;  [.H6] ; &quot;] ,&quot;)" office:value-type="string" office:string-value="&#x09;5 : [&quot;Distract Your Opponent&quot;,&quot;HINT&quot;,0,2,0,1,-1] ," calcext:value-type="string">
-      <text:p><text:tab/>5 : [&quot;Distract Your Opponent&quot;,&quot;HINT&quot;,0,2,0,1,-1] ,</text:p>
+     <table:table-cell table:formula="of:=COM.MICROSOFT.CONCAT(CHAR(9);    [.A6];&quot; : [&quot;;CHAR(34);[.B6];CHAR(34);  &quot;,&quot; ; CHAR(34);[.C6];CHAR(34) ;  &quot;,&quot;;  [.D6] ; &quot;,&quot;;  [.E6] ; &quot;,&quot;;  [.F6] ; &quot;,&quot;;  [.G6] ; &quot;,&quot;;  [.H6] ; &quot;] ,&quot;)" office:value-type="string" office:string-value="&#x09;5 : [&quot;Distract Your Opponent&quot;,&quot;Increase your morale by 4 points. Reduce enemy stamina by 1 points. Restore 2 stamina.&quot;,0,4,0,2,-1] ," calcext:value-type="string">
+      <text:p><text:tab/>5 : [&quot;Distract Your Opponent&quot;,&quot;Increase your morale by 4 points. Reduce enemy stamina by 1 points. Restore 2 stamina.&quot;,0,4,0,2,-1] ,</text:p>
      </table:table-cell>
     </table:table-row>
     <table:table-row table:style-name="ro1">
@@ -490,7 +490,7 @@
       <text:p>Suggest a Middle Ground</text:p>
      </table:table-cell>
      <table:table-cell office:value-type="string" calcext:value-type="string">
-      <text:p>HINT</text:p>
+      <text:p>Increase your morale by 2 points. Reduce enemy morale by 2 points. Restore 2 stamina.</text:p>
      </table:table-cell>
      <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
       <text:p>0</text:p>
@@ -501,15 +501,15 @@
      <table:table-cell office:value-type="float" office:value="-2" calcext:value-type="float">
       <text:p>-2</text:p>
      </table:table-cell>
-     <table:table-cell office:value-type="float" office:value="1" calcext:value-type="float">
-      <text:p>1</text:p>
+     <table:table-cell office:value-type="float" office:value="2" calcext:value-type="float">
+      <text:p>2</text:p>
      </table:table-cell>
      <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
       <text:p>0</text:p>
      </table:table-cell>
      <table:table-cell/>
-     <table:table-cell table:formula="of:=COM.MICROSOFT.CONCAT(CHAR(9);    [.A7];&quot; : [&quot;;CHAR(34);[.B7];CHAR(34);  &quot;,&quot; ; CHAR(34);[.C7];CHAR(34) ;  &quot;,&quot;;  [.D7] ; &quot;,&quot;;  [.E7] ; &quot;,&quot;;  [.F7] ; &quot;,&quot;;  [.G7] ; &quot;,&quot;;  [.H7] ; &quot;] ,&quot;)" office:value-type="string" office:string-value="&#x09;6 : [&quot;Suggest a Middle Ground&quot;,&quot;HINT&quot;,0,2,-2,1,0] ," calcext:value-type="string">
-      <text:p><text:tab/>6 : [&quot;Suggest a Middle Ground&quot;,&quot;HINT&quot;,0,2,-2,1,0] ,</text:p>
+     <table:table-cell table:formula="of:=COM.MICROSOFT.CONCAT(CHAR(9);    [.A7];&quot; : [&quot;;CHAR(34);[.B7];CHAR(34);  &quot;,&quot; ; CHAR(34);[.C7];CHAR(34) ;  &quot;,&quot;;  [.D7] ; &quot;,&quot;;  [.E7] ; &quot;,&quot;;  [.F7] ; &quot;,&quot;;  [.G7] ; &quot;,&quot;;  [.H7] ; &quot;] ,&quot;)" office:value-type="string" office:string-value="&#x09;6 : [&quot;Suggest a Middle Ground&quot;,&quot;Increase your morale by 2 points. Reduce enemy morale by 2 points. Restore 2 stamina.&quot;,0,2,-2,2,0] ," calcext:value-type="string">
+      <text:p><text:tab/>6 : [&quot;Suggest a Middle Ground&quot;,&quot;Increase your morale by 2 points. Reduce enemy morale by 2 points. Restore 2 stamina.&quot;,0,2,-2,2,0] ,</text:p>
      </table:table-cell>
     </table:table-row>
     <table:table-row table:style-name="ro1">
@@ -520,26 +520,20 @@
       <text:p>Throw a Punchy One-Liner</text:p>
      </table:table-cell>
      <table:table-cell office:value-type="string" calcext:value-type="string">
-      <text:p>HINT</text:p>
+      <text:p>Restore 4 stamina.</text:p>
      </table:table-cell>
-     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+     <table:table-cell table:number-columns-repeated="3" office:value-type="float" office:value="0" calcext:value-type="float">
       <text:p>0</text:p>
      </table:table-cell>
-     <table:table-cell office:value-type="float" office:value="2" calcext:value-type="float">
-      <text:p>2</text:p>
-     </table:table-cell>
-     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
-      <text:p>0</text:p>
-     </table:table-cell>
-     <table:table-cell office:value-type="float" office:value="2" calcext:value-type="float">
-      <text:p>2</text:p>
+     <table:table-cell office:value-type="float" office:value="4" calcext:value-type="float">
+      <text:p>4</text:p>
      </table:table-cell>
      <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
       <text:p>0</text:p>
      </table:table-cell>
      <table:table-cell/>
-     <table:table-cell table:formula="of:=COM.MICROSOFT.CONCAT(CHAR(9);    [.A8];&quot; : [&quot;;CHAR(34);[.B8];CHAR(34);  &quot;,&quot; ; CHAR(34);[.C8];CHAR(34) ;  &quot;,&quot;;  [.D8] ; &quot;,&quot;;  [.E8] ; &quot;,&quot;;  [.F8] ; &quot;,&quot;;  [.G8] ; &quot;,&quot;;  [.H8] ; &quot;] ,&quot;)" office:value-type="string" office:string-value="&#x09;7 : [&quot;Throw a Punchy One-Liner&quot;,&quot;HINT&quot;,0,2,0,2,0] ," calcext:value-type="string">
-      <text:p><text:tab/>7 : [&quot;Throw a Punchy One-Liner&quot;,&quot;HINT&quot;,0,2,0,2,0] ,</text:p>
+     <table:table-cell table:formula="of:=COM.MICROSOFT.CONCAT(CHAR(9);    [.A8];&quot; : [&quot;;CHAR(34);[.B8];CHAR(34);  &quot;,&quot; ; CHAR(34);[.C8];CHAR(34) ;  &quot;,&quot;;  [.D8] ; &quot;,&quot;;  [.E8] ; &quot;,&quot;;  [.F8] ; &quot;,&quot;;  [.G8] ; &quot;,&quot;;  [.H8] ; &quot;] ,&quot;)" office:value-type="string" office:string-value="&#x09;7 : [&quot;Throw a Punchy One-Liner&quot;,&quot;Restore 4 stamina.&quot;,0,0,0,4,0] ," calcext:value-type="string">
+      <text:p><text:tab/>7 : [&quot;Throw a Punchy One-Liner&quot;,&quot;Restore 4 stamina.&quot;,0,0,0,4,0] ,</text:p>
      </table:table-cell>
     </table:table-row>
     <table:table-row table:style-name="ro1">
@@ -550,7 +544,7 @@
       <text:p>Ask a Loaded Question</text:p>
      </table:table-cell>
      <table:table-cell office:value-type="string" calcext:value-type="string">
-      <text:p>HINT</text:p>
+      <text:p>Reduce enemy morale by 4. Reduce enemy stamina by 1.</text:p>
      </table:table-cell>
      <table:table-cell table:number-columns-repeated="2" office:value-type="float" office:value="0" calcext:value-type="float">
       <text:p>0</text:p>
@@ -565,8 +559,8 @@
       <text:p>-1</text:p>
      </table:table-cell>
      <table:table-cell/>
-     <table:table-cell table:formula="of:=COM.MICROSOFT.CONCAT(CHAR(9);    [.A9];&quot; : [&quot;;CHAR(34);[.B9];CHAR(34);  &quot;,&quot; ; CHAR(34);[.C9];CHAR(34) ;  &quot;,&quot;;  [.D9] ; &quot;,&quot;;  [.E9] ; &quot;,&quot;;  [.F9] ; &quot;,&quot;;  [.G9] ; &quot;,&quot;;  [.H9] ; &quot;] ,&quot;)" office:value-type="string" office:string-value="&#x09;8 : [&quot;Ask a Loaded Question&quot;,&quot;HINT&quot;,0,0,-4,0,-1] ," calcext:value-type="string">
-      <text:p><text:tab/>8 : [&quot;Ask a Loaded Question&quot;,&quot;HINT&quot;,0,0,-4,0,-1] ,</text:p>
+     <table:table-cell table:formula="of:=COM.MICROSOFT.CONCAT(CHAR(9);    [.A9];&quot; : [&quot;;CHAR(34);[.B9];CHAR(34);  &quot;,&quot; ; CHAR(34);[.C9];CHAR(34) ;  &quot;,&quot;;  [.D9] ; &quot;,&quot;;  [.E9] ; &quot;,&quot;;  [.F9] ; &quot;,&quot;;  [.G9] ; &quot;,&quot;;  [.H9] ; &quot;] ,&quot;)" office:value-type="string" office:string-value="&#x09;8 : [&quot;Ask a Loaded Question&quot;,&quot;Reduce enemy morale by 4. Reduce enemy stamina by 1.&quot;,0,0,-4,0,-1] ," calcext:value-type="string">
+      <text:p><text:tab/>8 : [&quot;Ask a Loaded Question&quot;,&quot;Reduce enemy morale by 4. Reduce enemy stamina by 1.&quot;,0,0,-4,0,-1] ,</text:p>
      </table:table-cell>
     </table:table-row>
     <table:table-row table:style-name="ro1">
@@ -577,7 +571,7 @@
       <text:p>Ask a lot of questions</text:p>
      </table:table-cell>
      <table:table-cell office:value-type="string" calcext:value-type="string">
-      <text:p>HINT</text:p>
+      <text:p>Reduce enemy morale by 2. Reduce enemy stamina by 2.</text:p>
      </table:table-cell>
      <table:table-cell table:number-columns-repeated="2" office:value-type="float" office:value="0" calcext:value-type="float">
       <text:p>0</text:p>
@@ -592,8 +586,8 @@
       <text:p>-2</text:p>
      </table:table-cell>
      <table:table-cell/>
-     <table:table-cell table:formula="of:=COM.MICROSOFT.CONCAT(CHAR(9);    [.A10];&quot; : [&quot;;CHAR(34);[.B10];CHAR(34);  &quot;,&quot; ; CHAR(34);[.C10];CHAR(34) ;  &quot;,&quot;;  [.D10] ; &quot;,&quot;;  [.E10] ; &quot;,&quot;;  [.F10] ; &quot;,&quot;;  [.G10] ; &quot;,&quot;;  [.H10] ; &quot;] ,&quot;)" office:value-type="string" office:string-value="&#x09;9 : [&quot;Ask a lot of questions&quot;,&quot;HINT&quot;,0,0,-2,0,-2] ," calcext:value-type="string">
-      <text:p><text:tab/>9 : [&quot;Ask a lot of questions&quot;,&quot;HINT&quot;,0,0,-2,0,-2] ,</text:p>
+     <table:table-cell table:formula="of:=COM.MICROSOFT.CONCAT(CHAR(9);    [.A10];&quot; : [&quot;;CHAR(34);[.B10];CHAR(34);  &quot;,&quot; ; CHAR(34);[.C10];CHAR(34) ;  &quot;,&quot;;  [.D10] ; &quot;,&quot;;  [.E10] ; &quot;,&quot;;  [.F10] ; &quot;,&quot;;  [.G10] ; &quot;,&quot;;  [.H10] ; &quot;] ,&quot;)" office:value-type="string" office:string-value="&#x09;9 : [&quot;Ask a lot of questions&quot;,&quot;Reduce enemy morale by 2. Reduce enemy stamina by 2.&quot;,0,0,-2,0,-2] ," calcext:value-type="string">
+      <text:p><text:tab/>9 : [&quot;Ask a lot of questions&quot;,&quot;Reduce enemy morale by 2. Reduce enemy stamina by 2.&quot;,0,0,-2,0,-2] ,</text:p>
      </table:table-cell>
     </table:table-row>
     <table:table-row table:style-name="ro1">
@@ -604,7 +598,7 @@
       <text:p>Reject the Status Quo</text:p>
      </table:table-cell>
      <table:table-cell office:value-type="string" calcext:value-type="string">
-      <text:p>HINT</text:p>
+      <text:p>Reduce enemy morale by 4. Restore 1 stamina.</text:p>
      </table:table-cell>
      <table:table-cell table:number-columns-repeated="2" office:value-type="float" office:value="0" calcext:value-type="float">
       <text:p>0</text:p>
@@ -619,8 +613,8 @@
       <text:p>0</text:p>
      </table:table-cell>
      <table:table-cell/>
-     <table:table-cell table:formula="of:=COM.MICROSOFT.CONCAT(CHAR(9);    [.A11];&quot; : [&quot;;CHAR(34);[.B11];CHAR(34);  &quot;,&quot; ; CHAR(34);[.C11];CHAR(34) ;  &quot;,&quot;;  [.D11] ; &quot;,&quot;;  [.E11] ; &quot;,&quot;;  [.F11] ; &quot;,&quot;;  [.G11] ; &quot;,&quot;;  [.H11] ; &quot;] ,&quot;)" office:value-type="string" office:string-value="&#x09;10 : [&quot;Reject the Status Quo&quot;,&quot;HINT&quot;,0,0,-4,1,0] ," calcext:value-type="string">
-      <text:p><text:tab/>10 : [&quot;Reject the Status Quo&quot;,&quot;HINT&quot;,0,0,-4,1,0] ,</text:p>
+     <table:table-cell table:formula="of:=COM.MICROSOFT.CONCAT(CHAR(9);    [.A11];&quot; : [&quot;;CHAR(34);[.B11];CHAR(34);  &quot;,&quot; ; CHAR(34);[.C11];CHAR(34) ;  &quot;,&quot;;  [.D11] ; &quot;,&quot;;  [.E11] ; &quot;,&quot;;  [.F11] ; &quot;,&quot;;  [.G11] ; &quot;,&quot;;  [.H11] ; &quot;] ,&quot;)" office:value-type="string" office:string-value="&#x09;10 : [&quot;Reject the Status Quo&quot;,&quot;Reduce enemy morale by 4. Restore 1 stamina.&quot;,0,0,-4,1,0] ," calcext:value-type="string">
+      <text:p><text:tab/>10 : [&quot;Reject the Status Quo&quot;,&quot;Reduce enemy morale by 4. Restore 1 stamina.&quot;,0,0,-4,1,0] ,</text:p>
      </table:table-cell>
     </table:table-row>
     <table:table-row table:style-name="ro1">
@@ -631,7 +625,7 @@
       <text:p>Suggest a Slippery Slope</text:p>
      </table:table-cell>
      <table:table-cell office:value-type="string" calcext:value-type="string">
-      <text:p>HINT</text:p>
+      <text:p>Restore your morale by 2 points. Reduce enemy morale by 8 points. Costs 2 stamina.</text:p>
      </table:table-cell>
      <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
       <text:p>0</text:p>
@@ -642,15 +636,15 @@
      <table:table-cell office:value-type="float" office:value="-8" calcext:value-type="float">
       <text:p>-8</text:p>
      </table:table-cell>
-     <table:table-cell office:value-type="float" office:value="-1" calcext:value-type="float">
-      <text:p>-1</text:p>
+     <table:table-cell office:value-type="float" office:value="-2" calcext:value-type="float">
+      <text:p>-2</text:p>
      </table:table-cell>
      <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
       <text:p>0</text:p>
      </table:table-cell>
      <table:table-cell/>
-     <table:table-cell table:formula="of:=COM.MICROSOFT.CONCAT(CHAR(9);    [.A12];&quot; : [&quot;;CHAR(34);[.B12];CHAR(34);  &quot;,&quot; ; CHAR(34);[.C12];CHAR(34) ;  &quot;,&quot;;  [.D12] ; &quot;,&quot;;  [.E12] ; &quot;,&quot;;  [.F12] ; &quot;,&quot;;  [.G12] ; &quot;,&quot;;  [.H12] ; &quot;] ,&quot;)" office:value-type="string" office:string-value="&#x09;11 : [&quot;Suggest a Slippery Slope&quot;,&quot;HINT&quot;,0,2,-8,-1,0] ," calcext:value-type="string">
-      <text:p><text:tab/>11 : [&quot;Suggest a Slippery Slope&quot;,&quot;HINT&quot;,0,2,-8,-1,0] ,</text:p>
+     <table:table-cell table:formula="of:=COM.MICROSOFT.CONCAT(CHAR(9);    [.A12];&quot; : [&quot;;CHAR(34);[.B12];CHAR(34);  &quot;,&quot; ; CHAR(34);[.C12];CHAR(34) ;  &quot;,&quot;;  [.D12] ; &quot;,&quot;;  [.E12] ; &quot;,&quot;;  [.F12] ; &quot;,&quot;;  [.G12] ; &quot;,&quot;;  [.H12] ; &quot;] ,&quot;)" office:value-type="string" office:string-value="&#x09;11 : [&quot;Suggest a Slippery Slope&quot;,&quot;Restore your morale by 2 points. Reduce enemy morale by 8 points. Costs 2 stamina.&quot;,0,2,-8,-2,0] ," calcext:value-type="string">
+      <text:p><text:tab/>11 : [&quot;Suggest a Slippery Slope&quot;,&quot;Restore your morale by 2 points. Reduce enemy morale by 8 points. Costs 2 stamina.&quot;,0,2,-8,-2,0] ,</text:p>
      </table:table-cell>
     </table:table-row>
     <table:table-row table:style-name="ro1">
@@ -661,7 +655,7 @@
       <text:p>Point out an ad hominem</text:p>
      </table:table-cell>
      <table:table-cell office:value-type="string" calcext:value-type="string">
-      <text:p>HINT</text:p>
+      <text:p>Restore your morale by 2 points. Reduce enemy morale by 4 points. Reduce enemy stamina by 2 points. Costs 2 stamina.</text:p>
      </table:table-cell>
      <table:table-cell table:number-columns-repeated="2" office:value-type="float" office:value="2" calcext:value-type="float">
       <text:p>2</text:p>
@@ -669,15 +663,12 @@
      <table:table-cell office:value-type="float" office:value="-4" calcext:value-type="float">
       <text:p>-4</text:p>
      </table:table-cell>
-     <table:table-cell office:value-type="float" office:value="-1" calcext:value-type="float">
-      <text:p>-1</text:p>
-     </table:table-cell>
-     <table:table-cell office:value-type="float" office:value="-2" calcext:value-type="float">
+     <table:table-cell table:number-columns-repeated="2" office:value-type="float" office:value="-2" calcext:value-type="float">
       <text:p>-2</text:p>
      </table:table-cell>
      <table:table-cell/>
-     <table:table-cell table:formula="of:=COM.MICROSOFT.CONCAT(CHAR(9);    [.A13];&quot; : [&quot;;CHAR(34);[.B13];CHAR(34);  &quot;,&quot; ; CHAR(34);[.C13];CHAR(34) ;  &quot;,&quot;;  [.D13] ; &quot;,&quot;;  [.E13] ; &quot;,&quot;;  [.F13] ; &quot;,&quot;;  [.G13] ; &quot;,&quot;;  [.H13] ; &quot;] ,&quot;)" office:value-type="string" office:string-value="&#x09;12 : [&quot;Point out an ad hominem&quot;,&quot;HINT&quot;,2,2,-4,-1,-2] ," calcext:value-type="string">
-      <text:p><text:tab/>12 : [&quot;Point out an ad hominem&quot;,&quot;HINT&quot;,2,2,-4,-1,-2] ,</text:p>
+     <table:table-cell table:formula="of:=COM.MICROSOFT.CONCAT(CHAR(9);    [.A13];&quot; : [&quot;;CHAR(34);[.B13];CHAR(34);  &quot;,&quot; ; CHAR(34);[.C13];CHAR(34) ;  &quot;,&quot;;  [.D13] ; &quot;,&quot;;  [.E13] ; &quot;,&quot;;  [.F13] ; &quot;,&quot;;  [.G13] ; &quot;,&quot;;  [.H13] ; &quot;] ,&quot;)" office:value-type="string" office:string-value="&#x09;12 : [&quot;Point out an ad hominem&quot;,&quot;Restore your morale by 2 points. Reduce enemy morale by 4 points. Reduce enemy stamina by 2 points. Costs 2 stamina.&quot;,2,2,-4,-2,-2] ," calcext:value-type="string">
+      <text:p><text:tab/>12 : [&quot;Point out an ad hominem&quot;,&quot;Restore your morale by 2 points. Reduce enemy morale by 4 points. Reduce enemy stamina by 2 points. Costs 2 stamina.&quot;,2,2,-4,-2,-2] ,</text:p>
      </table:table-cell>
     </table:table-row>
     <table:table-row table:style-name="ro1">
@@ -688,7 +679,7 @@
       <text:p>Humiliate The Opposition</text:p>
      </table:table-cell>
      <table:table-cell office:value-type="string" calcext:value-type="string">
-      <text:p>HINT</text:p>
+      <text:p>Reduce enemy morale by 8 points. Reduce enemy stamina by 1 point. Costs 2 stamina.</text:p>
      </table:table-cell>
      <table:table-cell office:value-type="float" office:value="1" calcext:value-type="float">
       <text:p>1</text:p>
@@ -699,12 +690,15 @@
      <table:table-cell office:value-type="float" office:value="-8" calcext:value-type="float">
       <text:p>-8</text:p>
      </table:table-cell>
-     <table:table-cell table:number-columns-repeated="2" office:value-type="float" office:value="-1" calcext:value-type="float">
+     <table:table-cell office:value-type="float" office:value="-2" calcext:value-type="float">
+      <text:p>-2</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="-1" calcext:value-type="float">
       <text:p>-1</text:p>
      </table:table-cell>
      <table:table-cell/>
-     <table:table-cell table:formula="of:=COM.MICROSOFT.CONCAT(CHAR(9);    [.A14];&quot; : [&quot;;CHAR(34);[.B14];CHAR(34);  &quot;,&quot; ; CHAR(34);[.C14];CHAR(34) ;  &quot;,&quot;;  [.D14] ; &quot;,&quot;;  [.E14] ; &quot;,&quot;;  [.F14] ; &quot;,&quot;;  [.G14] ; &quot;,&quot;;  [.H14] ; &quot;] ,&quot;)" office:value-type="string" office:string-value="&#x09;13 : [&quot;Humiliate The Opposition&quot;,&quot;HINT&quot;,1,0,-8,-1,-1] ," calcext:value-type="string">
-      <text:p><text:tab/>13 : [&quot;Humiliate The Opposition&quot;,&quot;HINT&quot;,1,0,-8,-1,-1] ,</text:p>
+     <table:table-cell table:formula="of:=COM.MICROSOFT.CONCAT(CHAR(9);    [.A14];&quot; : [&quot;;CHAR(34);[.B14];CHAR(34);  &quot;,&quot; ; CHAR(34);[.C14];CHAR(34) ;  &quot;,&quot;;  [.D14] ; &quot;,&quot;;  [.E14] ; &quot;,&quot;;  [.F14] ; &quot;,&quot;;  [.G14] ; &quot;,&quot;;  [.H14] ; &quot;] ,&quot;)" office:value-type="string" office:string-value="&#x09;13 : [&quot;Humiliate The Opposition&quot;,&quot;Reduce enemy morale by 8 points. Reduce enemy stamina by 1 point. Costs 2 stamina.&quot;,1,0,-8,-2,-1] ," calcext:value-type="string">
+      <text:p><text:tab/>13 : [&quot;Humiliate The Opposition&quot;,&quot;Reduce enemy morale by 8 points. Reduce enemy stamina by 1 point. Costs 2 stamina.&quot;,1,0,-8,-2,-1] ,</text:p>
      </table:table-cell>
     </table:table-row>
     <table:table-row table:style-name="ro1">
@@ -715,13 +709,13 @@
       <text:p>Shift The Burden Of Proof</text:p>
      </table:table-cell>
      <table:table-cell office:value-type="string" calcext:value-type="string">
-      <text:p>HINT</text:p>
+      <text:p>Restore your morale by 4 points. Reduce enemy morale by 6 points. Costs 1 stamina.</text:p>
      </table:table-cell>
      <table:table-cell office:value-type="float" office:value="2" calcext:value-type="float">
       <text:p>2</text:p>
      </table:table-cell>
-     <table:table-cell office:value-type="float" office:value="4" calcext:value-type="float">
-      <text:p>4</text:p>
+     <table:table-cell office:value-type="float" office:value="3" calcext:value-type="float">
+      <text:p>3</text:p>
      </table:table-cell>
      <table:table-cell office:value-type="float" office:value="-6" calcext:value-type="float">
       <text:p>-6</text:p>
@@ -733,8 +727,8 @@
       <text:p>0</text:p>
      </table:table-cell>
      <table:table-cell/>
-     <table:table-cell table:formula="of:=COM.MICROSOFT.CONCAT(CHAR(9);    [.A15];&quot; : [&quot;;CHAR(34);[.B15];CHAR(34);  &quot;,&quot; ; CHAR(34);[.C15];CHAR(34) ;  &quot;,&quot;;  [.D15] ; &quot;,&quot;;  [.E15] ; &quot;,&quot;;  [.F15] ; &quot;,&quot;;  [.G15] ; &quot;,&quot;;  [.H15] ; &quot;] ,&quot;)" office:value-type="string" office:string-value="&#x09;14 : [&quot;Shift The Burden Of Proof&quot;,&quot;HINT&quot;,2,4,-6,-1,0] ," calcext:value-type="string">
-      <text:p><text:tab/>14 : [&quot;Shift The Burden Of Proof&quot;,&quot;HINT&quot;,2,4,-6,-1,0] ,</text:p>
+     <table:table-cell table:formula="of:=COM.MICROSOFT.CONCAT(CHAR(9);    [.A15];&quot; : [&quot;;CHAR(34);[.B15];CHAR(34);  &quot;,&quot; ; CHAR(34);[.C15];CHAR(34) ;  &quot;,&quot;;  [.D15] ; &quot;,&quot;;  [.E15] ; &quot;,&quot;;  [.F15] ; &quot;,&quot;;  [.G15] ; &quot;,&quot;;  [.H15] ; &quot;] ,&quot;)" office:value-type="string" office:string-value="&#x09;14 : [&quot;Shift The Burden Of Proof&quot;,&quot;Restore your morale by 4 points. Reduce enemy morale by 6 points. Costs 1 stamina.&quot;,2,3,-6,-1,0] ," calcext:value-type="string">
+      <text:p><text:tab/>14 : [&quot;Shift The Burden Of Proof&quot;,&quot;Restore your morale by 4 points. Reduce enemy morale by 6 points. Costs 1 stamina.&quot;,2,3,-6,-1,0] ,</text:p>
      </table:table-cell>
     </table:table-row>
     <table:table-row table:style-name="ro1">
@@ -745,20 +739,23 @@
       <text:p>Set Up a Straw Man</text:p>
      </table:table-cell>
      <table:table-cell office:value-type="string" calcext:value-type="string">
-      <text:p>HINT</text:p>
+      <text:p>Reduce enemy morale by 4. Restore enemy stamina by 1. Costs 1 stamina.</text:p>
      </table:table-cell>
-     <table:table-cell table:number-columns-repeated="3" office:value-type="float" office:value="0" calcext:value-type="float">
+     <table:table-cell table:number-columns-repeated="2" office:value-type="float" office:value="0" calcext:value-type="float">
       <text:p>0</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="-4" calcext:value-type="float">
+      <text:p>-4</text:p>
      </table:table-cell>
      <table:table-cell office:value-type="float" office:value="-1" calcext:value-type="float">
       <text:p>-1</text:p>
      </table:table-cell>
-     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
-      <text:p>0</text:p>
+     <table:table-cell office:value-type="float" office:value="1" calcext:value-type="float">
+      <text:p>1</text:p>
      </table:table-cell>
      <table:table-cell/>
-     <table:table-cell table:formula="of:=COM.MICROSOFT.CONCAT(CHAR(9);    [.A16];&quot; : [&quot;;CHAR(34);[.B16];CHAR(34);  &quot;,&quot; ; CHAR(34);[.C16];CHAR(34) ;  &quot;,&quot;;  [.D16] ; &quot;,&quot;;  [.E16] ; &quot;,&quot;;  [.F16] ; &quot;,&quot;;  [.G16] ; &quot;,&quot;;  [.H16] ; &quot;] ,&quot;)" office:value-type="string" office:string-value="&#x09;15 : [&quot;Set Up a Straw Man&quot;,&quot;HINT&quot;,0,0,0,-1,0] ," calcext:value-type="string">
-      <text:p><text:tab/>15 : [&quot;Set Up a Straw Man&quot;,&quot;HINT&quot;,0,0,0,-1,0] ,</text:p>
+     <table:table-cell table:formula="of:=COM.MICROSOFT.CONCAT(CHAR(9);    [.A16];&quot; : [&quot;;CHAR(34);[.B16];CHAR(34);  &quot;,&quot; ; CHAR(34);[.C16];CHAR(34) ;  &quot;,&quot;;  [.D16] ; &quot;,&quot;;  [.E16] ; &quot;,&quot;;  [.F16] ; &quot;,&quot;;  [.G16] ; &quot;,&quot;;  [.H16] ; &quot;] ,&quot;)" office:value-type="string" office:string-value="&#x09;15 : [&quot;Set Up a Straw Man&quot;,&quot;Reduce enemy morale by 4. Restore enemy stamina by 1. Costs 1 stamina.&quot;,0,0,-4,-1,1] ," calcext:value-type="string">
+      <text:p><text:tab/>15 : [&quot;Set Up a Straw Man&quot;,&quot;Reduce enemy morale by 4. Restore enemy stamina by 1. Costs 1 stamina.&quot;,0,0,-4,-1,1] ,</text:p>
      </table:table-cell>
     </table:table-row>
     <table:table-row table:style-name="ro1">
@@ -769,7 +766,7 @@
       <text:p>Shift the goal post</text:p>
      </table:table-cell>
      <table:table-cell office:value-type="string" calcext:value-type="string">
-      <text:p>HINT</text:p>
+      <text:p>Restore your morale by 2 points. Reduce enemy morale by 6 points. Reduce enemy stamina by 1 points. Costs 2 stamina.</text:p>
      </table:table-cell>
      <table:table-cell office:value-type="float" office:value="3" calcext:value-type="float">
       <text:p>3</text:p>
@@ -784,8 +781,8 @@
       <text:p>-1</text:p>
      </table:table-cell>
      <table:table-cell/>
-     <table:table-cell table:formula="of:=COM.MICROSOFT.CONCAT(CHAR(9);    [.A17];&quot; : [&quot;;CHAR(34);[.B17];CHAR(34);  &quot;,&quot; ; CHAR(34);[.C17];CHAR(34) ;  &quot;,&quot;;  [.D17] ; &quot;,&quot;;  [.E17] ; &quot;,&quot;;  [.F17] ; &quot;,&quot;;  [.G17] ; &quot;,&quot;;  [.H17] ; &quot;] ,&quot;)" office:value-type="string" office:string-value="&#x09;16 : [&quot;Shift the goal post&quot;,&quot;HINT&quot;,3,2,-6,-1,-1] ," calcext:value-type="string">
-      <text:p><text:tab/>16 : [&quot;Shift the goal post&quot;,&quot;HINT&quot;,3,2,-6,-1,-1] ,</text:p>
+     <table:table-cell table:formula="of:=COM.MICROSOFT.CONCAT(CHAR(9);    [.A17];&quot; : [&quot;;CHAR(34);[.B17];CHAR(34);  &quot;,&quot; ; CHAR(34);[.C17];CHAR(34) ;  &quot;,&quot;;  [.D17] ; &quot;,&quot;;  [.E17] ; &quot;,&quot;;  [.F17] ; &quot;,&quot;;  [.G17] ; &quot;,&quot;;  [.H17] ; &quot;] ,&quot;)" office:value-type="string" office:string-value="&#x09;16 : [&quot;Shift the goal post&quot;,&quot;Restore your morale by 2 points. Reduce enemy morale by 6 points. Reduce enemy stamina by 1 points. Costs 2 stamina.&quot;,3,2,-6,-1,-1] ," calcext:value-type="string">
+      <text:p><text:tab/>16 : [&quot;Shift the goal post&quot;,&quot;Restore your morale by 2 points. Reduce enemy morale by 6 points. Reduce enemy stamina by 1 points. Costs 2 stamina.&quot;,3,2,-6,-1,-1] ,</text:p>
      </table:table-cell>
     </table:table-row>
     <table:table-row table:style-name="ro2">
@@ -796,13 +793,13 @@
       <text:p>Imply causation through correlation</text:p>
      </table:table-cell>
      <table:table-cell office:value-type="string" calcext:value-type="string">
-      <text:p>HINT</text:p>
+      <text:p>Restore your morale by 4 points. Reduce enemy morale by 4 points. Reduce enemy stamina by 1 points. Costs 1 stamina.</text:p>
      </table:table-cell>
      <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
       <text:p>0</text:p>
      </table:table-cell>
-     <table:table-cell office:value-type="float" office:value="4" calcext:value-type="float">
-      <text:p>4</text:p>
+     <table:table-cell office:value-type="float" office:value="3" calcext:value-type="float">
+      <text:p>3</text:p>
      </table:table-cell>
      <table:table-cell office:value-type="float" office:value="-4" calcext:value-type="float">
       <text:p>-4</text:p>
@@ -811,8 +808,8 @@
       <text:p>-1</text:p>
      </table:table-cell>
      <table:table-cell/>
-     <table:table-cell table:formula="of:=COM.MICROSOFT.CONCAT(CHAR(9);    [.A18];&quot; : [&quot;;CHAR(34);[.B18];CHAR(34);  &quot;,&quot; ; CHAR(34);[.C18];CHAR(34) ;  &quot;,&quot;;  [.D18] ; &quot;,&quot;;  [.E18] ; &quot;,&quot;;  [.F18] ; &quot;,&quot;;  [.G18] ; &quot;,&quot;;  [.H18] ; &quot;] ,&quot;)" office:value-type="string" office:string-value="&#x09;17 : [&quot;Imply causation through correlation&quot;,&quot;HINT&quot;,0,4,-4,-1,-1] ," calcext:value-type="string">
-      <text:p><text:tab/>17 : [&quot;Imply causation through correlation&quot;,&quot;HINT&quot;,0,4,-4,-1,-1] ,</text:p>
+     <table:table-cell table:formula="of:=COM.MICROSOFT.CONCAT(CHAR(9);    [.A18];&quot; : [&quot;;CHAR(34);[.B18];CHAR(34);  &quot;,&quot; ; CHAR(34);[.C18];CHAR(34) ;  &quot;,&quot;;  [.D18] ; &quot;,&quot;;  [.E18] ; &quot;,&quot;;  [.F18] ; &quot;,&quot;;  [.G18] ; &quot;,&quot;;  [.H18] ; &quot;] ,&quot;)" office:value-type="string" office:string-value="&#x09;17 : [&quot;Imply causation through correlation&quot;,&quot;Restore your morale by 4 points. Reduce enemy morale by 4 points. Reduce enemy stamina by 1 points. Costs 1 stamina.&quot;,0,3,-4,-1,-1] ," calcext:value-type="string">
+      <text:p><text:tab/>17 : [&quot;Imply causation through correlation&quot;,&quot;Restore your morale by 4 points. Reduce enemy morale by 4 points. Reduce enemy stamina by 1 points. Costs 1 stamina.&quot;,0,3,-4,-1,-1] ,</text:p>
      </table:table-cell>
     </table:table-row>
     <table:table-row table:style-name="ro1">
@@ -823,7 +820,7 @@
       <text:p>Pull Of a Texas Sharpshooter</text:p>
      </table:table-cell>
      <table:table-cell office:value-type="string" calcext:value-type="string">
-      <text:p>HINT</text:p>
+      <text:p>Reduce enemy morale by 12. Costs 3 stamina.</text:p>
      </table:table-cell>
      <table:table-cell office:value-type="float" office:value="3" calcext:value-type="float">
       <text:p>3</text:p>
@@ -831,18 +828,18 @@
      <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
       <text:p>0</text:p>
      </table:table-cell>
-     <table:table-cell office:value-type="float" office:value="-10" calcext:value-type="float">
-      <text:p>-10</text:p>
+     <table:table-cell office:value-type="float" office:value="-12" calcext:value-type="float">
+      <text:p>-12</text:p>
      </table:table-cell>
-     <table:table-cell office:value-type="float" office:value="-1" calcext:value-type="float">
-      <text:p>-1</text:p>
+     <table:table-cell office:value-type="float" office:value="-3" calcext:value-type="float">
+      <text:p>-3</text:p>
      </table:table-cell>
      <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
       <text:p>0</text:p>
      </table:table-cell>
      <table:table-cell/>
-     <table:table-cell table:formula="of:=COM.MICROSOFT.CONCAT(CHAR(9);    [.A19];&quot; : [&quot;;CHAR(34);[.B19];CHAR(34);  &quot;,&quot; ; CHAR(34);[.C19];CHAR(34) ;  &quot;,&quot;;  [.D19] ; &quot;,&quot;;  [.E19] ; &quot;,&quot;;  [.F19] ; &quot;,&quot;;  [.G19] ; &quot;,&quot;;  [.H19] ; &quot;] ,&quot;)" office:value-type="string" office:string-value="&#x09;18 : [&quot;Pull Of a Texas Sharpshooter&quot;,&quot;HINT&quot;,3,0,-10,-1,0] ," calcext:value-type="string">
-      <text:p><text:tab/>18 : [&quot;Pull Of a Texas Sharpshooter&quot;,&quot;HINT&quot;,3,0,-10,-1,0] ,</text:p>
+     <table:table-cell table:formula="of:=COM.MICROSOFT.CONCAT(CHAR(9);    [.A19];&quot; : [&quot;;CHAR(34);[.B19];CHAR(34);  &quot;,&quot; ; CHAR(34);[.C19];CHAR(34) ;  &quot;,&quot;;  [.D19] ; &quot;,&quot;;  [.E19] ; &quot;,&quot;;  [.F19] ; &quot;,&quot;;  [.G19] ; &quot;,&quot;;  [.H19] ; &quot;] ,&quot;)" office:value-type="string" office:string-value="&#x09;18 : [&quot;Pull Of a Texas Sharpshooter&quot;,&quot;Reduce enemy morale by 12. Costs 3 stamina.&quot;,3,0,-12,-3,0] ," calcext:value-type="string">
+      <text:p><text:tab/>18 : [&quot;Pull Of a Texas Sharpshooter&quot;,&quot;Reduce enemy morale by 12. Costs 3 stamina.&quot;,3,0,-12,-3,0] ,</text:p>
      </table:table-cell>
     </table:table-row>
     <table:table-row table:style-name="ro1">
@@ -853,26 +850,20 @@
       <text:p>Invoke Anecdotal Arguments</text:p>
      </table:table-cell>
      <table:table-cell office:value-type="string" calcext:value-type="string">
-      <text:p>HINT</text:p>
+      <text:p>Restore your morale by 4 points. Reduce enemy morale by 2 points. Reduce enemy stamina by 2 points. Costs 2 stamina.</text:p>
      </table:table-cell>
      <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
       <text:p>0</text:p>
      </table:table-cell>
-     <table:table-cell office:value-type="float" office:value="4" calcext:value-type="float">
-      <text:p>4</text:p>
+     <table:table-cell office:value-type="float" office:value="3" calcext:value-type="float">
+      <text:p>3</text:p>
      </table:table-cell>
-     <table:table-cell office:value-type="float" office:value="-2" calcext:value-type="float">
-      <text:p>-2</text:p>
-     </table:table-cell>
-     <table:table-cell office:value-type="float" office:value="-1" calcext:value-type="float">
-      <text:p>-1</text:p>
-     </table:table-cell>
-     <table:table-cell office:value-type="float" office:value="-2" calcext:value-type="float">
+     <table:table-cell table:number-columns-repeated="3" office:value-type="float" office:value="-2" calcext:value-type="float">
       <text:p>-2</text:p>
      </table:table-cell>
      <table:table-cell/>
-     <table:table-cell table:formula="of:=COM.MICROSOFT.CONCAT(CHAR(9);    [.A20];&quot; : [&quot;;CHAR(34);[.B20];CHAR(34);  &quot;,&quot; ; CHAR(34);[.C20];CHAR(34) ;  &quot;,&quot;;  [.D20] ; &quot;,&quot;;  [.E20] ; &quot;,&quot;;  [.F20] ; &quot;,&quot;;  [.G20] ; &quot;,&quot;;  [.H20] ; &quot;] ,&quot;)" office:value-type="string" office:string-value="&#x09;19 : [&quot;Invoke Anecdotal Arguments&quot;,&quot;HINT&quot;,0,4,-2,-1,-2] ," calcext:value-type="string">
-      <text:p><text:tab/>19 : [&quot;Invoke Anecdotal Arguments&quot;,&quot;HINT&quot;,0,4,-2,-1,-2] ,</text:p>
+     <table:table-cell table:formula="of:=COM.MICROSOFT.CONCAT(CHAR(9);    [.A20];&quot; : [&quot;;CHAR(34);[.B20];CHAR(34);  &quot;,&quot; ; CHAR(34);[.C20];CHAR(34) ;  &quot;,&quot;;  [.D20] ; &quot;,&quot;;  [.E20] ; &quot;,&quot;;  [.F20] ; &quot;,&quot;;  [.G20] ; &quot;,&quot;;  [.H20] ; &quot;] ,&quot;)" office:value-type="string" office:string-value="&#x09;19 : [&quot;Invoke Anecdotal Arguments&quot;,&quot;Restore your morale by 4 points. Reduce enemy morale by 2 points. Reduce enemy stamina by 2 points. Costs 2 stamina.&quot;,0,3,-2,-2,-2] ," calcext:value-type="string">
+      <text:p><text:tab/>19 : [&quot;Invoke Anecdotal Arguments&quot;,&quot;Restore your morale by 4 points. Reduce enemy morale by 2 points. Reduce enemy stamina by 2 points. Costs 2 stamina.&quot;,0,3,-2,-2,-2] ,</text:p>
      </table:table-cell>
     </table:table-row>
     <table:table-row table:style-name="ro3">
@@ -883,7 +874,7 @@
       <text:p>Make a Provocative Statement</text:p>
      </table:table-cell>
      <table:table-cell office:value-type="string" calcext:value-type="string">
-      <text:p>HINT</text:p>
+      <text:p>Restore your morale by 2 points. Reduce enemy morale by 6 points. Reduce enemy stamina by 1 points. Costs 1 stamina.</text:p>
      </table:table-cell>
      <table:table-cell office:value-type="float" office:value="1" calcext:value-type="float">
       <text:p>1</text:p>
@@ -898,8 +889,8 @@
       <text:p>-1</text:p>
      </table:table-cell>
      <table:table-cell/>
-     <table:table-cell table:formula="of:=COM.MICROSOFT.CONCAT(CHAR(9);    [.A21];&quot; : [&quot;;CHAR(34);[.B21];CHAR(34);  &quot;,&quot; ; CHAR(34);[.C21];CHAR(34) ;  &quot;,&quot;;  [.D21] ; &quot;,&quot;;  [.E21] ; &quot;,&quot;;  [.F21] ; &quot;,&quot;;  [.G21] ; &quot;,&quot;;  [.H21] ; &quot;] ,&quot;)" office:value-type="string" office:string-value="&#x09;20 : [&quot;Make a Provocative Statement&quot;,&quot;HINT&quot;,1,2,-6,-1,-1] ," calcext:value-type="string">
-      <text:p><text:tab/>20 : [&quot;Make a Provocative Statement&quot;,&quot;HINT&quot;,1,2,-6,-1,-1] ,</text:p>
+     <table:table-cell table:formula="of:=COM.MICROSOFT.CONCAT(CHAR(9);    [.A21];&quot; : [&quot;;CHAR(34);[.B21];CHAR(34);  &quot;,&quot; ; CHAR(34);[.C21];CHAR(34) ;  &quot;,&quot;;  [.D21] ; &quot;,&quot;;  [.E21] ; &quot;,&quot;;  [.F21] ; &quot;,&quot;;  [.G21] ; &quot;,&quot;;  [.H21] ; &quot;] ,&quot;)" office:value-type="string" office:string-value="&#x09;20 : [&quot;Make a Provocative Statement&quot;,&quot;Restore your morale by 2 points. Reduce enemy morale by 6 points. Reduce enemy stamina by 1 points. Costs 1 stamina.&quot;,1,2,-6,-1,-1] ," calcext:value-type="string">
+      <text:p><text:tab/>20 : [&quot;Make a Provocative Statement&quot;,&quot;Restore your morale by 2 points. Reduce enemy morale by 6 points. Reduce enemy stamina by 1 points. Costs 1 stamina.&quot;,1,2,-6,-1,-1] ,</text:p>
      </table:table-cell>
     </table:table-row>
     <table:table-row table:style-name="ro4">

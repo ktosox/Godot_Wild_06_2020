@@ -56,13 +56,14 @@ func set_player_HP(change):
 		playerHP = playerHPMax
 	pass
 func set_player_STAM(change):
-	playerSTAM += playerSTAM
+	playerSTAM += change
 	if playerSTAM > playerSTAMMax :
 		playerSTAM = playerSTAMMax
 
 func update_support(newSup):
 	SUPPORT += newSup
-	currentPlayer.set_support(SUPPORT)
+	if(currentPlayer!=null):
+		currentPlayer.set_support(SUPPORT)
 	pass
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

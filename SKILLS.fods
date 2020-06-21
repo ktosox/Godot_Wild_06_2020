@@ -13,8 +13,8 @@
      <config:config-item config:name="ViewId" config:type="string">view1</config:config-item>
      <config:config-item-map-named config:name="Tables">
       <config:config-item-map-entry config:name="Sheet1">
-       <config:config-item config:name="CursorPositionX" config:type="int">9</config:config-item>
-       <config:config-item config:name="CursorPositionY" config:type="int">20</config:config-item>
+       <config:config-item config:name="CursorPositionX" config:type="int">10</config:config-item>
+       <config:config-item config:name="CursorPositionY" config:type="int">21</config:config-item>
        <config:config-item config:name="HorizontalSplitMode" config:type="short">0</config:config-item>
        <config:config-item config:name="VerticalSplitMode" config:type="short">0</config:config-item>
        <config:config-item config:name="HorizontalSplitPosition" config:type="int">0</config:config-item>
@@ -247,6 +247,9 @@
    <style:table-cell-properties fo:wrap-option="wrap"/>
    <style:text-properties style:use-window-font-color="true" style:text-outline="false" style:text-line-through-style="none" style:text-line-through-type="none" style:font-name="Liberation Sans" fo:font-size="12pt" fo:language="en" fo:country="US" fo:font-style="normal" fo:text-shadow="none" style:text-underline-style="none" fo:font-weight="normal" style:text-underline-mode="continuous" style:text-overline-mode="continuous" style:text-line-through-mode="continuous" style:font-size-asian="12pt" style:language-asian="zh" style:country-asian="CN" style:font-style-asian="normal" style:font-weight-asian="normal" style:font-size-complex="12pt" style:language-complex="hi" style:country-complex="IN" style:font-style-complex="normal" style:font-weight-complex="normal" style:text-emphasize="none" style:font-relief="none" style:text-overline-style="none" style:text-overline-color="font-color"/>
   </style:style>
+  <style:style style:name="ce5" style:family="table-cell" style:parent-style-name="Default">
+   <style:table-cell-properties fo:background-color="#00a65d"/>
+  </style:style>
   <style:page-layout style:name="pm1">
    <style:page-layout-properties style:writing-mode="lr-tb"/>
    <style:header-style>
@@ -287,7 +290,7 @@
      <text:p><text:sheet-name>???</text:sheet-name><text:s/>(<text:title>???</text:title>)</text:p>
     </style:region-left>
     <style:region-right>
-     <text:p><text:date style:data-style-name="N2" text:date-value="2020-06-21">00/00/0000</text:date>, <text:time style:data-style-name="N2" text:time-value="13:10:10.794212861">00:00:00</text:time></text:p>
+     <text:p><text:date style:data-style-name="N2" text:date-value="2020-06-21">00/00/0000</text:date>, <text:time style:data-style-name="N2" text:time-value="18:22:10.348894372">00:00:00</text:time></text:p>
     </style:region-right>
    </style:header>
    <style:header-left style:display="false"/>
@@ -309,7 +312,8 @@
     <table:table-column table:style-name="co6" table:default-cell-style-name="Default"/>
     <table:table-column table:style-name="co7" table:default-cell-style-name="Default"/>
     <table:table-column table:style-name="co8" table:default-cell-style-name="Default"/>
-    <table:table-column table:style-name="co9" table:number-columns-repeated="2" table:default-cell-style-name="Default"/>
+    <table:table-column table:style-name="co9" table:default-cell-style-name="ce5"/>
+    <table:table-column table:style-name="co9" table:default-cell-style-name="Default"/>
     <table:table-row table:style-name="ro1">
      <table:table-cell office:value-type="string" calcext:value-type="string">
       <text:p>ID</text:p>
@@ -597,7 +601,7 @@
       <text:p>10</text:p>
      </table:table-cell>
      <table:table-cell office:value-type="string" calcext:value-type="string">
-      <text:p>Underline your goals</text:p>
+      <text:p>Reject the Status Quo</text:p>
      </table:table-cell>
      <table:table-cell office:value-type="string" calcext:value-type="string">
       <text:p>HINT</text:p>
@@ -615,8 +619,8 @@
       <text:p>0</text:p>
      </table:table-cell>
      <table:table-cell/>
-     <table:table-cell table:formula="of:=COM.MICROSOFT.CONCAT(CHAR(9);    [.A11];&quot; : [&quot;;CHAR(34);[.B11];CHAR(34);  &quot;,&quot; ; CHAR(34);[.C11];CHAR(34) ;  &quot;,&quot;;  [.D11] ; &quot;,&quot;;  [.E11] ; &quot;,&quot;;  [.F11] ; &quot;,&quot;;  [.G11] ; &quot;,&quot;;  [.H11] ; &quot;] ,&quot;)" office:value-type="string" office:string-value="&#x09;10 : [&quot;Underline your goals&quot;,&quot;HINT&quot;,0,0,-4,1,0] ," calcext:value-type="string">
-      <text:p><text:tab/>10 : [&quot;Underline your goals&quot;,&quot;HINT&quot;,0,0,-4,1,0] ,</text:p>
+     <table:table-cell table:formula="of:=COM.MICROSOFT.CONCAT(CHAR(9);    [.A11];&quot; : [&quot;;CHAR(34);[.B11];CHAR(34);  &quot;,&quot; ; CHAR(34);[.C11];CHAR(34) ;  &quot;,&quot;;  [.D11] ; &quot;,&quot;;  [.E11] ; &quot;,&quot;;  [.F11] ; &quot;,&quot;;  [.G11] ; &quot;,&quot;;  [.H11] ; &quot;] ,&quot;)" office:value-type="string" office:string-value="&#x09;10 : [&quot;Reject the Status Quo&quot;,&quot;HINT&quot;,0,0,-4,1,0] ," calcext:value-type="string">
+      <text:p><text:tab/>10 : [&quot;Reject the Status Quo&quot;,&quot;HINT&quot;,0,0,-4,1,0] ,</text:p>
      </table:table-cell>
     </table:table-row>
     <table:table-row table:style-name="ro1">
@@ -624,7 +628,7 @@
       <text:p>11</text:p>
      </table:table-cell>
      <table:table-cell office:value-type="string" calcext:value-type="string">
-      <text:p>suggest a slippery slope</text:p>
+      <text:p>Suggest a Slippery Slope</text:p>
      </table:table-cell>
      <table:table-cell office:value-type="string" calcext:value-type="string">
       <text:p>HINT</text:p>
@@ -645,8 +649,8 @@
       <text:p>0</text:p>
      </table:table-cell>
      <table:table-cell/>
-     <table:table-cell table:formula="of:=COM.MICROSOFT.CONCAT(CHAR(9);    [.A12];&quot; : [&quot;;CHAR(34);[.B12];CHAR(34);  &quot;,&quot; ; CHAR(34);[.C12];CHAR(34) ;  &quot;,&quot;;  [.D12] ; &quot;,&quot;;  [.E12] ; &quot;,&quot;;  [.F12] ; &quot;,&quot;;  [.G12] ; &quot;,&quot;;  [.H12] ; &quot;] ,&quot;)" office:value-type="string" office:string-value="&#x09;11 : [&quot;suggest a slippery slope&quot;,&quot;HINT&quot;,0,2,-8,-1,0] ," calcext:value-type="string">
-      <text:p><text:tab/>11 : [&quot;suggest a slippery slope&quot;,&quot;HINT&quot;,0,2,-8,-1,0] ,</text:p>
+     <table:table-cell table:formula="of:=COM.MICROSOFT.CONCAT(CHAR(9);    [.A12];&quot; : [&quot;;CHAR(34);[.B12];CHAR(34);  &quot;,&quot; ; CHAR(34);[.C12];CHAR(34) ;  &quot;,&quot;;  [.D12] ; &quot;,&quot;;  [.E12] ; &quot;,&quot;;  [.F12] ; &quot;,&quot;;  [.G12] ; &quot;,&quot;;  [.H12] ; &quot;] ,&quot;)" office:value-type="string" office:string-value="&#x09;11 : [&quot;Suggest a Slippery Slope&quot;,&quot;HINT&quot;,0,2,-8,-1,0] ," calcext:value-type="string">
+      <text:p><text:tab/>11 : [&quot;Suggest a Slippery Slope&quot;,&quot;HINT&quot;,0,2,-8,-1,0] ,</text:p>
      </table:table-cell>
     </table:table-row>
     <table:table-row table:style-name="ro1">
@@ -681,7 +685,7 @@
       <text:p>13</text:p>
      </table:table-cell>
      <table:table-cell office:value-type="string" calcext:value-type="string">
-      <text:p>humiliate the opposition</text:p>
+      <text:p>Humiliate The Opposition</text:p>
      </table:table-cell>
      <table:table-cell office:value-type="string" calcext:value-type="string">
       <text:p>HINT</text:p>
@@ -699,8 +703,8 @@
       <text:p>-1</text:p>
      </table:table-cell>
      <table:table-cell/>
-     <table:table-cell table:formula="of:=COM.MICROSOFT.CONCAT(CHAR(9);    [.A14];&quot; : [&quot;;CHAR(34);[.B14];CHAR(34);  &quot;,&quot; ; CHAR(34);[.C14];CHAR(34) ;  &quot;,&quot;;  [.D14] ; &quot;,&quot;;  [.E14] ; &quot;,&quot;;  [.F14] ; &quot;,&quot;;  [.G14] ; &quot;,&quot;;  [.H14] ; &quot;] ,&quot;)" office:value-type="string" office:string-value="&#x09;13 : [&quot;humiliate the opposition&quot;,&quot;HINT&quot;,1,0,-8,-1,-1] ," calcext:value-type="string">
-      <text:p><text:tab/>13 : [&quot;humiliate the opposition&quot;,&quot;HINT&quot;,1,0,-8,-1,-1] ,</text:p>
+     <table:table-cell table:formula="of:=COM.MICROSOFT.CONCAT(CHAR(9);    [.A14];&quot; : [&quot;;CHAR(34);[.B14];CHAR(34);  &quot;,&quot; ; CHAR(34);[.C14];CHAR(34) ;  &quot;,&quot;;  [.D14] ; &quot;,&quot;;  [.E14] ; &quot;,&quot;;  [.F14] ; &quot;,&quot;;  [.G14] ; &quot;,&quot;;  [.H14] ; &quot;] ,&quot;)" office:value-type="string" office:string-value="&#x09;13 : [&quot;Humiliate The Opposition&quot;,&quot;HINT&quot;,1,0,-8,-1,-1] ," calcext:value-type="string">
+      <text:p><text:tab/>13 : [&quot;Humiliate The Opposition&quot;,&quot;HINT&quot;,1,0,-8,-1,-1] ,</text:p>
      </table:table-cell>
     </table:table-row>
     <table:table-row table:style-name="ro1">
@@ -708,7 +712,7 @@
       <text:p>14</text:p>
      </table:table-cell>
      <table:table-cell office:value-type="string" calcext:value-type="string">
-      <text:p>shift the burden of proof</text:p>
+      <text:p>Shift The Burden Of Proof</text:p>
      </table:table-cell>
      <table:table-cell office:value-type="string" calcext:value-type="string">
       <text:p>HINT</text:p>
@@ -729,8 +733,8 @@
       <text:p>0</text:p>
      </table:table-cell>
      <table:table-cell/>
-     <table:table-cell table:formula="of:=COM.MICROSOFT.CONCAT(CHAR(9);    [.A15];&quot; : [&quot;;CHAR(34);[.B15];CHAR(34);  &quot;,&quot; ; CHAR(34);[.C15];CHAR(34) ;  &quot;,&quot;;  [.D15] ; &quot;,&quot;;  [.E15] ; &quot;,&quot;;  [.F15] ; &quot;,&quot;;  [.G15] ; &quot;,&quot;;  [.H15] ; &quot;] ,&quot;)" office:value-type="string" office:string-value="&#x09;14 : [&quot;shift the burden of proof&quot;,&quot;HINT&quot;,2,4,-6,-1,0] ," calcext:value-type="string">
-      <text:p><text:tab/>14 : [&quot;shift the burden of proof&quot;,&quot;HINT&quot;,2,4,-6,-1,0] ,</text:p>
+     <table:table-cell table:formula="of:=COM.MICROSOFT.CONCAT(CHAR(9);    [.A15];&quot; : [&quot;;CHAR(34);[.B15];CHAR(34);  &quot;,&quot; ; CHAR(34);[.C15];CHAR(34) ;  &quot;,&quot;;  [.D15] ; &quot;,&quot;;  [.E15] ; &quot;,&quot;;  [.F15] ; &quot;,&quot;;  [.G15] ; &quot;,&quot;;  [.H15] ; &quot;] ,&quot;)" office:value-type="string" office:string-value="&#x09;14 : [&quot;Shift The Burden Of Proof&quot;,&quot;HINT&quot;,2,4,-6,-1,0] ," calcext:value-type="string">
+      <text:p><text:tab/>14 : [&quot;Shift The Burden Of Proof&quot;,&quot;HINT&quot;,2,4,-6,-1,0] ,</text:p>
      </table:table-cell>
     </table:table-row>
     <table:table-row table:style-name="ro1">
@@ -738,7 +742,7 @@
       <text:p>15</text:p>
      </table:table-cell>
      <table:table-cell office:value-type="string" calcext:value-type="string">
-      <text:p>Set up a straw man</text:p>
+      <text:p>Set Up a Straw Man</text:p>
      </table:table-cell>
      <table:table-cell office:value-type="string" calcext:value-type="string">
       <text:p>HINT</text:p>
@@ -753,8 +757,8 @@
       <text:p>0</text:p>
      </table:table-cell>
      <table:table-cell/>
-     <table:table-cell table:formula="of:=COM.MICROSOFT.CONCAT(CHAR(9);    [.A16];&quot; : [&quot;;CHAR(34);[.B16];CHAR(34);  &quot;,&quot; ; CHAR(34);[.C16];CHAR(34) ;  &quot;,&quot;;  [.D16] ; &quot;,&quot;;  [.E16] ; &quot;,&quot;;  [.F16] ; &quot;,&quot;;  [.G16] ; &quot;,&quot;;  [.H16] ; &quot;] ,&quot;)" office:value-type="string" office:string-value="&#x09;15 : [&quot;Set up a straw man&quot;,&quot;HINT&quot;,0,0,0,-1,0] ," calcext:value-type="string">
-      <text:p><text:tab/>15 : [&quot;Set up a straw man&quot;,&quot;HINT&quot;,0,0,0,-1,0] ,</text:p>
+     <table:table-cell table:formula="of:=COM.MICROSOFT.CONCAT(CHAR(9);    [.A16];&quot; : [&quot;;CHAR(34);[.B16];CHAR(34);  &quot;,&quot; ; CHAR(34);[.C16];CHAR(34) ;  &quot;,&quot;;  [.D16] ; &quot;,&quot;;  [.E16] ; &quot;,&quot;;  [.F16] ; &quot;,&quot;;  [.G16] ; &quot;,&quot;;  [.H16] ; &quot;] ,&quot;)" office:value-type="string" office:string-value="&#x09;15 : [&quot;Set Up a Straw Man&quot;,&quot;HINT&quot;,0,0,0,-1,0] ," calcext:value-type="string">
+      <text:p><text:tab/>15 : [&quot;Set Up a Straw Man&quot;,&quot;HINT&quot;,0,0,0,-1,0] ,</text:p>
      </table:table-cell>
     </table:table-row>
     <table:table-row table:style-name="ro1">
@@ -816,7 +820,7 @@
       <text:p>18</text:p>
      </table:table-cell>
      <table:table-cell office:value-type="string" calcext:value-type="string">
-      <text:p>pull of a texas sharpshooter</text:p>
+      <text:p>Pull Of a Texas Sharpshooter</text:p>
      </table:table-cell>
      <table:table-cell office:value-type="string" calcext:value-type="string">
       <text:p>HINT</text:p>
@@ -837,8 +841,8 @@
       <text:p>0</text:p>
      </table:table-cell>
      <table:table-cell/>
-     <table:table-cell table:formula="of:=COM.MICROSOFT.CONCAT(CHAR(9);    [.A19];&quot; : [&quot;;CHAR(34);[.B19];CHAR(34);  &quot;,&quot; ; CHAR(34);[.C19];CHAR(34) ;  &quot;,&quot;;  [.D19] ; &quot;,&quot;;  [.E19] ; &quot;,&quot;;  [.F19] ; &quot;,&quot;;  [.G19] ; &quot;,&quot;;  [.H19] ; &quot;] ,&quot;)" office:value-type="string" office:string-value="&#x09;18 : [&quot;pull of a texas sharpshooter&quot;,&quot;HINT&quot;,3,0,-10,-1,0] ," calcext:value-type="string">
-      <text:p><text:tab/>18 : [&quot;pull of a texas sharpshooter&quot;,&quot;HINT&quot;,3,0,-10,-1,0] ,</text:p>
+     <table:table-cell table:formula="of:=COM.MICROSOFT.CONCAT(CHAR(9);    [.A19];&quot; : [&quot;;CHAR(34);[.B19];CHAR(34);  &quot;,&quot; ; CHAR(34);[.C19];CHAR(34) ;  &quot;,&quot;;  [.D19] ; &quot;,&quot;;  [.E19] ; &quot;,&quot;;  [.F19] ; &quot;,&quot;;  [.G19] ; &quot;,&quot;;  [.H19] ; &quot;] ,&quot;)" office:value-type="string" office:string-value="&#x09;18 : [&quot;Pull Of a Texas Sharpshooter&quot;,&quot;HINT&quot;,3,0,-10,-1,0] ," calcext:value-type="string">
+      <text:p><text:tab/>18 : [&quot;Pull Of a Texas Sharpshooter&quot;,&quot;HINT&quot;,3,0,-10,-1,0] ,</text:p>
      </table:table-cell>
     </table:table-row>
     <table:table-row table:style-name="ro1">
@@ -846,7 +850,7 @@
       <text:p>19</text:p>
      </table:table-cell>
      <table:table-cell office:value-type="string" calcext:value-type="string">
-      <text:p>invoke anecdotal arguments</text:p>
+      <text:p>Invoke Anecdotal Arguments</text:p>
      </table:table-cell>
      <table:table-cell office:value-type="string" calcext:value-type="string">
       <text:p>HINT</text:p>
@@ -867,8 +871,8 @@
       <text:p>-2</text:p>
      </table:table-cell>
      <table:table-cell/>
-     <table:table-cell table:formula="of:=COM.MICROSOFT.CONCAT(CHAR(9);    [.A20];&quot; : [&quot;;CHAR(34);[.B20];CHAR(34);  &quot;,&quot; ; CHAR(34);[.C20];CHAR(34) ;  &quot;,&quot;;  [.D20] ; &quot;,&quot;;  [.E20] ; &quot;,&quot;;  [.F20] ; &quot;,&quot;;  [.G20] ; &quot;,&quot;;  [.H20] ; &quot;] ,&quot;)" office:value-type="string" office:string-value="&#x09;19 : [&quot;invoke anecdotal arguments&quot;,&quot;HINT&quot;,0,4,-2,-1,-2] ," calcext:value-type="string">
-      <text:p><text:tab/>19 : [&quot;invoke anecdotal arguments&quot;,&quot;HINT&quot;,0,4,-2,-1,-2] ,</text:p>
+     <table:table-cell table:formula="of:=COM.MICROSOFT.CONCAT(CHAR(9);    [.A20];&quot; : [&quot;;CHAR(34);[.B20];CHAR(34);  &quot;,&quot; ; CHAR(34);[.C20];CHAR(34) ;  &quot;,&quot;;  [.D20] ; &quot;,&quot;;  [.E20] ; &quot;,&quot;;  [.F20] ; &quot;,&quot;;  [.G20] ; &quot;,&quot;;  [.H20] ; &quot;] ,&quot;)" office:value-type="string" office:string-value="&#x09;19 : [&quot;Invoke Anecdotal Arguments&quot;,&quot;HINT&quot;,0,4,-2,-1,-2] ," calcext:value-type="string">
+      <text:p><text:tab/>19 : [&quot;Invoke Anecdotal Arguments&quot;,&quot;HINT&quot;,0,4,-2,-1,-2] ,</text:p>
      </table:table-cell>
     </table:table-row>
     <table:table-row table:style-name="ro3">
@@ -876,7 +880,7 @@
       <text:p>20</text:p>
      </table:table-cell>
      <table:table-cell office:value-type="string" calcext:value-type="string">
-      <text:p>Make a provocative statement</text:p>
+      <text:p>Make a Provocative Statement</text:p>
      </table:table-cell>
      <table:table-cell office:value-type="string" calcext:value-type="string">
       <text:p>HINT</text:p>
@@ -894,14 +898,16 @@
       <text:p>-1</text:p>
      </table:table-cell>
      <table:table-cell/>
-     <table:table-cell table:formula="of:=COM.MICROSOFT.CONCAT(CHAR(9);    [.A21];&quot; : [&quot;;CHAR(34);[.B21];CHAR(34);  &quot;,&quot; ; CHAR(34);[.C21];CHAR(34) ;  &quot;,&quot;;  [.D21] ; &quot;,&quot;;  [.E21] ; &quot;,&quot;;  [.F21] ; &quot;,&quot;;  [.G21] ; &quot;,&quot;;  [.H21] ; &quot;] ,&quot;)" office:value-type="string" office:string-value="&#x09;20 : [&quot;Make a provocative statement&quot;,&quot;HINT&quot;,1,2,-6,-1,-1] ," calcext:value-type="string">
-      <text:p><text:tab/>20 : [&quot;Make a provocative statement&quot;,&quot;HINT&quot;,1,2,-6,-1,-1] ,</text:p>
+     <table:table-cell table:formula="of:=COM.MICROSOFT.CONCAT(CHAR(9);    [.A21];&quot; : [&quot;;CHAR(34);[.B21];CHAR(34);  &quot;,&quot; ; CHAR(34);[.C21];CHAR(34) ;  &quot;,&quot;;  [.D21] ; &quot;,&quot;;  [.E21] ; &quot;,&quot;;  [.F21] ; &quot;,&quot;;  [.G21] ; &quot;,&quot;;  [.H21] ; &quot;] ,&quot;)" office:value-type="string" office:string-value="&#x09;20 : [&quot;Make a Provocative Statement&quot;,&quot;HINT&quot;,1,2,-6,-1,-1] ," calcext:value-type="string">
+      <text:p><text:tab/>20 : [&quot;Make a Provocative Statement&quot;,&quot;HINT&quot;,1,2,-6,-1,-1] ,</text:p>
      </table:table-cell>
     </table:table-row>
     <table:table-row table:style-name="ro4">
      <table:table-cell/>
      <table:table-cell table:style-name="Default"/>
-     <table:table-cell table:number-columns-repeated="8"/>
+     <table:table-cell table:number-columns-repeated="6"/>
+     <table:table-cell table:style-name="Default"/>
+     <table:table-cell/>
     </table:table-row>
     <table:table-row table:style-name="ro4">
      <table:table-cell/>
@@ -926,7 +932,8 @@
      <table:table-cell office:value-type="float" office:value="6" calcext:value-type="float">
       <text:p>6</text:p>
      </table:table-cell>
-     <table:table-cell table:number-columns-repeated="2"/>
+     <table:table-cell table:style-name="Default"/>
+     <table:table-cell/>
     </table:table-row>
    </table:table>
    <table:named-expressions/>

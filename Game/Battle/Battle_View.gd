@@ -36,20 +36,20 @@ var allSkillTable = {
  7 : ["Throw a Punchy One-Liner","HINT",0,2,0,2,0] ,
  8 : ["Ask a Loaded Question","HINT",0,0,-4,0,-1] ,
  9 : ["Ask a lot of questions","HINT",0,0,-2,0,-2] ,
- 10 : ["Underline your goals","HINT",0,0,-4,1,0] ,
- 11 : ["make a slippery slope argument","HINT",0,2,-8,-1,0] ,
- 12 : ["ad hominem","HINT",2,2,-4,-1,-2] ,
- 13 : ["humiliate your opponent","HINT",1,0,-8,-1,-1] ,
- 14 : ["shift the burden of proof","HINT",2,4,-6,-1,0] ,
- 15 : ["Set up a strawman argument","HINT",0,0,0,-1,0] ,
- 16 : ["no true scotsman","HINT",3,2,-6,-1,-1] ,
+ 10 : ["Reject the Status Quo","HINT",0,0,-4,1,0] ,
+ 11 : ["Suggest a Slippery Slope","HINT",0,2,-8,-1,0] ,
+ 12 : ["Point out an ad hominem","HINT",2,2,-4,-1,-2] ,
+ 13 : ["Humiliate The Opposition","HINT",1,0,-8,-1,-1] ,
+ 14 : ["Shift The Burden Of Proof","HINT",2,4,-6,-1,0] ,
+ 15 : ["Set Up a Straw Man","HINT",0,0,0,-1,0] ,
+ 16 : ["Shift the goal post","HINT",3,2,-6,-1,-1] ,
  17 : ["Imply causation through correlation","HINT",0,4,-4,-1,-1] ,
- 18 : ["pull of a texas sharpshooter","HINT",3,0,-10,-1,0] ,
- 19 : ["invoke anecdotal arguments","HINT",0,4,-2,-1,-2] ,
- 20 : ["provoke your adversary","HINT",1,2,-6,-1,-1] ,
+ 18 : ["Pull Of a Texas Sharpshooter","HINT",3,0,-10,-1,0] ,
+ 19 : ["Invoke Anecdotal Arguments","HINT",0,4,-2,-1,-2] ,
+ 20 : ["Make a Provocative Statement","HINT",1,2,-6,-1,-1] ,
 }
 
-onready var enemy_stamina = 4 + randi()%5
+onready var enemy_stamina = 1 + randi()%2
 onready var enemy_morale = 40 + 10 * (randi()%4)
 onready var enemy_type = randi()%4
 
@@ -124,12 +124,22 @@ func use_skill(bttn):
 		textField.remove_line(0)
 	if(skill[4]<0):
 		print("deal "+String(skill[4])+" dmg to enemy")
+		enemy_morale += skill[4]
+		if(enemy_morale<0):
+			enemy_defeat()
+		enemy_hp_bar.value = enemy_morale
 	if(skill[3]>0):
 		print("heal player for "+String(skill[3]))
+		GM.set_player_HP(skill[3])
+		player_hp_bar.value = GM.playerHP
 	if(skill[5]!=0):
 		print("change player stamina by ",String(skill[5]))
+		GM.set_player_STAM(skill[5])
+		player_stam_bar.value = GM.playerSTAM
 	if(skill[6]!=0):
 		print("change enemy stamina by ",String(skill[6]))
+		enemy_stamina+=skill[6]
+		enemy_stam_bar.value = enemy_stamina
 	reroll_button(bttn)
 	if(enemy_type == skill[2]):
 		textField.append_bbcode(" it was super persuasive!")
@@ -142,11 +152,14 @@ func use_skill(bttn):
 	pass
 
 func use_convience():
-	end_battle()
-	#enemy_turn()
-	#check enemy morale
-	#if sucess -> end_battle()
-	#if fail ->  enemy_turn()
+	if(enemy_morale<19+randi()%9):
+		player_victory()
+	else:
+		textField.append_bbcode("Your opponent is not convinced")
+		textField.newline()
+		if(textField.get_line_count()>6):
+			textField.remove_line(0)
+	enemy_turn()
 
 	pass
 
@@ -184,18 +197,32 @@ func enemy_attack():
 	var random_skill = 1 + randi()%10
 	if(enemy_stamina - (1+randi()%10) )< 0:
 		#make a non stamina attack
-		enemy_stamina += 1
-		enemy_stam_bar.value = enemy_stamina
 		pass
 	else:
 		random_skill += 10
-		enemy_stamina -= 1
-		enemy_stam_bar.value = enemy_stamina
 		#make a stamina attack
 		pass
 	var skill = allSkillTable[random_skill]
 		
+	if(skill[4]<0):
+		GM.set_player_HP(skill[4])
+		player_hp_bar.value = GM.playerHP
+		if(GM.playerHP<0):
+			player_defeat()
+	print("dmg player for "+String(skill[4]))
+	if(skill[3]>0):
+		print("enemy heals self for "+String(skill[3]))
+		enemy_morale += skill[3]
 
+		enemy_hp_bar.value = enemy_morale
+	if(skill[6]!=0):
+		print("change player stamina by ",String(skill[6]))
+		GM.set_player_STAM(skill[6])
+		player_stam_bar.value = GM.playerSTAM
+	if(skill[5]!=0):
+		print("change enemy stamina by ",String(skill[5]))
+		enemy_stamina+=skill[5]
+		enemy_stam_bar.value = enemy_stamina
 	
 	textField.append_bbcode("The enemy decided to "+skill[0])
 	textField.newline()
@@ -204,9 +231,27 @@ func enemy_attack():
 	player_turn()
 	pass
 
-func update_HP():
+func player_defeat():
+
+	$EndScreen.visible = true
+	$EndScreen/PlayerDies.visible = true
+	get_tree().paused = true
 	pass
 
+func enemy_defeat():
+
+	$EndScreen.visible = true
+	$EndScreen/EnemyDies.visible = true
+	get_tree().paused = true
+	pass
+
+func player_victory():
+
+	GM.update_support(15+randi()%6)
+	$EndScreen.visible = true
+	$EndScreen/PlayerVictory.visible = true
+	get_tree().paused = true
+	pass
 
 func _on_TimerEnemyAttack_timeout():
 	enemy_attack()
@@ -219,4 +264,21 @@ func _on_Convince_pressed():
 
 
 func _on_Options_pressed():
+	pass # Replace with function body.
+
+
+func _on_ButtonPlayerVictory_pressed():
+	get_tree().paused = false
+	end_battle()
+	pass # Replace with function body.
+
+
+func _on_ButtonPlayerDies_pressed():
+	get_tree().paused = false
+	pass # Replace with function body.
+
+
+func _on_ButtonEnemyDies_pressed():
+	get_tree().paused = false
+	end_battle()
 	pass # Replace with function body.

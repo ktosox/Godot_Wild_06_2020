@@ -1,6 +1,5 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://Battle/AvatarScene.gd" type="Script" id=1]
 [ext_resource path="res://Battle/Avatars/dark_knight_04.png" type="Texture" id=2]
 
 [node name="AvatarScene" type="TextureRect"]
@@ -10,7 +9,6 @@ margin_right = -800.0
 margin_bottom = -600.0
 rect_min_size = Vector2( 256, 256 )
 texture = ExtResource( 2 )
-script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }

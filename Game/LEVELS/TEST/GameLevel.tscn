@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=40 format=2]
 
 [ext_resource path="res://Dungeon_Template/GameLevel.gd" type="Script" id=1]
 [ext_resource path="res://Dungeon/Dungeon_Tileset.png" type="Texture" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Doors/Door_UP.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Items/Key.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Doors/Exit.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Items/chest/Chest.tscn" type="PackedScene" id=10]
 
 [sub_resource type="NavigationPolygon" id=1]
 vertices = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
@@ -502,8 +503,8 @@ position = Vector2( 1.15661, 9.12438 )
 [node name="Location" parent="Player" index="1"]
 position = Vector2( 32.1772, 56.0328 )
 
-[node name="AnimatedSprite" parent="Player/Location" index="1"]
-frame = 2
+[node name="AnimatedSprite" parent="Player/Location" index="2"]
+frame = 1
 
 [node name="Items" type="Node2D" parent="."]
 
@@ -521,6 +522,9 @@ position = Vector2( 29.9702, 35.9696 )
 
 [node name="Key" parent="Items" instance=ExtResource( 8 )]
 position = Vector2( 27.8793, 92.4899 )
+
+[node name="Chest" parent="Items" instance=ExtResource( 10 )]
+position = Vector2( 22.2188, 130.607 )
 
 [node name="Enemies" type="Node2D" parent="."]
 

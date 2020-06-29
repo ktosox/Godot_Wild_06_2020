@@ -4,7 +4,7 @@ extends Path2D
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-var optionsWindowScene = preload("res://OptionsMenu.tscn")
+
 
 var speed = 70
 export var moving = false
@@ -70,11 +70,11 @@ func _on_TimerMouseCheck_timeout():
 	pass # Replace with function body.
 
 func set_support(newSup):
-	$Overlay/Support.value = newSup
+
 	pass
 
+func update_HP(value):
+	$Overlay/Screen/Top/HealthBar.value = value
+	$Overlay/Screen/Top/HealthBar/Loop.playback_speed = 80/value
 
-func _on_Button_pressed():
-	var optionsMEnu = optionsWindowScene.instance()
-	add_child(optionsMEnu)
-	pass # Replace with function body.
+

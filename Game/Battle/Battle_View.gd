@@ -66,9 +66,8 @@ var skill_map = {
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	avatarEnemy.ID=GM.currentBattleCaller
-	avatarEnemy.set_avatar()
-	avatarPlayer.set_avatar()
+	avatarPlayer.texture = GM.playerAvatar
+	avatarEnemy.texture = GM.battleCallerData["avatar"]
 	randomize()
 	load_battle()
 	print(skillPoolTop)

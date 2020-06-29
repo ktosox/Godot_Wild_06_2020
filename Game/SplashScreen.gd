@@ -6,8 +6,14 @@ extends Control
 # var b = "text"
 var optionsWindowScene = preload("res://OptionsMenu.tscn")
 
+var av1 = load("res://Battle/Avatars/skeleton_05.png")
+var av2 = load("res://Battle/Avatars/skeleton_06.png")
+var av3 = load("res://Battle/Avatars/skeleton_07.png")
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
+
 	pass # Replace with function body.
 
 
@@ -17,7 +23,7 @@ func _ready():
 
 
 func _on_Button_pressed():
-	GM.skelyPool.remove(GM.playerAvatar)
+	GM.skelyPool.erase(GM.playerAvatar)
 	GM.next_level()
 	pass # Replace with function body.
 
@@ -30,16 +36,16 @@ func _on_Button2_pressed():
 
 func _on_Button3_pressed():
 	match GM.playerAvatar :
-		1:
-			$TextureRect.texture = load("res://Battle/Avatars/skeleton_05.png")
-			GM.playerAvatar = 2
+		av1:
+			$TextureRect.texture = av2
+			GM.playerAvatar = av2
 			pass
-		2:
-			$TextureRect.texture = load("res://Battle/Avatars/skeleton_06.png")
-			GM.playerAvatar = 3
+		av2:
+			$TextureRect.texture = av3
+			GM.playerAvatar = av3
 			pass
-		3:
-			$TextureRect.texture = load("res://Battle/Avatars/skeleton_07.png")
-			GM.playerAvatar = 1
+		av3:
+			$TextureRect.texture = av1
+			GM.playerAvatar = av1
 			pass
 	pass # Replace with function body.

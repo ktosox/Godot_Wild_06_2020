@@ -6,24 +6,23 @@
 [ext_resource path="res://textfieldFont.tres" type="DynamicFont" id=4]
 [ext_resource path="res://Battle/StatBAr.shader" type="Shader" id=5]
 
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 5 )
+shader_param/modulate = Color( 1, 1, 1, 1 )
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = ExtResource( 5 )
+shader_param/modulate = Color( 1, 1, 1, 1 )
+
+[sub_resource type="ShaderMaterial" id=3]
+shader = ExtResource( 5 )
+shader_param/modulate = Color( 1, 1, 1, 1 )
+
 [sub_resource type="ShaderMaterial" id=4]
 shader = ExtResource( 5 )
 shader_param/modulate = Color( 1, 1, 1, 1 )
 
-[sub_resource type="ShaderMaterial" id=7]
-shader = ExtResource( 5 )
-shader_param/modulate = Color( 1, 1, 1, 1 )
-
-[sub_resource type="ShaderMaterial" id=5]
-shader = ExtResource( 5 )
-shader_param/modulate = Color( 1, 1, 1, 1 )
-
-[sub_resource type="ShaderMaterial" id=6]
-shader = ExtResource( 5 )
-shader_param/modulate = Color( 1, 1, 1, 1 )
-
-[sub_resource type="Animation" id=1]
-resource_name = "lower"
+[sub_resource type="Animation" id=5]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:rect_size")
 tracks/0/interp = 1
@@ -51,7 +50,7 @@ tracks/1/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=6]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:rect_size")
 tracks/0/interp = 1
@@ -100,7 +99,6 @@ margin_top = 64.0
 margin_right = 224.0
 margin_bottom = -12.0
 rect_scale = Vector2( -1, 1 )
-ID = 1
 
 [node name="Player" parent="VBoxContainer/ActorSpace" instance=ExtResource( 2 )]
 margin_left = 32.0
@@ -118,7 +116,7 @@ color = Color( 0, 0.203922, 0.388235, 1 )
 
 [node name="PlayerHP" type="ProgressBar" parent="VBoxContainer/BarSpace"]
 modulate = Color( 1, 0, 0, 1 )
-material = SubResource( 4 )
+material = SubResource( 1 )
 margin_left = 40.0
 margin_top = 6.0
 margin_right = 280.0
@@ -131,7 +129,7 @@ __meta__ = {
 
 [node name="PlayerStamin" type="ProgressBar" parent="VBoxContainer/BarSpace"]
 modulate = Color( 0, 1, 0, 1 )
-material = SubResource( 7 )
+material = SubResource( 2 )
 margin_left = 40.0
 margin_top = 28.0
 margin_right = 280.0
@@ -144,7 +142,7 @@ __meta__ = {
 
 [node name="EnemyHP" type="ProgressBar" parent="VBoxContainer/BarSpace"]
 modulate = Color( 1, 0, 0, 1 )
-material = SubResource( 5 )
+material = SubResource( 3 )
 margin_left = 520.0
 margin_top = 6.0
 margin_right = 760.0
@@ -156,7 +154,7 @@ __meta__ = {
 
 [node name="EnemyStamina" type="ProgressBar" parent="VBoxContainer/BarSpace"]
 modulate = Color( 0, 1, 0, 1 )
-material = SubResource( 6 )
+material = SubResource( 4 )
 margin_left = 520.0
 margin_top = 30.0
 margin_right = 760.0
@@ -335,8 +333,8 @@ __meta__ = {
 }
 
 [node name="Animator" type="AnimationPlayer" parent="Curatin"]
-anims/lower = SubResource( 1 )
-anims/rise = SubResource( 2 )
+anims/lower = SubResource( 5 )
+anims/rise = SubResource( 6 )
 
 [node name="TimerEnemyAttack" type="Timer" parent="."]
 wait_time = 1.3

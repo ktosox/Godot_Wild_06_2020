@@ -7,7 +7,7 @@ extends Node2D
 var follow = false
 var target 
 var resting_pos = Vector2(0,-7)
-var speed = 1.8
+var speed = 2.4
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

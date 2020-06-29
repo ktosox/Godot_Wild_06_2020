@@ -8,7 +8,6 @@ var battleViewScene = preload("res://Battle/Battle_View.tscn")
 
 var creditsScene = "res://Credits.tscn"
 
-var allDungeonMusic = []
 
 var vampPool = [load("res://Battle/Avatars/addons_097.png"),load("res://Battle/Avatars/ancient_vampire.png"),load("res://Battle/Avatars/banshee.png")]
 var skullPool = [load("res://Battle/Avatars/joker_01.png"),load("res://Battle/Avatars/joker_02.png")]
@@ -18,7 +17,7 @@ var dudePool = [load("res://Battle/Avatars/goblin_02.png"),load("res://Battle/Av
 
 
 
-var current_level
+var current_level 
 var currentPlayer
 var currentBattle
 
@@ -26,12 +25,12 @@ var playerHP = 100
 var playerHPMax = 100
 var playerSTAM = 1
 var playerSTAMMax = 10
-var playerAvatar = 1
+var playerAvatar = load("res://Battle/Avatars/skeleton_07.png")
 var SUPPORT = 0
 
 var inBattle = false
 
-var currentBattleCaller
+var battleCallerData
 
 export var colorLogical = Color()
 export var colorEmotion = Color()
@@ -39,7 +38,6 @@ export var colorLawful = Color()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-
 	pass # Replace with function body.
 
 
@@ -53,8 +51,9 @@ func next_level():
 		get_tree().change_scene("res://LEVELS/"+String(current_level.ID+1)+"/GameLevel.tscn")
 	pass
 
-func load_battle(enemyID):
+func load_battle(enemy):
 	#get_tree().paused = true
+	battleCallerData = enemy
 	$DungeonMusic/Manager.play("Stop")
 	$BattleMusic.play()
 	inBattle = true
@@ -74,6 +73,7 @@ func set_player_HP(change):
 	playerHP += change
 	if playerHP > playerHPMax :
 		playerHP = playerHPMax
+	currentPlayer.update_HP(playerHP)
 	pass
 func set_player_STAM(change):
 	playerSTAM += change

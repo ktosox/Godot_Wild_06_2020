@@ -9,9 +9,10 @@ export var ID = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	GM.current_level = self
+	
 	pass # Replace with function body.
-
+func _enter_tree():
+	GM.current_level = self
 
 func path_from_2_points(start,end):
 	start = get_closest_point(start)

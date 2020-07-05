@@ -15,44 +15,32 @@ onready var bttn2 = $VBoxContainer/ButtonSpace/Skill_Button2
 onready var bttn3 = $VBoxContainer/ButtonSpace/Skill_Button3
 onready var bttn4 = $VBoxContainer/ButtonSpace/Skill_Button4
 
-onready var player_stam_bar = $VBoxContainer/BarSpace/PlayerStamin
+
+onready var chaos_bar = $VBoxContainer/BarSpace/ChaosBar
+onready var convince_bar = $VBoxContainer/BarSpace/ConvinceBar
+
 onready var player_hp_bar = $VBoxContainer/BarSpace/PlayerHP
-onready var enemy_stam_bar = $VBoxContainer/BarSpace/EnemyStamina
+
 onready var enemy_hp_bar = $VBoxContainer/BarSpace/EnemyHP
 
+var in_negotiation = true
+var current_step = 1
+var negotiation_branch = 0
+
+var playerMod = 0
+var enemyMod = 0
+
+var playerStatus = {}
+var enemyStatus = {}
 
 onready var textField = $VBoxContainer/ButtonSpace/RichTextLabel
 
-var skillPoolTop = range(1,11)
-var skillPoolBot = range(11,21)
 
-var allSkillTable = {
- 1 : ["Appeal to Emotion","Reduce enemy morale by 6.",1,0,-6,0,0] ,
- 2 : ["Appeal to Authority","Reduce enemy morale by 6.",2,0,-6,0,0] ,
- 3 : ["Use Facts And Logic","Reduce enemy morale by 6.",3,0,-6,0,0] ,
- 4 : ["Listen Carefully","Increase your morale by 2 points",0,2,0,1,0] ,
- 5 : ["Distract Your Opponent","Increase your morale by 4 points. Reduce enemy stamina by 1 points. Restore 1 stamina.",0,4,0,1,-1] ,
- 6 : ["Suggest a Middle Ground","Increase your morale by 2 points. Reduce enemy morale by 2 points. Restore 1 stamina.",0,2,-2,1,0] ,
- 7 : ["Throw a Punchy One-Liner","Restore 2 stamina.",0,0,0,2,0] ,
- 8 : ["Ask a Loaded Question","Reduce enemy morale by 4. Reduce enemy stamina by 1.",0,0,-4,0,-1] ,
- 9 : ["Ask a lot of questions","Reduce enemy morale by 2. Reduce enemy stamina by 2.",0,0,-2,0,-2] ,
- 10 : ["Reject the Status Quo","Reduce enemy morale by 4. Restore 1 stamina.",0,0,-4,1,0] ,
- 11 : ["Suggest a Slippery Slope","Restore your morale by 2 points. Reduce enemy morale by 8 points. Costs 2 stamina.",0,2,-8,-2,0] ,
- 12 : ["Point out an ad hominem","Restore your morale by 2 points. Reduce enemy morale by 4 points. Reduce enemy stamina by 2 points. Costs 2 stamina.",2,2,-4,-2,-2] ,
- 13 : ["Humiliate The Opposition","Reduce enemy morale by 8 points. Reduce enemy stamina by 1 point. Costs 2 stamina.",1,0,-8,-2,-1] ,
- 14 : ["Shift The Burden Of Proof","Restore your morale by 4 points. Reduce enemy morale by 6 points. Costs 1 stamina.",2,3,-6,-1,0] ,
- 15 : ["Set Up a Straw Man","Reduce enemy morale by 4. Restore enemy stamina by 1. Costs 1 stamina.",0,0,-4,-1,1] ,
- 16 : ["Shift the goal post","Restore your morale by 2 points. Reduce enemy morale by 6 points. Reduce enemy stamina by 1 points. Costs 2 stamina.",3,2,-6,-1,-1] ,
- 17 : ["Imply causation through correlation","Restore your morale by 4 points. Reduce enemy morale by 4 points. Reduce enemy stamina by 1 points. Costs 1 stamina.",0,3,-4,-1,-1] ,
- 18 : ["Pull Of a Texas Sharpshooter","Reduce enemy morale by 12. Costs 3 stamina.",3,0,-12,-3,0] ,
- 19 : ["Invoke Anecdotal Arguments","Restore your morale by 4 points. Reduce enemy morale by 2 points. Reduce enemy stamina by 2 points. Costs 2 stamina.",0,3,-2,-2,-2] ,
- 20 : ["Make a Provocative Statement","Restore your morale by 2 points. Reduce enemy morale by 6 points. Reduce enemy stamina by 1 points. Costs 1 stamina.",1,2,-6,-1,-1] ,
-
-}
-
-onready var enemy_stamina = 1 + randi()%2
-onready var enemy_morale = 40 + 10 * (randi()%4)
 onready var enemy_type = randi()%4
+
+var enemySkills = []
+
+
 
 var button_map = {}
 
@@ -66,14 +54,10 @@ var skill_map = {
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	avatarPlayer.texture = GM.playerAvatar
-	avatarEnemy.texture = GM.battleCallerData["avatar"]
+
 	randomize()
 	load_battle()
-	print(skillPoolTop)
-	print(skillPoolBot)
 
-	player_turn()
 	
 	pass # Replace with function body.
 
@@ -81,22 +65,34 @@ func _ready():
 func load_battle():
 	GM.currentBattle = self
 	player_hp_bar.value = GM.playerHP
-
-	player_stam_bar.value = GM.playerSTAM
-	enemy_hp_bar.value = enemy_morale
-	enemy_stam_bar.value = enemy_stamina
-	#set avatars
+#	enemy_hp_bar.value = get value from relevant spot
+	player_hp_bar.visible = false
+	enemy_hp_bar.visible = false
+	avatarPlayer.texture = GM.playerAvatar
+	#avatarEnemy.texture = GM.battleCallerData["avatar"]
 	
 	button_map[1] = bttn1
 	button_map[2] = bttn2
 	button_map[3] = bttn3
 	button_map[4] = bttn4
-	for z in range(4):
-		reroll_button(z+1)
-		pass
+	
+	#set convince and chaos bars
+	
 	$Curatin/Animator.play("rise")
 	$VBoxContainer/ButtonSpace/ButtonBlocker.visible = false
+	negociate_step1()
+	pass
+
+func start_fight():
 	
+	#switch interface to fight from negotiations
+	in_negotiation = false
+	player_hp_bar.visible = true
+	enemy_hp_bar.visible = true
+	chaos_bar.visible = false
+	convince_bar.visible = false
+	$VBoxContainer/ButtonSpace/StartFight.queue_free()
+	player_turn()
 	pass
 
 func end_battle():
@@ -109,139 +105,174 @@ func close_battleview():
 	pass
 
 func player_turn():
+	#tick CDs
+	for b in [1,2,3,4] :
+		if(button_map[b].CD >0):
+			button_map[b].CD -=1
+			if(button_map[b].CD == 0):
+				button_map[b].toggle_border(true)
+	#check status effects
+	if(playerStatus.size()>0):
+		print("player has a ststus effect!")
+		#match that deals with statuses goes here
+
 	#unlock skill buttons
-	if GM.playerSTAM<0 :
-		GM.playerSTAM = 0
-	if (GM.playerSTAM==0):
-		bttn3.toggle_border(false)
-		bttn4.toggle_border(false)
-	else:
-		bttn3.toggle_border(true)
-		bttn4.toggle_border(true)
 	$TurnInd.color = Color(0,1,0)
 	$VBoxContainer/ButtonSpace/ButtonBlocker.visible = false
 	pass
 
 func enemy_turn():
+	#tick CDs
+
+	if(enemyStatus.size()>0):
+		print("enemy has a ststus effect!")
+		#match that deals with statuses goes here
 	$VBoxContainer/ButtonSpace/ButtonBlocker.visible = true
 	$TurnInd.color = Color(1,0,0)
 	$TimerEnemyAttack.start()
 	pass
 
 func use_skill(bttn):
-	var skill = allSkillTable[ skill_map[bttn] ]
-	var bonus = 0
-	textField.append_bbcode("You "+skill[0]+", ")
-	if(textField.get_line_count()>6):
-		textField.remove_line(0)
-	if(enemy_type == skill[2]):
-		textField.append_bbcode(" it was super persuasive!")
-		bonus = 6
-	else:
-		textField.append_bbcode(" it kinda worked.")
-	textField.newline()
-	if(textField.get_line_count()>6):
-		textField.remove_line(0)
-	if(skill[4]<0):
-		print("deal "+String(bonus + skill[4]*2)+" dmg to enemy")
-		enemy_morale += bonus + skill[4]*2
-		if(enemy_morale<1):
-			enemy_defeat()
-		enemy_hp_bar.value = enemy_morale
-	if(skill[3]>0):
-		print("heal player for "+String(skill[3]*2))
-		GM.set_player_HP(skill[3]*2)
-		player_hp_bar.value = GM.playerHP
-	if(skill[5]!=0):
-		print("change player stamina by ",String(skill[5]))
-		GM.set_player_STAM(skill[5])
-		player_stam_bar.value = GM.playerSTAM
-	if(skill[6]!=0):
-		print("change enemy stamina by ",String(skill[6]))
-		enemy_stamina+=skill[6]
-		enemy_stam_bar.value = enemy_stamina
-	reroll_button(bttn)
+	
+	if(in_negotiation):
+		progress_negotiation(bttn)
+		return
+	
+	var base_dmg = 0
+	match bttn:
+		1:
+			pass
+		2:
+			pass
+		3:
+			pass
+		4:
+			pass
+	
+	# if base_dmg > 0 then deal base_dmg+modifier to enemy HP
+	# else skip dealing dmg
+	
+#	textField.append_bbcode("You "+skill[0]+", ")
+#	if(textField.get_line_count()>6):
+#		textField.remove_line(0)
+#	textField.newline()
+
 
 	enemy_turn()
 	pass
 
-func use_convience():
-	if(enemy_morale<19+randi()%9):
-		player_victory()
-	else:
-		textField.append_bbcode("Your opponent is not convinced")
-		textField.newline()
-		if(textField.get_line_count()>6):
-			textField.remove_line(0)
-	enemy_turn()
-
-	pass
 
 func update_button(bttn):
 	var trgt_bttn = button_map[bttn]
-	var skill_data = allSkillTable[skill_map[bttn]]
-	trgt_bttn.texture_normal = load("res://Battle/Icons/"+String(skill_map[bttn])+".png")
-	trgt_bttn.toggle_border(true)
-	trgt_bttn.hint_tooltip = skill_data[0] +  '\n' + skill_data[1] 
+
+#	trgt_bttn.texture_normal = load("res://Battle/Icons/"+String(skill_map[bttn])+".png")
+#	trgt_bttn.toggle_border(true)
+#	trgt_bttn.hint_tooltip = skill_data[0] +  '\n' + skill_data[1] 
 	pass
 
-func reroll_button(bttn):
-	var trgt_bttn = button_map[bttn]
-	var possible_skills
-	match bttn:
-		1:
-			possible_skills = skillPoolTop.duplicate()
-		2:
-			possible_skills = skillPoolTop.duplicate()
-		3:
-			possible_skills = skillPoolBot.duplicate()
-		4:
-			possible_skills = skillPoolBot.duplicate()
-	for t in skill_map.values():
-		possible_skills.erase(t)
-	randomize()
+func negociate_step1():
+	current_step = 1
+	print("current phase 1")
+	#load buttons 
+	button_map[1].toggle_border(true)
+	button_map[2].toggle_border(true)
+	button_map[3].toggle_border(true)
+	button_map[4].toggle_border(true)
+	pass
+	
+func negociate_step2(selection):
+	negotiation_branch = selection
+	current_step = 2
+	print("current phase 2")
+	button_map[4].toggle_border(false)
+	#load buttons 
+	pass
+func negociate_step3(selection):
+	current_step = 3
+	#load buttons 
+	print("current phase 3")
+	pass
+func negociate_step4(selection):
+	current_step = 4
+	print("current phase 4")
+	#load buttons 
+	button_map[2].toggle_border(false)
+	button_map[3].toggle_border(false)
+	pass
 
-	skill_map[bttn] = possible_skills[randi()%possible_skills.size()]
-
-	update_button(bttn)
+func progress_negotiation(bttn):
+	if(current_step==1):
+		match bttn:
+			1:
+				#do math
+				pass
+			2:
+				#do math
+				pass
+			3:
+				#do math
+				pass
+			4:
+				#do math
+				pass
+		negociate_step2(bttn)
+	elif(current_step==2):
+		match bttn:
+			1:
+				#do math
+				negociate_step3(bttn)
+				pass
+			2:
+				#do math
+				negociate_step3(bttn)
+				pass
+			3:
+				#do math
+				#remove resource
+				negociate_step1()
+				pass
+	elif(current_step==3):
+		match bttn:
+			1:
+				#do math
+				negociate_step4(bttn)
+				pass
+			2:
+				#do math
+				negociate_step4(bttn)
+				pass
+			3:
+				#do math
+				negociate_step1()
+				pass
+	elif(current_step==4):
+		#do math
+		negociate_step1()
 	pass
 
 func enemy_attack():
 	#pick an attack
 	var random_skill = 1 + randi()%10
-	if(enemy_stamina - (1+randi()%10) )< 0:
-		#make a non stamina attack
-		pass
-	else:
-		random_skill += 10
-		#make a stamina attack
-		pass
-	var skill = allSkillTable[random_skill]
-		
-	if(skill[4]<0):
-		GM.set_player_HP(skill[4])
-		player_hp_bar.value = GM.playerHP
-		if(GM.playerHP<0):
-			player_defeat()
-	print("dmg player for "+String(skill[4]))
-	if(skill[3]>0):
-		print("enemy heals self for "+String(skill[3]))
-		enemy_morale += skill[3]
 
-		enemy_hp_bar.value = enemy_morale
-	if(skill[6]!=0):
-		print("change player stamina by ",String(skill[6]))
-		GM.set_player_STAM(skill[6])
-		player_stam_bar.value = GM.playerSTAM
-	if(skill[5]!=0):
-		print("change enemy stamina by ",String(skill[5]))
-		enemy_stamina+=skill[5]
-		enemy_stam_bar.value = enemy_stamina
+		
+#	if(skill[4]<0):
+#		GM.set_player_HP(skill[4])
+#		
+#		if(GM.playerHP<0):
+#			player_defeat()
+#	print("dmg player for "+String(skill[4]))
+#	if(skill[3]>0):
+#		print("enemy heals self for "+String(skill[3]))
+#		enemy_morale += skill[3]
+#
+#		enemy_hp_bar.value = enemy_morale
+
+	#player_hp_bar.value = GM.playerHP
 	
-	textField.append_bbcode("The enemy decided to "+skill[0])
-	textField.newline()
-	if(textField.get_line_count()>6):
-		textField.remove_line(0)
+#	textField.append_bbcode("The enemy decided to "+skill[0])
+#	textField.newline()
+#	if(textField.get_line_count()>6):
+#		textField.remove_line(0)
 	player_turn()
 	pass
 
@@ -272,10 +303,6 @@ func _on_TimerEnemyAttack_timeout():
 	pass # Replace with function body.
 
 
-func _on_Convince_pressed():
-	use_convience()
-	pass # Replace with function body.
-
 
 func _on_Options_pressed():
 	var optionsMEnu = optionsWindowScene.instance()
@@ -297,4 +324,9 @@ func _on_ButtonPlayerDies_pressed():
 func _on_ButtonEnemyDies_pressed():
 	get_tree().paused = false
 	end_battle()
+	pass # Replace with function body.
+
+
+func _on_StartFight_pressed():
+	start_fight()
 	pass # Replace with function body.

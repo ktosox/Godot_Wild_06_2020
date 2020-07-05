@@ -6,23 +6,30 @@
 [ext_resource path="res://textfieldFont.tres" type="DynamicFont" id=4]
 [ext_resource path="res://Battle/StatBAr.shader" type="Shader" id=5]
 
-[sub_resource type="ShaderMaterial" id=1]
-shader = ExtResource( 5 )
-shader_param/modulate = Color( 1, 1, 1, 1 )
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;	
+	
+render_mode blend_mix;	
+uniform vec4 modulate : hint_color;	
+	
+void fragment() {	
+	COLOR = texture(TEXTURE, UV);
+	if(COLOR.r<0.2 ){COLOR = vec4(modulate.rgb, texture(TEXTURE, UV).a * modulate.a);}
+}	"
 
 [sub_resource type="ShaderMaterial" id=2]
-shader = ExtResource( 5 )
-shader_param/modulate = Color( 1, 1, 1, 1 )
+shader = SubResource( 1 )
+shader_param/modulate = Color( 0.164706, 0.698039, 0.686275, 1 )
 
 [sub_resource type="ShaderMaterial" id=3]
 shader = ExtResource( 5 )
 shader_param/modulate = Color( 1, 1, 1, 1 )
 
-[sub_resource type="ShaderMaterial" id=4]
+[sub_resource type="ShaderMaterial" id=5]
 shader = ExtResource( 5 )
 shader_param/modulate = Color( 1, 1, 1, 1 )
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=7]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:rect_size")
 tracks/0/interp = 1
@@ -50,7 +57,7 @@ tracks/1/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=8]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:rect_size")
 tracks/0/interp = 1
@@ -69,11 +76,11 @@ layer = 2
 script = ExtResource( 1 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
-modulate = Color( 1, 1, 1, 0.45098 )
+self_modulate = Color( 1, 1, 1, 0.133333 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
-color = Color( 0.305882, 0.305882, 0.305882, 1 )
+color = Color( 0.0705882, 0.0705882, 0.0705882, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -89,52 +96,76 @@ __meta__ = {
 [node name="ActorSpace" type="ColorRect" parent="VBoxContainer"]
 self_modulate = Color( 0.717647, 0.717647, 0.717647, 0.196078 )
 margin_right = 800.0
-margin_bottom = 336.0
+margin_bottom = 316.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+size_flags_stretch_ratio = 0.8
 
 [node name="Enemy" parent="VBoxContainer/ActorSpace" instance=ExtResource( 2 )]
 margin_left = 768.0
-margin_top = 64.0
+margin_top = 56.0
 margin_right = 224.0
-margin_bottom = -12.0
+margin_bottom = -8.0
 rect_scale = Vector2( -1, 1 )
 
 [node name="Player" parent="VBoxContainer/ActorSpace" instance=ExtResource( 2 )]
 margin_left = 32.0
-margin_top = 64.0
+margin_top = 56.0
 margin_right = -512.0
-margin_bottom = -12.0
+margin_bottom = -8.0
 
 [node name="BarSpace" type="ColorRect" parent="VBoxContainer"]
 self_modulate = Color( 1, 1, 1, 0.741176 )
-margin_top = 340.0
+margin_top = 320.0
 margin_right = 800.0
-margin_bottom = 396.0
-rect_min_size = Vector2( 0, 56 )
+margin_bottom = 356.0
+rect_min_size = Vector2( 0, 36 )
 color = Color( 0, 0.203922, 0.388235, 1 )
 
-[node name="PlayerHP" type="ProgressBar" parent="VBoxContainer/BarSpace"]
-modulate = Color( 1, 0, 0, 1 )
-material = SubResource( 1 )
+[node name="ChaosBar" type="ProgressBar" parent="VBoxContainer/BarSpace"]
+modulate = Color( 1, 0, 0.933333, 1 )
+material = SubResource( 2 )
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
 margin_left = 40.0
-margin_top = 6.0
-margin_right = 280.0
-margin_bottom = 30.0
+margin_top = 4.0
+margin_right = -40.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 0, 12 )
+size_flags_horizontal = 5
 value = 50.0
 percent_visible = false
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="PlayerStamin" type="ProgressBar" parent="VBoxContainer/BarSpace"]
-modulate = Color( 0, 1, 0, 1 )
+[node name="ConvinceBar" type="ProgressBar" parent="VBoxContainer/BarSpace"]
+modulate = Color( 1, 0.968627, 0.137255, 1 )
 material = SubResource( 2 )
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
 margin_left = 40.0
-margin_top = 28.0
-margin_right = 280.0
-margin_bottom = 52.0
-max_value = 10.0
+margin_top = -12.0
+margin_right = -40.0
+rect_min_size = Vector2( 0, 12 )
+size_flags_horizontal = 5
+value = 50.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="PlayerHP" type="ProgressBar" parent="VBoxContainer/BarSpace"]
+modulate = Color( 1, 0, 0, 1 )
+material = SubResource( 3 )
+margin_left = 32.0
+margin_top = 4.0
+margin_right = 288.0
+margin_bottom = 32.0
+value = 50.0
 percent_visible = false
 __meta__ = {
 "_edit_use_anchors_": false
@@ -142,34 +173,21 @@ __meta__ = {
 
 [node name="EnemyHP" type="ProgressBar" parent="VBoxContainer/BarSpace"]
 modulate = Color( 1, 0, 0, 1 )
-material = SubResource( 3 )
-margin_left = 520.0
-margin_top = 6.0
-margin_right = 760.0
-margin_bottom = 30.0
-percent_visible = false
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="EnemyStamina" type="ProgressBar" parent="VBoxContainer/BarSpace"]
-modulate = Color( 0, 1, 0, 1 )
-material = SubResource( 4 )
-margin_left = 520.0
-margin_top = 30.0
-margin_right = 760.0
-margin_bottom = 54.0
-max_value = 10.0
+material = SubResource( 5 )
+margin_left = 512.0
+margin_top = 4.0
+margin_right = 768.0
+margin_bottom = 32.0
 percent_visible = false
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="ButtonSpace" type="ColorRect" parent="VBoxContainer"]
-margin_top = 400.0
+margin_top = 360.0
 margin_right = 800.0
 margin_bottom = 600.0
-rect_min_size = Vector2( 0, 200 )
+rect_min_size = Vector2( 0, 240 )
 mouse_filter = 2
 color = Color( 0, 0, 0, 1 )
 
@@ -177,49 +195,60 @@ color = Color( 0, 0, 0, 1 )
 margin_left = 24.0
 margin_top = 24.0
 margin_right = -712.0
-margin_bottom = -102.0
+margin_bottom = -152.0
 bttnID = 1
 
 [node name="Skill_Button2" parent="VBoxContainer/ButtonSpace" instance=ExtResource( 3 )]
 margin_left = 112.0
 margin_top = 24.0
 margin_right = -624.0
-margin_bottom = -102.0
+margin_bottom = -152.0
 bttnID = 2
 
 [node name="Skill_Button3" parent="VBoxContainer/ButtonSpace" instance=ExtResource( 3 )]
 margin_left = 24.0
 margin_top = 112.0
 margin_right = -712.0
-margin_bottom = -14.0
+margin_bottom = -64.0
 bttnID = 3
 
 [node name="Skill_Button4" parent="VBoxContainer/ButtonSpace" instance=ExtResource( 3 )]
 margin_left = 112.0
 margin_top = 112.0
 margin_right = -624.0
-margin_bottom = -14.0
+margin_bottom = -64.0
 hint_tooltip = "HEBUBUE
 jgjhgjgjyyyy
 -thrhrh"
 bttnID = 4
 
-[node name="Convince" type="Button" parent="VBoxContainer/ButtonSpace"]
-margin_left = 208.0
-margin_top = 6.0
-margin_right = 392.0
-margin_bottom = 26.0
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/ButtonSpace"]
+margin_left = 192.0
+margin_top = 8.0
+margin_right = 592.0
+margin_bottom = 224.0
+custom_fonts/normal_font = ExtResource( 4 )
+bbcode_enabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StartFight" type="Button" parent="VBoxContainer/ButtonSpace"]
+margin_left = 600.0
+margin_top = 80.0
+margin_right = 693.0
+margin_bottom = 100.0
 rect_scale = Vector2( 2, 2 )
-text = "CONVINCE OPPONENT"
+text = "START FIGHT"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Options" type="Button" parent="VBoxContainer/ButtonSpace"]
-margin_left = 592.0
-margin_top = 6.0
-margin_right = 683.0
-margin_bottom = 26.0
+margin_left = 600.0
+margin_top = 16.0
+margin_right = 691.0
+margin_bottom = 36.0
 rect_scale = Vector2( 2, 2 )
 text = "OPTIONS"
 __meta__ = {
@@ -227,22 +256,10 @@ __meta__ = {
 }
 
 [node name="ButtonBlocker" type="ColorRect" parent="VBoxContainer/ButtonSpace"]
-visible = false
 margin_top = -2.0
 margin_right = 800.0
-margin_bottom = 190.0
+margin_bottom = 240.0
 color = Color( 0, 0, 0, 0.698039 )
-
-[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/ButtonSpace"]
-margin_left = 192.0
-margin_top = 54.0
-margin_right = 784.0
-margin_bottom = 177.0
-custom_fonts/normal_font = ExtResource( 4 )
-bbcode_enabled = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="EndScreen" type="ColorRect" parent="."]
 pause_mode = 2
@@ -284,8 +301,8 @@ margin_top = 72.0
 margin_right = 249.0
 margin_bottom = 103.0
 rect_scale = Vector2( 4, 4 )
-text = "YOU HAVE LOST 
-YOUR WILL TO FIGHT"
+text = "YOU HAVE BEEN
+DEFEATED!"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -307,8 +324,8 @@ margin_top = 72.0
 margin_right = 249.0
 margin_bottom = 103.0
 rect_scale = Vector2( 4, 4 )
-text = "YOU HAVE GAINED
-SUPPORT"
+text = "YOU HAVE WON
+THE BATTLE!"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -333,8 +350,8 @@ __meta__ = {
 }
 
 [node name="Animator" type="AnimationPlayer" parent="Curatin"]
-anims/lower = SubResource( 5 )
-anims/rise = SubResource( 6 )
+anims/lower = SubResource( 7 )
+anims/rise = SubResource( 8 )
 
 [node name="TimerEnemyAttack" type="Timer" parent="."]
 wait_time = 1.3
@@ -349,7 +366,7 @@ margin_bottom = 160.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="pressed" from="VBoxContainer/ButtonSpace/Convince" to="." method="_on_Convince_pressed"]
+[connection signal="pressed" from="VBoxContainer/ButtonSpace/StartFight" to="." method="_on_StartFight_pressed"]
 [connection signal="pressed" from="VBoxContainer/ButtonSpace/Options" to="." method="_on_Options_pressed"]
 [connection signal="pressed" from="EndScreen/EnemyDies/ButtonEnemyDies" to="." method="_on_ButtonEnemyDies_pressed"]
 [connection signal="pressed" from="EndScreen/PlayerDies/ButtonPlayerDies" to="." method="_on_ButtonPlayerDies_pressed"]

@@ -23,8 +23,6 @@ var currentBattle
 
 var playerHP = 100
 var playerHPMax = 100
-var playerSTAM = 1
-var playerSTAMMax = 10
 var playerAvatar = load("res://Battle/Avatars/skeleton_07.png")
 var SUPPORT = 0
 
@@ -75,10 +73,6 @@ func set_player_HP(change):
 		playerHP = playerHPMax
 	currentPlayer.update_HP(playerHP)
 	pass
-func set_player_STAM(change):
-	playerSTAM += change
-	if playerSTAM > playerSTAMMax :
-		playerSTAM = playerSTAMMax
 
 func update_support(newSup):
 	SUPPORT += newSup

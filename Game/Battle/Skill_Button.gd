@@ -5,6 +5,7 @@ extends TextureButton
 # var a = 2
 # var b = "text"
 export var bttnID = 0
+export var CD = 0
 
 var is_ready = true
 
@@ -14,6 +15,8 @@ var closed = Color("500101")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	if(CD>0):
+		toggle_border(false)
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

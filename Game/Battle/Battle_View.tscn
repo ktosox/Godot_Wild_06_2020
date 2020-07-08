@@ -25,11 +25,11 @@ shader_param/modulate = Color( 0.164706, 0.698039, 0.686275, 1 )
 shader = ExtResource( 5 )
 shader_param/modulate = Color( 1, 1, 1, 1 )
 
-[sub_resource type="ShaderMaterial" id=5]
+[sub_resource type="ShaderMaterial" id=4]
 shader = ExtResource( 5 )
 shader_param/modulate = Color( 1, 1, 1, 1 )
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=5]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:rect_size")
 tracks/0/interp = 1
@@ -57,7 +57,7 @@ tracks/1/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=6]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:rect_size")
 tracks/0/interp = 1
@@ -173,7 +173,7 @@ __meta__ = {
 
 [node name="EnemyHP" type="ProgressBar" parent="VBoxContainer/BarSpace"]
 modulate = Color( 1, 0, 0, 1 )
-material = SubResource( 5 )
+material = SubResource( 4 )
 margin_left = 512.0
 margin_top = 4.0
 margin_right = 768.0
@@ -350,8 +350,8 @@ __meta__ = {
 }
 
 [node name="Animator" type="AnimationPlayer" parent="Curatin"]
-anims/lower = SubResource( 7 )
-anims/rise = SubResource( 8 )
+anims/lower = SubResource( 5 )
+anims/rise = SubResource( 6 )
 
 [node name="TimerEnemyAttack" type="Timer" parent="."]
 wait_time = 1.3

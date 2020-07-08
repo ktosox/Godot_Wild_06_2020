@@ -38,8 +38,16 @@ onready var textField = $VBoxContainer/ButtonSpace/RichTextLabel
 
 onready var enemy_type = randi()%4
 
-var enemySkills = []
+var allPlayerSkills = {
+	1 : ["Slash","Basic attack",3,0],
+	2 : ["Boneshot","Heavy attack",5,3],
+	3 : ["Break a bone","Bonus damage to next attack",0,5],
+	4 : ["Arcane ball","Magic attack",6,4],
+}
 
+
+var enemySkills = []
+var allEnemySkills = []
 
 
 var button_map = {}

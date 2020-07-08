@@ -22,6 +22,7 @@ config/icon="res://icon.png"
 [autoload]
 
 GM="*res://GameManager.tscn"
+SM="*res://SkillMap/SkillMap.tscn"
 
 [display]
 

@@ -1,0 +1,26 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://SkillMap/SkillMap.gd" type="Script" id=1]
+[ext_resource path="res://SkillMap/Player.gd" type="Script" id=2]
+[ext_resource path="res://SkillMap/EnemyBlack.gd" type="Script" id=3]
+[ext_resource path="res://SkillMap/EnemyRed.gd" type="Script" id=4]
+[ext_resource path="res://SkillMap/EnemyBlue.gd" type="Script" id=5]
+[ext_resource path="res://SkillMap/EnemyGreen.gd" type="Script" id=6]
+
+[node name="SkillMap" type="Node"]
+script = ExtResource( 1 )
+
+[node name="Player" type="Node" parent="."]
+script = ExtResource( 2 )
+
+[node name="EnemyBlue" type="Node" parent="."]
+script = ExtResource( 5 )
+
+[node name="EnemyRed" type="Node" parent="."]
+script = ExtResource( 4 )
+
+[node name="EnemyGreen" type="Node" parent="."]
+script = ExtResource( 6 )
+
+[node name="EnemyBlack" type="Node" parent="."]
+script = ExtResource( 3 )

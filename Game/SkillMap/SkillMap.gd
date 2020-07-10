@@ -32,10 +32,7 @@ onready var skillIDs = {
 	30:$EnemyBlack.skill5,
 }
 
-func _ready():
-	print(get_skill(11))
-
 func get_skill(ID):
-	return skillIDs[ID]
-	
+	if(skillIDs.keys().has(ID)):
+		return skillIDs[ID]
 	pass

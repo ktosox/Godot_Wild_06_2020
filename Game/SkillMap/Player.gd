@@ -3,9 +3,9 @@ extends Node
 
 
 export var skill1 = {
-	"Name":"Name",
+	"Name":"Slash",
 	"Tooltip":"Tooltip",
-	"Damange":1,
+	"Damange":3,
 	"Cooldown" : 0,
 	"PlayerMod":0,
 	"EnemyMod":0,
@@ -13,30 +13,30 @@ export var skill1 = {
 	"StatusTurns":0,
 }
 export var skill2 = {
-	"Name":"Name",
+	"Name":"Boneshot",
 	"Tooltip":"Tooltip",
-	"Damange":1,
-	"Cooldown" : 0,
+	"Damange":5,
+	"Cooldown" : 3,
 	"PlayerMod":0,
 	"EnemyMod":0,
 	"StatusType":0,
 	"StatusTurns":0,
 }
 export var skill3 = {
-	"Name":"Name",
+	"Name":"Bone Braker",
 	"Tooltip":"Tooltip",
-	"Damange":1,
-	"Cooldown" : 0,
+	"Damange":0,
+	"Cooldown" : 5,
 	"PlayerMod":0,
 	"EnemyMod":0,
 	"StatusType":0,
 	"StatusTurns":0,
 }
 export var skill4 = {
-	"Name":"Name",
+	"Name":"Arcane Ball",
 	"Tooltip":"Tooltip",
-	"Damange":1,
-	"Cooldown" : 0,
+	"Damange":6,
+	"Cooldown" : 4,
 	"PlayerMod":0,
 	"EnemyMod":0,
 	"StatusType":0,
@@ -45,7 +45,7 @@ export var skill4 = {
 export var skill1plus = {
 	"Name":"Name",
 	"Tooltip":"Tooltip",
-	"Damange":1,
+	"Damange":5,
 	"Cooldown" : 0,
 	"PlayerMod":0,
 	"EnemyMod":0,
@@ -55,8 +55,8 @@ export var skill1plus = {
 export var skill2plus = {
 	"Name":"Name",
 	"Tooltip":"Tooltip",
-	"Damange":1,
-	"Cooldown" : 0,
+	"Damange":10,
+	"Cooldown" : 3,
 	"PlayerMod":0,
 	"EnemyMod":0,
 	"StatusType":0,
@@ -65,8 +65,8 @@ export var skill2plus = {
 export var skill3plus = {
 	"Name":"Name",
 	"Tooltip":"Tooltip",
-	"Damange":1,
-	"Cooldown" : 0,
+	"Damange":2,
+	"Cooldown" : 5,
 	"PlayerMod":0,
 	"EnemyMod":0,
 	"StatusType":0,
@@ -75,8 +75,8 @@ export var skill3plus = {
 export var skill4plus = {
 	"Name":"Name",
 	"Tooltip":"Tooltip",
-	"Damange":1,
-	"Cooldown" : 0,
+	"Damange":9,
+	"Cooldown" : 4,
 	"PlayerMod":0,
 	"EnemyMod":0,
 	"StatusType":0,

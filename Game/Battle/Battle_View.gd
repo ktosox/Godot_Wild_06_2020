@@ -38,17 +38,9 @@ onready var textField = $VBoxContainer/ButtonSpace/RichTextLabel
 
 onready var enemy_type = randi()%4
 
-var allPlayerSkills = {
-	1 : ["Slash","Basic attack",3,0],
-	2 : ["Boneshot","Heavy attack",5,3],
-	3 : ["Break a bone","Bonus damage to next attack",0,5],
-	4 : ["Arcane ball","Magic attack",6,4],
-}
-
 
 var enemySkills = []
 var allEnemySkills = []
-
 
 var button_map = {}
 
@@ -100,7 +92,27 @@ func start_fight():
 	chaos_bar.visible = false
 	convince_bar.visible = false
 	$VBoxContainer/ButtonSpace/StartFight.queue_free()
+	load_player_skills()
 	player_turn()
+	pass
+
+func load_player_skills():
+	button_map[1].toggle_border(true)
+	button_map[2].toggle_border(true)
+	button_map[3].toggle_border(true)
+	button_map[4].toggle_border(true)
+	var skill_data 
+	for s in [1,2,3,4]:
+		if(GM.playerSkillUpgrades[s-1]):
+			skill_map[s] = s+4
+		else:
+			skill_map[s] = s
+		skill_data = SM.get_skill(skill_map[s])
+		button_map[s].hint_tooltip = skill_data["Name"]+'\n'+skill_data["Tooltip"]
+#	trgt_bttn.hint_tooltip = skill_data[0] +  '\n' + skill_data[1] 
+	#set textures
+	#set names and tooltips
+	
 	pass
 
 func end_battle():
@@ -149,6 +161,7 @@ func use_skill(bttn):
 	var base_dmg = 0
 	match bttn:
 		1:
+			
 			pass
 		2:
 			pass
@@ -183,26 +196,82 @@ func negociate_step1():
 	print("current phase 1")
 	#load buttons 
 	button_map[1].toggle_border(true)
+	button_map[1].hint_tooltip = "Point out how bad dungeon looks"
 	button_map[2].toggle_border(true)
+	button_map[2].hint_tooltip = "Try to address monster honor/pride [PH]"
 	button_map[3].toggle_border(true)
+	button_map[3].hint_tooltip = "Badmouth current dungeon master"
 	button_map[4].toggle_border(true)
+	button_map[4].hint_tooltip = "Complain about low quality equipment"
 	pass
 	
 func negociate_step2(selection):
 	negotiation_branch = selection
 	current_step = 2
+	match(selection):
+		1:
+			button_map[1].hint_tooltip = "Tell him, he deserves better than this"
+			button_map[2].hint_tooltip = "Address bad living conditions"
+			button_map[3].hint_tooltip = "Give him nice decoration to his room"
+		2:
+			button_map[1].hint_tooltip = "Tell him, he deserves better than this"
+			button_map[2].hint_tooltip = "Tell him, current dungeon master doesnt deserve his services"
+			button_map[3].hint_tooltip = "Convince him to join you [PH]"
+		3:
+			button_map[1].hint_tooltip = "Tell him, current dungeon master doesnt deserve his services"
+			button_map[2].hint_tooltip = "Complain how dungeon master isnt taking care of his employees"
+			button_map[3].hint_tooltip = "Promise high position in new dungeon order"
+		4:
+			button_map[1].hint_tooltip = "Address bad living conditions"
+			button_map[2].hint_tooltip = "Complain how dungeon master isnt taking care of his employees"
+			button_map[3].hint_tooltip = "Try to bribe him with one of your items"
 	print("current phase 2")
 	button_map[4].toggle_border(false)
 	#load buttons 
 	pass
 func negociate_step3(selection):
+	match negotiation_branch:
+		1:
+			match(selection):
+				1:
+					button_map[1].hint_tooltip = "Address bad living conditions"
+					button_map[2].hint_tooltip = "Tell him, current dungeon master doesnt deserve his services"
+				2:
+					button_map[1].hint_tooltip = "Tell him, he deserves better than this"
+					button_map[2].hint_tooltip = "Complain how dungeon master isnt taking care of his employees"
+		2:
+			match(selection):
+				1:
+					button_map[1].hint_tooltip = "Address bad living conditions"
+					button_map[2].hint_tooltip = "Tell him, current dungeon master doesnt deserve his services"
+				2:
+					button_map[1].hint_tooltip = "Complain how dungeon master isnt taking care of his employees"
+					button_map[2].hint_tooltip = "Tell him, he deserves better than this"
+		3:
+			match(selection):
+				1:
+					button_map[1].hint_tooltip = "Complain how dungeon master isnt taking care of his employees"
+					button_map[2].hint_tooltip = "Tell him, current dungeon master doesnt deserve his services"
+				2:
+					button_map[1].hint_tooltip = "Address bad living conditions"
+					button_map[2].hint_tooltip = "Tell him, current dungeon master doesnt deserve his services"
+		4:
+			match(selection):
+				1:
+					button_map[1].hint_tooltip = "Complain how dungeon master isnt taking care of his employees"
+					button_map[2].hint_tooltip = "Tell him, he deserves better than this"
+				2:
+					button_map[1].hint_tooltip = "Tell him, current dungeon master doesnt deserve his services"
+					button_map[2].hint_tooltip = "Address bad living conditions"
 	current_step = 3
 	#load buttons 
+	button_map[3].hint_tooltip = "Tell how you would improve it"
 	print("current phase 3")
 	pass
 func negociate_step4(selection):
 	current_step = 4
 	print("current phase 4")
+	button_map[1].hint_tooltip = "Tell how you would improve it"
 	#load buttons 
 	button_map[2].toggle_border(false)
 	button_map[3].toggle_border(false)

@@ -15,6 +15,7 @@ var skelyPool = [load("res://Battle/Avatars/skeleton_03.png"),load("res://Battle
 var guardPool = [load("res://Battle/Avatars/dark_knight_04.png"),load("res://Battle/Avatars/living_armor_01.png"),load("res://Battle/Avatars/living_armor_03.png")]
 var dudePool = [load("res://Battle/Avatars/goblin_02.png"),load("res://Battle/Avatars/troll_01.png"),load("res://Battle/Avatars/orc_02.png")]
 
+var playerSkillUpgrades=[false,false,false,false]
 
 
 var current_level 

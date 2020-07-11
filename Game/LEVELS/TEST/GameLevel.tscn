@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=2]
+[gd_scene load_steps=41 format=2]
 
 [ext_resource path="res://Dungeon_Template/GameLevel.gd" type="Script" id=1]
 [ext_resource path="res://Dungeon/Dungeon_Tileset.png" type="Texture" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Items/Key.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Doors/Exit.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Items/chest/Chest.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Battle/Avatars/troll_01.png" type="Texture" id=11]
 
 [sub_resource type="NavigationPolygon" id=1]
 vertices = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
@@ -530,5 +531,8 @@ position = Vector2( 22.2188, 130.607 )
 
 [node name="Enemy" parent="Enemies" instance=ExtResource( 4 )]
 position = Vector2( -8.81108, 68.6758 )
+avatar = ExtResource( 11 )
+type = 3
+HP = 90
 
 [editable path="Player"]

@@ -1,9 +1,6 @@
 extends CanvasLayer
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
 var optionsWindowScene = preload("res://OptionsMenu.tscn")
 
 onready var avatarPlayer = $VBoxContainer/ActorSpace/Player
@@ -26,6 +23,7 @@ onready var enemy_hp_bar = $VBoxContainer/BarSpace/EnemyHP
 var in_negotiation = true
 var current_step = 1
 var negotiation_branch = 0
+var negotiation_sub_branch = 0
 
 var playerMod = 0
 var enemyMod = 0
@@ -34,6 +32,18 @@ var playerStatus = {}
 var enemyStatus = {}
 
 onready var textField = $VBoxContainer/ButtonSpace/RichTextLabel
+
+export var dialogSkills ={
+	1: ["Point out how bad dungeon looks",3,2,0,1,-1],
+	2: ["Try to address monster honor/pride [PH]",3,1,2,-1,-1],
+	3: ["Badmouth current dungeon master",3,0,-1,1,-3],
+	4: ["Complain about low quality equipment",3,1,2,1,-1],
+	5: ["Address bad living conditions",6,1,1,2,-1],
+	6: ["Tell him, he deserves better than this",6,1,1,2,-1],
+	7: ["Tell him, current dungeon master doesnt deserve his services",6,2,0,0,-3],
+	8: ["Complain how dungeon master isnt taking care of his employees",6,1,0,1,-3],
+	9: ["Tell how you would improve it",2,0,1,0,-1],
+}
 
 
 onready var enemy_type = randi()%4
@@ -65,11 +75,11 @@ func _ready():
 func load_battle():
 	GM.currentBattle = self
 	player_hp_bar.value = GM.playerHP
-#	enemy_hp_bar.value = get value from relevant spot
+	enemy_hp_bar.value = GM.battleCallerData["HP"]
 	player_hp_bar.visible = false
 	enemy_hp_bar.visible = false
 	avatarPlayer.texture = GM.playerAvatar
-	#avatarEnemy.texture = GM.battleCallerData["avatar"]
+	avatarEnemy.texture = GM.battleCallerData["avatar"]
 	
 	button_map[1] = bttn1
 	button_map[2] = bttn2
@@ -196,40 +206,43 @@ func negociate_step1():
 	print("current phase 1")
 	#load buttons 
 	button_map[1].toggle_border(true)
-	button_map[1].hint_tooltip = "Point out how bad dungeon looks"
+	button_map[1].hint_tooltip = dialogSkills[1][0]
 	button_map[2].toggle_border(true)
-	button_map[2].hint_tooltip = "Try to address monster honor/pride [PH]"
+	button_map[2].hint_tooltip = dialogSkills[2][0]
 	button_map[3].toggle_border(true)
-	button_map[3].hint_tooltip = "Badmouth current dungeon master"
+	button_map[3].hint_tooltip = dialogSkills[3][0]
 	button_map[4].toggle_border(true)
-	button_map[4].hint_tooltip = "Complain about low quality equipment"
+	button_map[4].hint_tooltip = dialogSkills[4][0]
 	pass
-	
+
 func negociate_step2(selection):
 	negotiation_branch = selection
 	current_step = 2
 	match(selection):
 		1:
-			button_map[1].hint_tooltip = "Tell him, he deserves better than this"
-			button_map[2].hint_tooltip = "Address bad living conditions"
+			button_map[1].hint_tooltip = dialogSkills[6][0]
+			button_map[2].hint_tooltip = dialogSkills[5][0]
 			button_map[3].hint_tooltip = "Give him nice decoration to his room"
 		2:
-			button_map[1].hint_tooltip = "Tell him, he deserves better than this"
-			button_map[2].hint_tooltip = "Tell him, current dungeon master doesnt deserve his services"
+			button_map[1].hint_tooltip = dialogSkills[6][0]
+			button_map[2].hint_tooltip = dialogSkills[7][0]
 			button_map[3].hint_tooltip = "Convince him to join you [PH]"
 		3:
-			button_map[1].hint_tooltip = "Tell him, current dungeon master doesnt deserve his services"
-			button_map[2].hint_tooltip = "Complain how dungeon master isnt taking care of his employees"
+			button_map[1].hint_tooltip = dialogSkills[7][0]
+			button_map[2].hint_tooltip = dialogSkills[8][0]
 			button_map[3].hint_tooltip = "Promise high position in new dungeon order"
 		4:
-			button_map[1].hint_tooltip = "Address bad living conditions"
-			button_map[2].hint_tooltip = "Complain how dungeon master isnt taking care of his employees"
+			button_map[1].hint_tooltip = dialogSkills[5][0]
+			button_map[2].hint_tooltip = dialogSkills[8][0]
 			button_map[3].hint_tooltip = "Try to bribe him with one of your items"
+
 	print("current phase 2")
 	button_map[4].toggle_border(false)
+	button_map[4].hint_tooltip = ""
 	#load buttons 
 	pass
 func negociate_step3(selection):
+	negotiation_sub_branch = selection
 	match negotiation_branch:
 		1:
 			match(selection):
@@ -274,33 +287,50 @@ func negociate_step4(selection):
 	button_map[1].hint_tooltip = "Tell how you would improve it"
 	#load buttons 
 	button_map[2].toggle_border(false)
+	button_map[2].hint_tooltip = ""
 	button_map[3].toggle_border(false)
+	button_map[3].hint_tooltip = ""
 	pass
 
 func progress_negotiation(bttn):
 	if(current_step==1):
-		match bttn:
-			1:
-				#do math
-				pass
-			2:
-				#do math
-				pass
-			3:
-				#do math
-				pass
-			4:
-				#do math
-				pass
+		convince_bar.value+=dialogSkills[bttn][1]+dialogSkills[bttn][2+randi()%4]
 		negociate_step2(bttn)
 	elif(current_step==2):
 		match bttn:
 			1:
+				match(negotiation_branch):
+					1:
+						convince_bar.value+=dialogSkills[6][1]+dialogSkills[6][2+randi()%4]
+						pass
+					2:
+						convince_bar.value+=dialogSkills[6][1]+dialogSkills[6][2+randi()%4]
+						pass
+					3:
+						convince_bar.value+=dialogSkills[7][1]+dialogSkills[7][2+randi()%4]
+						pass
+					4:
+						convince_bar.value+=dialogSkills[5][1]+dialogSkills[5][2+randi()%4]
+						pass
 				#do math
+				
 				negociate_step3(bttn)
 				pass
 			2:
-				#do math
+				match(negotiation_branch):
+					1:
+						convince_bar.value+=dialogSkills[5][1]+dialogSkills[5][2+randi()%4]
+						pass
+					2:
+						convince_bar.value+=dialogSkills[7][1]+dialogSkills[7][2+randi()%4]
+						pass
+					3:
+						convince_bar.value+=dialogSkills[8][1]+dialogSkills[8][2+randi()%4]
+						pass
+					4:
+						convince_bar.value+=dialogSkills[8][1]+dialogSkills[8][2+randi()%4]
+						pass
+
 				negociate_step3(bttn)
 				pass
 			3:
@@ -311,19 +341,70 @@ func progress_negotiation(bttn):
 	elif(current_step==3):
 		match bttn:
 			1:
-				#do math
+				match(negotiation_branch):
+					1:
+						match(negotiation_sub_branch):
+							1:
+								convince_bar.value+=dialogSkills[5][1]+dialogSkills[5][2+randi()%4]
+							2:
+								convince_bar.value+=dialogSkills[6][1]+dialogSkills[6][2+randi()%4]
+								pass
+					2:
+						match(negotiation_sub_branch):
+							1:
+								convince_bar.value+=dialogSkills[5][1]+dialogSkills[5][2+randi()%4]
+							2:
+								convince_bar.value+=dialogSkills[8][1]+dialogSkills[8][2+randi()%4]
+					3:
+						match(negotiation_sub_branch):
+							1:
+								convince_bar.value+=dialogSkills[8][1]+dialogSkills[8][2+randi()%4]
+							2:
+								convince_bar.value+=dialogSkills[5][1]+dialogSkills[5][2+randi()%4]
+					4:
+						match(negotiation_sub_branch):
+							1:
+								convince_bar.value+=dialogSkills[8][1]+dialogSkills[8][2+randi()%4]
+							2:
+								convince_bar.value+=dialogSkills[7][1]+dialogSkills[7][2+randi()%4]
 				negociate_step4(bttn)
 				pass
 			2:
-				#do math
+				match(negotiation_branch):
+					1:
+						match(negotiation_sub_branch):
+							1:
+								convince_bar.value+=dialogSkills[7][1]+dialogSkills[7][2+randi()%4]
+							2:
+								convince_bar.value+=dialogSkills[8][1]+dialogSkills[8][2+randi()%4]
+					2:
+						match(negotiation_sub_branch):
+							1:
+								convince_bar.value+=dialogSkills[7][1]+dialogSkills[7][2+randi()%4]
+							2:
+								convince_bar.value+=dialogSkills[6][1]+dialogSkills[6][2+randi()%4]
+					3:
+						match(negotiation_sub_branch):
+							1:
+								convince_bar.value+=dialogSkills[6][1]+dialogSkills[6][2+randi()%4]
+							2:
+								convince_bar.value+=dialogSkills[7][1]+dialogSkills[7][2+randi()%4]
+					4:
+						match(negotiation_sub_branch):
+							1:
+								convince_bar.value+=dialogSkills[6][1]+dialogSkills[6][2+randi()%4]
+							2:
+								convince_bar.value+=dialogSkills[5][1]+dialogSkills[5][2+randi()%4]
 				negociate_step4(bttn)
 				pass
 			3:
 				#do math
+				convince_bar.value+=dialogSkills[9][1]+dialogSkills[9][2+randi()%4]
 				negociate_step1()
 				pass
 	elif(current_step==4):
 		#do math
+		convince_bar.value+=dialogSkills[9][1]+dialogSkills[9][2+randi()%4]
 		negociate_step1()
 	pass
 

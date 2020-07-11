@@ -27,11 +27,6 @@ radius = 15.6524
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
-"frames": [ ExtResource( 18 ), ExtResource( 19 ), ExtResource( 21 ), ExtResource( 15 ) ],
-"loop": true,
-"name": "guard",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 4 ), ExtResource( 9 ), ExtResource( 6 ), ExtResource( 10 ) ],
 "loop": true,
 "name": "skull",
@@ -51,6 +46,11 @@ animations = [ {
 "loop": true,
 "name": "vamp",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 18 ), ExtResource( 19 ), ExtResource( 21 ), ExtResource( 15 ) ],
+"loop": true,
+"name": "guard",
+"speed": 5.0
 } ]
 
 [node name="Enemy" type="Node2D"]
@@ -68,6 +68,5 @@ shape = SubResource( 1 )
 position = Vector2( 0, -7 )
 frames = SubResource( 2 )
 animation = "guard"
-frame = 3
 playing = true
 [connection signal="area_entered" from="HitBox" to="." method="_on_HitBox_area_entered"]

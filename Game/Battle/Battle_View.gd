@@ -28,8 +28,8 @@ var negotiation_sub_branch = 0
 var playerMod = 0
 var enemyMod = 0
 
-var playerStatus = {}
-var enemyStatus = {}
+var playerStatus = [] #status ID followed by time in turns
+var enemyStatus = []
 
 onready var textField = $VBoxContainer/ButtonSpace/RichTextLabel
 
@@ -169,17 +169,23 @@ func use_skill(bttn):
 		return
 	
 	var base_dmg = 0
-	match bttn:
-		1:
-			
-			pass
-		2:
-			pass
-		3:
-			pass
-		4:
-			pass
-	
+	var selected_skill = SM.get_skill(skill_map[bttn])
+	print(selected_skill)
+	if (selected_skill["Cooldown"]!=0):
+		button_map[bttn].CD = selected_skill["Cooldown"]
+		button_map[bttn].toggle_border(false)
+	base_dmg+=selected_skill["Damange"]
+	if(base_dmg!=0):
+		base_dmg+=playerMod
+		playerMod=0
+		enemy_hp_bar.value-=base_dmg
+		if(enemy_hp_bar.value<=0):
+			enemy_defeat()
+	enemyStatus=[selected_skill["StatusType"],selected_skill["StatusTurns"]]
+	if(selected_skill["PlayerMod"]!=0):
+		playerMod = selected_skill["PlayerMod"]
+	if(selected_skill["EnemyMod"]!=0):
+		enemyMod = selected_skill["EnemyMod"]
 	# if base_dmg > 0 then deal base_dmg+modifier to enemy HP
 	# else skip dealing dmg
 	
@@ -193,13 +199,13 @@ func use_skill(bttn):
 	pass
 
 
-func update_button(bttn):
-	var trgt_bttn = button_map[bttn]
-
-#	trgt_bttn.texture_normal = load("res://Battle/Icons/"+String(skill_map[bttn])+".png")
-#	trgt_bttn.toggle_border(true)
-#	trgt_bttn.hint_tooltip = skill_data[0] +  '\n' + skill_data[1] 
-	pass
+#func update_button(bttn):
+#	var trgt_bttn = button_map[bttn]
+#
+##	trgt_bttn.texture_normal = load("res://Battle/Icons/"+String(skill_map[bttn])+".png")
+##	trgt_bttn.toggle_border(true)
+##	trgt_bttn.hint_tooltip = skill_data[0] +  '\n' + skill_data[1] 
+#	pass
 
 func negociate_step1():
 	current_step = 1
@@ -214,7 +220,6 @@ func negociate_step1():
 	button_map[4].toggle_border(true)
 	button_map[4].hint_tooltip = dialogSkills[4][0]
 	pass
-
 func negociate_step2(selection):
 	negotiation_branch = selection
 	current_step = 2
@@ -294,9 +299,11 @@ func negociate_step4(selection):
 
 func progress_negotiation(bttn):
 	if(current_step==1):
+		chaos_bar.value+=2
 		convince_bar.value+=dialogSkills[bttn][1]+dialogSkills[bttn][2+randi()%4]
 		negociate_step2(bttn)
 	elif(current_step==2):
+		chaos_bar.value+=2
 		match bttn:
 			1:
 				match(negotiation_branch):
@@ -339,6 +346,7 @@ func progress_negotiation(bttn):
 				negociate_step1()
 				pass
 	elif(current_step==3):
+		chaos_bar.value+=1
 		match bttn:
 			1:
 				match(negotiation_branch):
@@ -403,6 +411,7 @@ func progress_negotiation(bttn):
 				negociate_step1()
 				pass
 	elif(current_step==4):
+		chaos_bar.value+=1
 		#do math
 		convince_bar.value+=dialogSkills[9][1]+dialogSkills[9][2+randi()%4]
 		negociate_step1()

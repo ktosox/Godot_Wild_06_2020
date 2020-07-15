@@ -9,8 +9,7 @@ var creditsScene = "res://Credits.tscn"
 var vampPool = [load("res://Battle/Avatars/addons_097.png"),load("res://Battle/Avatars/ancient_vampire.png"),load("res://Battle/Avatars/banshee.png")]
 var skullPool = [load("res://Battle/Avatars/joker_01.png"),load("res://Battle/Avatars/joker_02.png")]
 var skelyPool = [load("res://Battle/Avatars/skeleton_03.png"),load("res://Battle/Avatars/skeleton_07.png"),load("res://Battle/Avatars/skeleton_05.png"),load("res://Battle/Avatars/skeleton_06.png")]
-var guardPool = [load("res://Battle/Avatars/dark_knight_04.png"),load("res://Battle/Avatars/living_armor_01.png"),load("res://Battle/Avatars/living_armor_03.png")]
-var dudePool = [load("res://Battle/Avatars/goblin_02.png"),load("res://Battle/Avatars/troll_01.png"),load("res://Battle/Avatars/orc_02.png")]
+var guardPool = [load("res://Battle/Avatars/goblin_02.png"),load("res://Battle/Avatars/troll_01.png"),load("res://Battle/Avatars/orc_02.png")]
 
 
 
@@ -48,9 +47,9 @@ func next_level():
 		get_tree().change_scene("res://LEVELS/"+String(current_level.ID+1)+"/GameLevel.tscn")
 	pass
 
-func load_battle(enemy):
+func load_battle(enemy_data):
 	#get_tree().paused = true
-	battleCallerData = enemy
+	battleCallerData = enemy_data
 	$DungeonMusic/Manager.play("Stop")
 	$BattleMusic.play()
 	inBattle = true
@@ -64,6 +63,7 @@ func unload_battle():
 	inBattle = false
 	$BattleMusic.stop()
 	$DungeonMusic/Manager.play("Start")
+	currentBattle = null
 	pass
 
 func set_player_HP(change):
@@ -71,6 +71,8 @@ func set_player_HP(change):
 	if playerHP > playerHPMax :
 		playerHP = playerHPMax
 	currentPlayer.update_HP(playerHP)
+	if(currentBattle != null ):
+		currentBattle.player_hp_bar.value = playerHP
 	pass
 
 func update_support(newSup):

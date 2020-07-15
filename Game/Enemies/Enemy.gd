@@ -18,11 +18,11 @@ var enemy_data ={
 }
 
 var enemy_types = {
-	0 : "vamp",
-	1 : "skull",
-	2 : "skely",
-	3 : "guard",
-	4 : "dude" 
+	1 : "vamp",
+	2 : "skull",
+	3 : "skely",
+	4 : "guard",
+
 }
 
 
@@ -39,16 +39,15 @@ func update_type():
 	$Sprite.animation = enemy_types[type]
 	if(avatar == null ):
 		match type:
-			0:
-				avatar = GM.vampPool[randi()%GM.vampPool.size()]
 			1:
-				avatar = GM.skullPool[randi()%GM.skullPool.size()]
+				avatar = GM.vampPool[randi()%GM.vampPool.size()]
 			2:
-				avatar = GM.skelyPool[randi()%GM.skelyPool.size()]
+				avatar = GM.skullPool[randi()%GM.skullPool.size()]
 			3:
-				avatar = GM.guardPool[randi()%GM.guardPool.size()]
+				avatar = GM.skelyPool[randi()%GM.skelyPool.size()]
 			4:
-				avatar = GM.dudePool[randi()%GM.dudePool.size()]
+				avatar = GM.guardPool[randi()%GM.guardPool.size()]
+
 	enemy_data["type"] = type
 	enemy_data["HP"] = HP
 	enemy_data["tittle"] = title

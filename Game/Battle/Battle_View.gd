@@ -31,7 +31,7 @@ var enemyMod = 0
 var playerStatus = [] #status ID followed by time in turns
 var enemyStatus = []
 
-var enemySkillState = [0,0,0,0,0] # keeps the cooldown state for enemy skills
+var enemySkillCooldowns = {1:0,2:0,3:0,4:0,5:0} # keeps the cooldown state for enemy skills
 
 onready var textField = $VBoxContainer/ButtonSpace/RichTextLabel
 
@@ -155,9 +155,9 @@ func player_turn():
 
 func enemy_turn():
 	#tick cooldowns
-	for z in [0,1,2,3,4] :
-		if(enemySkillState[z] > 0):
-			enemySkillState[z]-=1
+	for z in [1,2,3,4,5] :
+		if(enemySkillCooldowns[z] > 0):
+			enemySkillCooldowns[z]-=1
 
 	
 	if(enemyStatus.size()>0):
@@ -176,7 +176,7 @@ func use_skill(bttn):
 	
 	var base_dmg = 0
 	var selected_skill = SM.get_skill(skill_map[bttn])
-	print(selected_skill)
+	#print(selected_skill)
 	if (selected_skill["Cooldown"]!=0):
 		button_map[bttn].CD = selected_skill["Cooldown"]
 		button_map[bttn].toggle_border(false)
@@ -187,7 +187,8 @@ func use_skill(bttn):
 		enemy_hp_bar.value-=base_dmg
 		if(enemy_hp_bar.value<=0):
 			enemy_defeat()
-	enemyStatus=[selected_skill["StatusType"],selected_skill["StatusTurns"]]
+	if(selected_skill["StatusType"]!=0):
+		enemyStatus=[selected_skill["StatusType"],selected_skill["StatusTurns"]]
 	if(selected_skill["PlayerMod"]!=0):
 		playerMod = selected_skill["PlayerMod"]
 	if(selected_skill["EnemyMod"]!=0):
@@ -216,28 +217,29 @@ func use_skill(bttn):
 func enemy_attack():
 	#pick an attack
 	var skill_pool = [1,2,3,4,5]
-	for z in [0,1,2,3,4] :
-		if enemySkillState[z] !=0 :
-			skill_pool.remove(z)
-
+	for z in [1,2,3,4,5] :
+		if enemySkillCooldowns[z] > 0 :
+			skill_pool.erase(z)
 	var base_dmg = 0
-#	var selected_skill = SM.get_skill(skill_map[bttn])
-#	print(selected_skill)
-#	if (selected_skill["Cooldown"]!=0):
-#		button_map[bttn].CD = selected_skill["Cooldown"]
-#		button_map[bttn].toggle_border(false)
-#	base_dmg+=selected_skill["Damange"]
-#	if(base_dmg!=0):
-#		base_dmg+=playerMod
-#		playerMod=0
-#		enemy_hp_bar.value-=base_dmg
-#		if(enemy_hp_bar.value<=0):
-#			enemy_defeat()
-#	enemyStatus=[selected_skill["StatusType"],selected_skill["StatusTurns"]]
-#	if(selected_skill["PlayerMod"]!=0):
-#		playerMod = selected_skill["PlayerMod"]
-#	if(selected_skill["EnemyMod"]!=0):
-#		enemyMod = selected_skill["EnemyMod"]
+	var skillID = skill_pool[randi()%skill_pool.size()]
+	print("The selected skill is: ",skillID)
+	var selected_skill = SM.get_skill(5 +( GM.battleCallerData["type"]*5 )+skillID)
+	print(selected_skill)
+	if (selected_skill["Cooldown"]!=0):
+		enemySkillCooldowns[skillID] = selected_skill["Cooldown"]
+
+	base_dmg+=selected_skill["Damange"]
+	print("enemy dmg is: ",base_dmg)
+	if(base_dmg!=0):
+		base_dmg+=enemyMod
+		enemyMod=0
+		GM.set_player_HP(-base_dmg)
+	if(selected_skill["StatusType"]!=0):
+		playerStatus=[selected_skill["StatusType"],selected_skill["StatusTurns"]]
+	if(selected_skill["PlayerMod"]!=0):
+		playerMod = selected_skill["PlayerMod"]
+	if(selected_skill["EnemyMod"]!=0):
+		enemyMod = selected_skill["EnemyMod"]
 
 
 

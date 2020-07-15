@@ -1,9 +1,6 @@
 extends Node
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
 var battleViewScene = preload("res://Battle/Battle_View.tscn")
 
 var creditsScene = "res://Credits.tscn"
@@ -15,22 +12,23 @@ var skelyPool = [load("res://Battle/Avatars/skeleton_03.png"),load("res://Battle
 var guardPool = [load("res://Battle/Avatars/dark_knight_04.png"),load("res://Battle/Avatars/living_armor_01.png"),load("res://Battle/Avatars/living_armor_03.png")]
 var dudePool = [load("res://Battle/Avatars/goblin_02.png"),load("res://Battle/Avatars/troll_01.png"),load("res://Battle/Avatars/orc_02.png")]
 
-var playerSkillUpgrades=[false,false,false,false]
 
 
+#Key references used by multiple scenes
 var current_level 
 var currentPlayer
 var currentBattle
+var battleCallerData
 
+#Player data
+var playerSkillUpgrades=[false,false,false,false]
 var playerHP = 100
 var playerHPMax = 100
 var playerAvatar = load("res://Battle/Avatars/skeleton_07.png")
 var SUPPORT = 0
-
 var inBattle = false
 
-var battleCallerData
-
+#These need to be updated to match the new color scheme
 export var colorLogical = Color()
 export var colorEmotion = Color()
 export var colorLawful = Color()

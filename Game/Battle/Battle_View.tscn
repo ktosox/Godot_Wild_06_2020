@@ -96,7 +96,7 @@ __meta__ = {
 [node name="ActorSpace" type="ColorRect" parent="VBoxContainer"]
 self_modulate = Color( 0.717647, 0.717647, 0.717647, 0.196078 )
 margin_right = 800.0
-margin_bottom = 316.0
+margin_bottom = 328.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.8
@@ -116,13 +116,14 @@ margin_bottom = -8.0
 
 [node name="BarSpace" type="ColorRect" parent="VBoxContainer"]
 self_modulate = Color( 1, 1, 1, 0.741176 )
-margin_top = 320.0
+margin_top = 332.0
 margin_right = 800.0
-margin_bottom = 356.0
-rect_min_size = Vector2( 0, 36 )
+margin_bottom = 396.0
+rect_min_size = Vector2( 0, 64 )
 color = Color( 0, 0.203922, 0.388235, 1 )
 
 [node name="ChaosBar" type="ProgressBar" parent="VBoxContainer/BarSpace"]
+visible = false
 modulate = Color( 1, 0, 0.933333, 1 )
 material = SubResource( 2 )
 anchor_top = 0.5
@@ -140,6 +141,7 @@ __meta__ = {
 }
 
 [node name="ConvinceBar" type="ProgressBar" parent="VBoxContainer/BarSpace"]
+visible = false
 modulate = Color( 1, 0.968627, 0.137255, 1 )
 material = SubResource( 2 )
 anchor_top = 0.5
@@ -157,35 +159,57 @@ __meta__ = {
 }
 
 [node name="PlayerHP" type="ProgressBar" parent="VBoxContainer/BarSpace"]
-modulate = Color( 1, 0, 0, 1 )
+self_modulate = Color( 1, 0, 0, 1 )
 material = SubResource( 3 )
 margin_left = 32.0
-margin_top = 4.0
+margin_top = 12.0
 margin_right = 288.0
-margin_bottom = 32.0
+margin_bottom = 52.0
 value = 50.0
 percent_visible = false
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Label" type="Label" parent="VBoxContainer/BarSpace/PlayerHP"]
+margin_left = 112.0
+margin_top = 8.0
+margin_right = 152.0
+margin_bottom = 22.0
+rect_scale = Vector2( 2, 2 )
+text = "HP"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="EnemyHP" type="ProgressBar" parent="VBoxContainer/BarSpace"]
-modulate = Color( 1, 0, 0, 1 )
+self_modulate = Color( 1, 0, 0, 1 )
 material = SubResource( 4 )
 margin_left = 512.0
-margin_top = 4.0
+margin_top = 12.0
 margin_right = 768.0
-margin_bottom = 32.0
+margin_bottom = 52.0
 percent_visible = false
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Label2" type="Label" parent="VBoxContainer/BarSpace/EnemyHP"]
+margin_left = 112.0
+margin_top = 8.0
+margin_right = 152.0
+margin_bottom = 22.0
+rect_scale = Vector2( 2, 2 )
+text = "HP"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="ButtonSpace" type="ColorRect" parent="VBoxContainer"]
-margin_top = 360.0
+margin_top = 400.0
 margin_right = 800.0
 margin_bottom = 600.0
-rect_min_size = Vector2( 0, 240 )
+rect_min_size = Vector2( 0, 200 )
 mouse_filter = 2
 color = Color( 0, 0, 0, 1 )
 
@@ -224,7 +248,7 @@ bttnID = 4
 margin_left = 192.0
 margin_top = 8.0
 margin_right = 592.0
-margin_bottom = 224.0
+margin_bottom = 192.0
 custom_fonts/normal_font = ExtResource( 4 )
 bbcode_enabled = true
 __meta__ = {
@@ -256,8 +280,11 @@ __meta__ = {
 [node name="ButtonBlocker" type="ColorRect" parent="VBoxContainer/ButtonSpace"]
 margin_top = -2.0
 margin_right = 800.0
-margin_bottom = 240.0
+margin_bottom = 198.0
 color = Color( 0, 0, 0, 0.698039 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="EndScreen" type="ColorRect" parent="."]
 pause_mode = 2

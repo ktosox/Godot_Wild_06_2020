@@ -75,7 +75,7 @@ func set_support(newSup):
 	pass
 
 func update_HP(value):
-	$Overlay/Screen/Top/HealthBar.value = value
-	$Overlay/Screen/Top/HealthBar/Loop.playback_speed = 80/value
+	$Overlay/Screen/Bottom/HealthBar.value = value
+	$Overlay/Screen/Bottom/HealthBar/Loop.playback_speed = 80/value
 
 

@@ -31,6 +31,8 @@ var enemyMod = 0
 var playerStatus = [] #status ID followed by time in turns
 var enemyStatus = []
 
+var enemySkillState = [0,0,0,0,0] # keeps the cooldown state for enemy skills
+
 onready var textField = $VBoxContainer/ButtonSpace/RichTextLabel
 
 export var dialogSkills ={
@@ -152,8 +154,12 @@ func player_turn():
 	pass
 
 func enemy_turn():
-	#tick CDs
+	#tick cooldowns
+	for z in [0,1,2,3,4] :
+		if(enemySkillState[z] > 0):
+			enemySkillState[z]-=1
 
+	
 	if(enemyStatus.size()>0):
 		print("enemy has a ststus effect!")
 		#match that deals with statuses goes here
@@ -206,6 +212,60 @@ func use_skill(bttn):
 ##	trgt_bttn.toggle_border(true)
 ##	trgt_bttn.hint_tooltip = skill_data[0] +  '\n' + skill_data[1] 
 #	pass
+
+func enemy_attack():
+	#pick an attack
+	var skill_pool = [1,2,3,4,5]
+	for z in [0,1,2,3,4] :
+		if enemySkillState[z] !=0 :
+			skill_pool.remove(z)
+
+	var base_dmg = 0
+#	var selected_skill = SM.get_skill(skill_map[bttn])
+#	print(selected_skill)
+#	if (selected_skill["Cooldown"]!=0):
+#		button_map[bttn].CD = selected_skill["Cooldown"]
+#		button_map[bttn].toggle_border(false)
+#	base_dmg+=selected_skill["Damange"]
+#	if(base_dmg!=0):
+#		base_dmg+=playerMod
+#		playerMod=0
+#		enemy_hp_bar.value-=base_dmg
+#		if(enemy_hp_bar.value<=0):
+#			enemy_defeat()
+#	enemyStatus=[selected_skill["StatusType"],selected_skill["StatusTurns"]]
+#	if(selected_skill["PlayerMod"]!=0):
+#		playerMod = selected_skill["PlayerMod"]
+#	if(selected_skill["EnemyMod"]!=0):
+#		enemyMod = selected_skill["EnemyMod"]
+
+
+
+
+
+		
+#	if(skill[4]<0):
+#		GM.set_player_HP(skill[4])
+#		
+#		if(GM.playerHP<0):
+#			player_defeat()
+#	print("dmg player for "+String(skill[4]))
+#	if(skill[3]>0):
+#		print("enemy heals self for "+String(skill[3]))
+#		enemy_morale += skill[3]
+#
+#		enemy_hp_bar.value = enemy_morale
+
+	#player_hp_bar.value = GM.playerHP
+	
+#	textField.append_bbcode("The enemy decided to "+skill[0])
+#	textField.newline()
+#	if(textField.get_line_count()>6):
+#		textField.remove_line(0)
+	player_turn()
+	pass
+
+
 
 func negociate_step1():
 	current_step = 1
@@ -417,31 +477,7 @@ func progress_negotiation(bttn):
 		negociate_step1()
 	pass
 
-func enemy_attack():
-	#pick an attack
-	var random_skill = 1 + randi()%10
 
-		
-#	if(skill[4]<0):
-#		GM.set_player_HP(skill[4])
-#		
-#		if(GM.playerHP<0):
-#			player_defeat()
-#	print("dmg player for "+String(skill[4]))
-#	if(skill[3]>0):
-#		print("enemy heals self for "+String(skill[3]))
-#		enemy_morale += skill[3]
-#
-#		enemy_hp_bar.value = enemy_morale
-
-	#player_hp_bar.value = GM.playerHP
-	
-#	textField.append_bbcode("The enemy decided to "+skill[0])
-#	textField.newline()
-#	if(textField.get_line_count()>6):
-#		textField.remove_line(0)
-	player_turn()
-	pass
 
 func player_defeat():
 

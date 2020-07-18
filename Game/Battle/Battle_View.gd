@@ -13,8 +13,8 @@ onready var bttn3 = $VBoxContainer/ButtonSpace/Skill_Button3
 onready var bttn4 = $VBoxContainer/ButtonSpace/Skill_Button4
 
 
-onready var chaos_bar = $VBoxContainer/BarSpace/ChaosBar
-onready var convince_bar = $VBoxContainer/BarSpace/ConvinceBar
+onready var chaos_bar = $VBoxContainer/BarSpace/VBoxContainer/ChaosBar
+onready var convince_bar = $VBoxContainer/BarSpace/VBoxContainer/ConvinceBar
 
 onready var player_hp_bar = $VBoxContainer/BarSpace/PlayerHP
 

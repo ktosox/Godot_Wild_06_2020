@@ -70,9 +70,6 @@ func _on_TimerMouseCheck_timeout():
 		reset_path(get_local_mouse_position())
 	pass # Replace with function body.
 
-func set_support(newSup):
-
-	pass
 
 func update_HP(value):
 	$Overlay/Screen/Bottom/HealthBar.value = value

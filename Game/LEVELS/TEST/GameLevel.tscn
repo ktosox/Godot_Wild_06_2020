@@ -505,7 +505,7 @@ position = Vector2( 1.15661, 9.12438 )
 position = Vector2( 32.1772, 56.0328 )
 
 [node name="AnimatedSprite" parent="Player/Location" index="2"]
-frame = 0
+frame = 3
 
 [node name="Items" type="Node2D" parent="."]
 
@@ -525,7 +525,7 @@ position = Vector2( 29.9702, 35.9696 )
 position = Vector2( 27.8793, 92.4899 )
 
 [node name="Chest" parent="Items" instance=ExtResource( 10 )]
-position = Vector2( 22.2188, 130.607 )
+position = Vector2( 26.2233, 122.264 )
 
 [node name="Enemies" type="Node2D" parent="."]
 

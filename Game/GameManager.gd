@@ -26,6 +26,8 @@ var playerHPMax = 100
 var playerAvatar = load("res://Battle/Avatars/skeleton_07.png")
 var SUPPORT = 0
 var inBattle = false
+var items = [0,0]#ammount of item1 and item2
+
 
 #These need to be updated to match the new color scheme
 export var colorLogical = Color()
@@ -78,11 +80,20 @@ func set_player_HP(change):
 func update_support(newSup):
 	SUPPORT += newSup
 	if(currentPlayer!=null):
-		currentPlayer.set_support(SUPPORT)
+		currentPlayer.get_node("Overlay").set_support(SUPPORT)
 	pass
 
-
-
+func update_item(which,ammount):
+	if (which == 1 or which ==2):
+		items[which]+=ammount
+		
+		currentPlayer.get_node("Overlay").set_item(which,items[which])
+	pass
+	
+func get_item(which):
+	if (which == 1 or which ==2):
+		return items[which]
+	pass
 
 func _on_DungeonMusic_finished():
 	$DungeonMusic.play()

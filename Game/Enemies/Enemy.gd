@@ -35,7 +35,7 @@ func _ready():
 func update_type():
 	if(!enemy_types.has(type)):
 		randomize()
-		type = randi()%enemy_types.size()
+		type = randi()%enemy_types.size() +1
 	$Sprite.animation = enemy_types[type]
 	if(avatar == null ):
 		match type:

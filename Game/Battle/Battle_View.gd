@@ -36,15 +36,19 @@ var enemySkillCooldowns = {1:0,2:0,3:0,4:0,5:0} # keeps the cooldown state for e
 onready var textField = $VBoxContainer/ButtonSpace/RichTextLabel
 
 export var dialogSkills ={
-	1: ["Point out how bad dungeon looks",3,2,0,1,-1],
-	2: ["Try to address monster honor/pride [PH]",3,1,2,-1,-1],
-	3: ["Badmouth current dungeon master",3,0,-1,1,-3],
-	4: ["Complain about low quality equipment",3,1,2,1,-1],
+	1: ["Pos",3,2,0,1,-1],
+	2: ["/pride [PH]",3,1,2,-1,-1],
+	3: ["er",3,0,-1,1,-3],
+	4: ["Copment",3,1,2,1,-1],
 	5: ["Address bad living conditions",6,1,1,2,-1],
 	6: ["Tell him, he deserves better than this",6,1,1,2,-1],
 	7: ["Tell him, current dungeon master doesnt deserve his services",6,2,0,0,-3],
 	8: ["Complain how dungeon master isnt taking care of his employees",6,1,0,1,-3],
 	9: ["Tell how you would improve it",2,0,1,0,-1],
+	10:["Give him nice decoration to his room",0,0,0,0,0],
+	11:["Convince him to join you [PH]",0,0,0,0,0],
+	12:["Promise high position in new dungeon order",0,0,0,0,0],
+	13:["Try to bribe him with one of your items",0,0,0,0,0]
 }
 
 
@@ -66,13 +70,30 @@ var skill_map = {
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-
+	load_dialog_skills()
 	randomize()
 	load_battle()
 
 	
 	pass # Replace with function body.
-
+func load_dialog_skills():
+	var path = "res://JSONs/dialog_skills.json"
+	var file = File.new()
+	if not file.file_exists(path):
+		print("no file to load dialog skills")
+		return
+	
+	file.open(path,file.READ)
+	
+	var text = file.get_as_text()
+	
+	var result = (parse_json(text))
+	for t in result:
+		dialogSkills[int(t)]=result[t].duplicate()
+	
+	file.close()
+	print(dialogSkills)
+	pass
 
 func load_battle():
 	GM.currentBattle = self
@@ -176,6 +197,7 @@ func use_skill(bttn):
 	
 	var base_dmg = 0
 	var selected_skill = SM.get_skill(skill_map[bttn])
+	add_text("You use " + selected_skill["Name"])
 	#print(selected_skill)
 	if (selected_skill["Cooldown"]!=0):
 		button_map[bttn].CD = selected_skill["Cooldown"]
@@ -196,10 +218,7 @@ func use_skill(bttn):
 	# if base_dmg > 0 then deal base_dmg+modifier to enemy HP
 	# else skip dealing dmg
 	
-#	textField.append_bbcode("You "+skill[0]+", ")
-#	if(textField.get_line_count()>6):
-#		textField.remove_line(0)
-#	textField.newline()
+
 
 
 	enemy_turn()
@@ -222,9 +241,9 @@ func enemy_attack():
 			skill_pool.erase(z)
 	var base_dmg = 0
 	var skillID = skill_pool[randi()%skill_pool.size()]
-	print("The selected skill is: ",skillID)
+
 	var selected_skill = SM.get_skill(5 +( GM.battleCallerData["type"]*5 )+skillID)
-	print(selected_skill)
+	add_text("The enemy used "+selected_skill["Name"])
 	if (selected_skill["Cooldown"]!=0):
 		enemySkillCooldowns[skillID] = selected_skill["Cooldown"]
 
@@ -362,7 +381,7 @@ func negociate_step4(selection):
 func progress_negotiation(bttn):
 	if(current_step==1):
 		chaos_bar.value+=2
-		convince_bar.value+=dialogSkills[bttn][1]+dialogSkills[bttn][2+randi()%4]
+		complete_negotiation(bttn)
 		negociate_step2(bttn)
 	elif(current_step==2):
 		chaos_bar.value+=2
@@ -370,16 +389,16 @@ func progress_negotiation(bttn):
 			1:
 				match(negotiation_branch):
 					1:
-						convince_bar.value+=dialogSkills[6][1]+dialogSkills[6][2+randi()%4]
+						complete_negotiation(6)
 						pass
 					2:
-						convince_bar.value+=dialogSkills[6][1]+dialogSkills[6][2+randi()%4]
+						complete_negotiation(6)
 						pass
 					3:
-						convince_bar.value+=dialogSkills[7][1]+dialogSkills[7][2+randi()%4]
+						complete_negotiation(7)
 						pass
 					4:
-						convince_bar.value+=dialogSkills[5][1]+dialogSkills[5][2+randi()%4]
+						complete_negotiation(5)
 						pass
 				#do math
 				
@@ -388,16 +407,16 @@ func progress_negotiation(bttn):
 			2:
 				match(negotiation_branch):
 					1:
-						convince_bar.value+=dialogSkills[5][1]+dialogSkills[5][2+randi()%4]
+						complete_negotiation(5)
 						pass
 					2:
-						convince_bar.value+=dialogSkills[7][1]+dialogSkills[7][2+randi()%4]
+						complete_negotiation(7)
 						pass
 					3:
-						convince_bar.value+=dialogSkills[8][1]+dialogSkills[8][2+randi()%4]
+						complete_negotiation(8)
 						pass
 					4:
-						convince_bar.value+=dialogSkills[8][1]+dialogSkills[8][2+randi()%4]
+						complete_negotiation(8)
 						pass
 
 				negociate_step3(bttn)
@@ -415,28 +434,28 @@ func progress_negotiation(bttn):
 					1:
 						match(negotiation_sub_branch):
 							1:
-								convince_bar.value+=dialogSkills[5][1]+dialogSkills[5][2+randi()%4]
+								complete_negotiation(5)
 							2:
-								convince_bar.value+=dialogSkills[6][1]+dialogSkills[6][2+randi()%4]
+								complete_negotiation(6)
 								pass
 					2:
 						match(negotiation_sub_branch):
 							1:
-								convince_bar.value+=dialogSkills[5][1]+dialogSkills[5][2+randi()%4]
+								complete_negotiation(5)
 							2:
-								convince_bar.value+=dialogSkills[8][1]+dialogSkills[8][2+randi()%4]
+								complete_negotiation(8)
 					3:
 						match(negotiation_sub_branch):
 							1:
-								convince_bar.value+=dialogSkills[8][1]+dialogSkills[8][2+randi()%4]
+								complete_negotiation(8)
 							2:
-								convince_bar.value+=dialogSkills[5][1]+dialogSkills[5][2+randi()%4]
+								complete_negotiation(5)
 					4:
 						match(negotiation_sub_branch):
 							1:
-								convince_bar.value+=dialogSkills[8][1]+dialogSkills[8][2+randi()%4]
+								complete_negotiation(8)
 							2:
-								convince_bar.value+=dialogSkills[7][1]+dialogSkills[7][2+randi()%4]
+								complete_negotiation(7)
 				negociate_step4(bttn)
 				pass
 			2:
@@ -444,42 +463,53 @@ func progress_negotiation(bttn):
 					1:
 						match(negotiation_sub_branch):
 							1:
-								convince_bar.value+=dialogSkills[7][1]+dialogSkills[7][2+randi()%4]
+								complete_negotiation(7)
 							2:
-								convince_bar.value+=dialogSkills[8][1]+dialogSkills[8][2+randi()%4]
+								complete_negotiation(8)
 					2:
 						match(negotiation_sub_branch):
 							1:
-								convince_bar.value+=dialogSkills[7][1]+dialogSkills[7][2+randi()%4]
+								complete_negotiation(7)
 							2:
-								convince_bar.value+=dialogSkills[6][1]+dialogSkills[6][2+randi()%4]
+								complete_negotiation(6)
 					3:
 						match(negotiation_sub_branch):
 							1:
-								convince_bar.value+=dialogSkills[6][1]+dialogSkills[6][2+randi()%4]
+								complete_negotiation(6)
 							2:
-								convince_bar.value+=dialogSkills[7][1]+dialogSkills[7][2+randi()%4]
+								complete_negotiation(7)
 					4:
 						match(negotiation_sub_branch):
 							1:
-								convince_bar.value+=dialogSkills[6][1]+dialogSkills[6][2+randi()%4]
+								complete_negotiation(6)
 							2:
-								convince_bar.value+=dialogSkills[5][1]+dialogSkills[5][2+randi()%4]
+								complete_negotiation(5)
 				negociate_step4(bttn)
 				pass
 			3:
 				#do math
-				convince_bar.value+=dialogSkills[9][1]+dialogSkills[9][2+randi()%4]
+				complete_negotiation(9)
 				negociate_step1()
 				pass
 	elif(current_step==4):
 		chaos_bar.value+=1
 		#do math
-		convince_bar.value+=dialogSkills[9][1]+dialogSkills[9][2+randi()%4]
+		complete_negotiation(9)
 		negociate_step1()
 	pass
 
+func add_text(text):
+	textField.newline()
+	textField.append_bbcode(String(text) )
+	if(textField.get_line_count()>15):
+		textField.remove_line(0)
 
+	pass
+
+func complete_negotiation(selection):
+	convince_bar.value+=dialogSkills[selection][1]+dialogSkills[selection][enemy_type+2]
+	add_text(dialogSkills[selection][0])
+	pass
 
 func player_defeat():
 

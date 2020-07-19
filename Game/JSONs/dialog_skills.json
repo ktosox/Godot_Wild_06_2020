@@ -1,0 +1,15 @@
+{
+	"1" : ["Point out how bad dungeon looks",3,2,0,1,-1],
+	"2" : ["Try to address monster honor/pride [PH]",3,1,2,-1,-1],
+	"3" : ["Badmouth current dungeon master",3,0,-1,1,-3],
+	"4": ["Complain about low quality equipment",3,1,2,1,-1],
+	"5": ["Address bad living conditions",6,1,1,2,-1],
+	"6": ["Tell him, he deserves better than this",6,1,1,2,-1],
+	"7": ["Tell him, current dungeon master doesnt deserve his services",6,2,0,0,-3],
+	"8": ["Complain how dungeon master isnt taking care of his employees",6,1,0,1,-3],
+	"9": ["Tell how you would improve it",2,0,1,0,-1],
+	"10":["Give him nice decoration to his room",0,0,0,0,0],
+	"11":["Convince him to join you [PH]",0,0,0,0,0],
+	"12":["Promise high position in new dungeon order",0,0,0,0,0],
+	"13":["Try to bribe him with one of your items",0,0,0,0,0]
+}

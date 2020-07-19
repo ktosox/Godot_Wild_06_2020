@@ -4,7 +4,7 @@ extends Node2D
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-export var health = true
+var health = true
 export var big = true
 
 var small_health = Vector2(128,144)

@@ -76,6 +76,7 @@ func _ready():
 
 	
 	pass # Replace with function body.
+	
 func load_dialog_skills():
 	var path = "res://JSONs/dialog_skills.json"
 	var file = File.new()
@@ -92,8 +93,7 @@ func load_dialog_skills():
 		dialogSkills[int(t)]=result[t].duplicate()
 	
 	file.close()
-	print(dialogSkills)
-	pass
+
 
 func load_battle():
 	GM.currentBattle = self
@@ -141,6 +141,7 @@ func load_player_skills():
 		else:
 			skill_map[s] = s
 		skill_data = SM.get_skill(skill_map[s])
+		print(skill_data)
 		button_map[s].hint_tooltip = skill_data["Name"]+'\n'+skill_data["Tooltip"]
 #	trgt_bttn.hint_tooltip = skill_data[0] +  '\n' + skill_data[1] 
 	#set textures

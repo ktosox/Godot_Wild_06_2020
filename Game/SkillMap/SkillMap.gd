@@ -1,36 +1,32 @@
 extends Node
 
 	#1-8 player / 11-15 Blue / 16-20 Red / 21-25 Green / 26-30 Black
-onready var skillIDs = {
-	1:$Player.skill1,
-	2:$Player.skill2,
-	3:$Player.skill3,
-	4:$Player.skill4,
-	5:$Player.skill1plus,
-	6:$Player.skill2plus,
-	7:$Player.skill3plus,
-	8:$Player.skill4plus,
-	11:$EnemyBlue.skill1,
-	12:$EnemyBlue.skill2,
-	13:$EnemyBlue.skill3,
-	14:$EnemyBlue.skill4,
-	15:$EnemyBlue.skill5,
-	16:$EnemyRed.skill1,
-	17:$EnemyRed.skill2,
-	18:$EnemyRed.skill3,
-	19:$EnemyRed.skill4,
-	20:$EnemyRed.skill5,
-	21:$EnemyGreen.skill1,
-	22:$EnemyGreen.skill2,
-	23:$EnemyGreen.skill3,
-	24:$EnemyGreen.skill4,
-	25:$EnemyGreen.skill5,
-	26:$EnemyBlack.skill1,
-	27:$EnemyBlack.skill2,
-	28:$EnemyBlack.skill3,
-	29:$EnemyBlack.skill4,
-	30:$EnemyBlack.skill5,
+var skillIDs = {
+
 }
+
+func _ready():
+	load_skills()
+	pass
+
+func load_skills():
+	var path = "res://JSONs/fight_skills.json"
+	var file = File.new()
+	if not file.file_exists(path):
+		print("no file to load fight skills")
+		return
+	
+	file.open(path,file.READ)
+	
+	var text = file.get_as_text()
+	
+	var result = (parse_json(text))
+	for t in result:
+		
+		skillIDs[int(t)] = result[t].duplicate()#[int(t)]=result[t].duplicate()
+
+	file.close()
+	pass
 
 func get_skill(ID):
 	if(skillIDs.keys().has(ID)):

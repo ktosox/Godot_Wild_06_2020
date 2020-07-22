@@ -6,6 +6,10 @@
 			"Tooltip":"Tooltip",
 			"Damange":3,
 			"Cooldown" : 0,
+			"PlayerMod":0,
+			"EnemyMod":0,
+			"StatusType":1,
+			"StatusTurns":3,
 		},
 		"2" :
 		{
@@ -13,6 +17,10 @@
 			"Tooltip":"Tooltip",
 			"Damange":3,
 			"Cooldown" : 0,
+			"PlayerMod":0,
+			"EnemyMod":0,
+			"StatusType":0,
+			"StatusTurns":0,
 		},
 		"3" :
 		{
@@ -20,6 +28,10 @@
 			"Tooltip":"Tooltip",
 			"Damange":3,
 			"Cooldown" : 0,
+			"PlayerMod":0,
+			"EnemyMod":0,
+			"StatusType":0,
+			"StatusTurns":0,
 		},
 		"4" :
 		{
@@ -27,6 +39,10 @@
 			"Tooltip":"Tooltip",
 			"Damange":3,
 			"Cooldown" : 0,
+			"PlayerMod":0,
+			"EnemyMod":0,
+			"StatusType":0,
+			"StatusTurns":0,
 		},
 		"5" :
 		{

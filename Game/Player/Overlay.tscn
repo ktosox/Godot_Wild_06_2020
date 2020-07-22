@@ -92,7 +92,7 @@ margin_left = 8.0
 margin_top = 8.0
 margin_right = 73.0
 margin_bottom = 22.0
-text = "Item1_name:"
+text = "Equipment:"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -121,7 +121,7 @@ margin_left = 8.0
 margin_top = 8.0
 margin_right = 73.0
 margin_bottom = 22.0
-text = "Item2_name:"
+text = "Decoration:"
 __meta__ = {
 "_edit_use_anchors_": false
 }

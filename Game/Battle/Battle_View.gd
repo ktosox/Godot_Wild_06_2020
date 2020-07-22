@@ -167,8 +167,20 @@ func player_turn():
 				button_map[b].toggle_border(true)
 	#check status effects
 	if(playerStatus.size()>0):
-		print("player has a ststus effect!")
-		#match that deals with statuses goes here
+
+		match playerStatus[0]:
+			1:
+				print("poison 1")
+			2:
+				print("poison 2")
+			3:
+				print("poison 3")
+			4:
+				print("stun")
+			
+		playerStatus[1]-=1
+		if(playerStatus[1]<1):
+			playerStatus.clear()
 
 	#unlock skill buttons
 	$TurnInd.color = Color(0,1,0)
@@ -183,7 +195,20 @@ func enemy_turn():
 
 	
 	if(enemyStatus.size()>0):
-		print("enemy has a ststus effect!")
+
+		match enemyStatus[0]:
+			1:
+				print("poison 1")
+			2:
+				print("poison 2")
+			3:
+				print("poison 3")
+			4:
+				print("stun")
+			
+		enemyStatus[1]-=1
+		if(enemyStatus[1]<1):
+			enemyStatus.clear()
 		#match that deals with statuses goes here
 	$VBoxContainer/ButtonSpace/ButtonBlocker.visible = true
 	$TurnInd.color = Color(1,0,0)
@@ -211,11 +236,11 @@ func use_skill(bttn):
 		if(enemy_hp_bar.value<=0):
 			enemy_defeat()
 	if(selected_skill["StatusType"]!=0):
-		enemyStatus=[selected_skill["StatusType"],selected_skill["StatusTurns"]]
+		enemyStatus=[int(selected_skill["StatusType"]),int(selected_skill["StatusTurns"])]
 	if(selected_skill["PlayerMod"]!=0):
-		playerMod = selected_skill["PlayerMod"]
+		playerMod = int(selected_skill["PlayerMod"])
 	if(selected_skill["EnemyMod"]!=0):
-		enemyMod = selected_skill["EnemyMod"]
+		enemyMod = int(selected_skill["EnemyMod"])
 	# if base_dmg > 0 then deal base_dmg+modifier to enemy HP
 	# else skip dealing dmg
 	
@@ -249,7 +274,7 @@ func enemy_attack():
 		enemySkillCooldowns[skillID] = selected_skill["Cooldown"]
 
 	base_dmg+=selected_skill["Damange"]
-	print("enemy dmg is: ",base_dmg)
+#	print("enemy dmg is: ",base_dmg)
 	if(base_dmg!=0):
 		base_dmg+=enemyMod
 		enemyMod=0

@@ -103,6 +103,8 @@ func load_battle():
 	enemy_hp_bar.visible = false
 	avatarPlayer.texture = GM.playerAvatar
 	avatarEnemy.texture = GM.battleCallerData["avatar"]
+	convince_bar.value = GM.battleCallerData["conviction"]
+	
 	
 	button_map[1] = bttn1
 	button_map[2] = bttn2

@@ -28,6 +28,9 @@ var negotiation_sub_branch = 0
 var playerMod = 0
 var enemyMod = 0
 
+export var playerFontColor = Color(0.984314, 1, 0.737255)
+export var enemyFontColor = Color(0.862745, 0.439216, 1)
+
 var playerStatus = [] #status ID followed by time in turns
 var enemyStatus = []
 
@@ -225,7 +228,7 @@ func use_skill(bttn):
 	
 	var base_dmg = 0
 	var selected_skill = SM.get_skill(skill_map[bttn])
-	add_text("You use " + selected_skill["Name"])
+	add_text("You use " + selected_skill["Name"],playerFontColor)
 	#print(selected_skill)
 	if (selected_skill["Cooldown"]!=0):
 		button_map[bttn].CD = selected_skill["Cooldown"]
@@ -271,7 +274,7 @@ func enemy_attack():
 	var skillID = skill_pool[randi()%skill_pool.size()]
 
 	var selected_skill = SM.get_skill(5 +( GM.battleCallerData["type"]*5 )+skillID)
-	add_text("The enemy used "+selected_skill["Name"])
+	add_text("The enemy used "+selected_skill["Name"],enemyFontColor)
 	if (selected_skill["Cooldown"]!=0):
 		enemySkillCooldowns[skillID] = selected_skill["Cooldown"]
 
@@ -526,9 +529,11 @@ func progress_negotiation(bttn):
 		negociate_step1()
 	pass
 
-func add_text(text):
+func add_text(text,fontColor = Color(1)):
 	textField.newline()
-	textField.append_bbcode(String(text) )
+	fontColor = fontColor.to_html(false)
+	textField.append_bbcode("[color=#"+fontColor+"]"+String(text)+"[/color]")
+
 	if(textField.get_line_count()>15):
 		textField.remove_line(0)
 

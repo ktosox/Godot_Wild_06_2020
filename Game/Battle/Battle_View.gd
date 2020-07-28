@@ -300,7 +300,23 @@ func attack_animation(ID):
 	
 	pass
 
-
+func hebuebue():
+	randomize()
+	var he = [load("res://Battle/HeBue/He1.wav"),load("res://Battle/HeBue/He2.wav")]
+	var bue = [load("res://Battle/HeBue/Bue1.wav"),load("res://Battle/HeBue/Bue2.wav"),load("res://Battle/HeBue/Bue3.wav"),load("res://Battle/HeBue/Bue4.wav"),load("res://Battle/HeBue/Bue5.wav"),load("res://Battle/HeBue/Bue6.wav")]
+	var web = [load("res://Battle/HeBue/Web1.wav"),load("res://Battle/HeBue/Web2.wav")]
+	$He.stream = he[randi()%he.size()]
+	var hold = randi()%bue.size()
+	$Bue1.stream = bue[hold]
+	bue.remove(hold)
+	hold = randi()%bue.size()
+	$Bue2.stream = bue[hold]
+	bue.remove(hold)
+	hold = randi()%bue.size()
+	$Bue3.stream = bue[hold]
+	$Web.stream = web[randi()%web.size()]
+	$He.play()
+	pass
 
 func negociate_step1():
 	current_step = 1
@@ -393,6 +409,7 @@ func negociate_step4(selection):
 	pass
 
 func progress_negotiation(bttn):
+	hebuebue()
 	if(current_step==1):
 		chaos_bar.value+=2
 		complete_negotiation(bttn)
@@ -592,4 +609,24 @@ func _on_PlayerAttack_animation_finished(anim_name):
 
 func _on_EnemyAttack_animation_finished(anim_name):
 	player_turn()
+	pass # Replace with function body.
+
+
+func _on_He_finished():
+	$Bue1.play()
+	pass # Replace with function body.
+
+
+func _on_Bue1_finished():
+	$Bue2.play()
+	pass # Replace with function body.
+
+
+func _on_Bue2_finished():
+	$Bue3.play()
+	pass # Replace with function body.
+
+
+func _on_Bue3_finished():
+	$Web.play()
 	pass # Replace with function body.

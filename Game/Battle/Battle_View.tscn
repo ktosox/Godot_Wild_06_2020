@@ -7,7 +7,7 @@
 [ext_resource path="res://Battle/StatBAr.shader" type="Shader" id=5]
 [ext_resource path="res://Battle/AttackAnimations.tres" type="SpriteFrames" id=6]
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=1]
 resource_name = "Smash"
 tracks/0/type = "value"
 tracks/0/path = NodePath("EnemyAnims:frame")
@@ -34,7 +34,7 @@ tracks/1/keys = {
 "values": [ true, false ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=2]
 resource_name = "Slash"
 tracks/0/type = "value"
 tracks/0/path = NodePath("PlayerAnims:frame")
@@ -61,15 +61,15 @@ tracks/1/keys = {
 "values": [ true, false ]
 }
 
-[sub_resource type="ShaderMaterial" id=1]
+[sub_resource type="ShaderMaterial" id=3]
 shader = ExtResource( 5 )
 shader_param/modulate = Color( 1, 1, 1, 1 )
 
-[sub_resource type="ShaderMaterial" id=2]
+[sub_resource type="ShaderMaterial" id=4]
 shader = ExtResource( 5 )
 shader_param/modulate = Color( 1, 1, 1, 1 )
 
-[sub_resource type="Shader" id=3]
+[sub_resource type="Shader" id=5]
 code = "shader_type canvas_item;	
 	
 render_mode blend_mix;	
@@ -80,11 +80,11 @@ void fragment() {
 	if(COLOR.r<0.2 ){COLOR = vec4(modulate.rgb, texture(TEXTURE, UV).a * modulate.a);}
 }	"
 
-[sub_resource type="ShaderMaterial" id=4]
-shader = SubResource( 3 )
+[sub_resource type="ShaderMaterial" id=6]
+shader = SubResource( 5 )
 shader_param/modulate = Color( 0.164706, 0.698039, 0.686275, 1 )
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=7]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:rect_size")
 tracks/0/interp = 1
@@ -112,7 +112,7 @@ tracks/1/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=8]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:rect_size")
 tracks/0/interp = 1
@@ -170,10 +170,10 @@ margin_right = -512.0
 margin_bottom = -8.0
 
 [node name="EnemyAttack" type="AnimationPlayer" parent="VBoxContainer/ActorSpace"]
-anims/Smash = SubResource( 8 )
+anims/Smash = SubResource( 1 )
 
 [node name="PlayerAttack" type="AnimationPlayer" parent="VBoxContainer/ActorSpace"]
-anims/Slash = SubResource( 7 )
+anims/Slash = SubResource( 2 )
 
 [node name="PlayerAnims" type="AnimatedSprite" parent="VBoxContainer/ActorSpace"]
 visible = false
@@ -200,7 +200,7 @@ color = Color( 0, 0.203922, 0.388235, 1 )
 [node name="PlayerHP" type="ProgressBar" parent="VBoxContainer/BarSpace"]
 visible = false
 self_modulate = Color( 1, 0, 0, 1 )
-material = SubResource( 1 )
+material = SubResource( 3 )
 margin_left = 32.0
 margin_top = 12.0
 margin_right = 288.0
@@ -225,7 +225,7 @@ __meta__ = {
 [node name="EnemyHP" type="ProgressBar" parent="VBoxContainer/BarSpace"]
 visible = false
 self_modulate = Color( 1, 0, 0, 1 )
-material = SubResource( 2 )
+material = SubResource( 4 )
 margin_left = 512.0
 margin_top = 12.0
 margin_right = 768.0
@@ -255,7 +255,7 @@ __meta__ = {
 
 [node name="ChaosBar" type="ProgressBar" parent="VBoxContainer/BarSpace/VBoxContainer"]
 modulate = Color( 1, 0, 0.933333, 1 )
-material = SubResource( 4 )
+material = SubResource( 6 )
 margin_right = 800.0
 margin_bottom = 30.0
 rect_min_size = Vector2( 0, 12 )
@@ -279,7 +279,7 @@ __meta__ = {
 
 [node name="ConvinceBar" type="ProgressBar" parent="VBoxContainer/BarSpace/VBoxContainer"]
 modulate = Color( 1, 0.968627, 0.137255, 1 )
-material = SubResource( 4 )
+material = SubResource( 6 )
 margin_top = 34.0
 margin_right = 800.0
 margin_bottom = 64.0
@@ -476,8 +476,8 @@ __meta__ = {
 }
 
 [node name="Animator" type="AnimationPlayer" parent="Curatin"]
-anims/lower = SubResource( 5 )
-anims/rise = SubResource( 6 )
+anims/lower = SubResource( 7 )
+anims/rise = SubResource( 8 )
 
 [node name="TimerEnemyAttack" type="Timer" parent="."]
 wait_time = 0.7
@@ -492,6 +492,25 @@ margin_bottom = 160.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="He" type="AudioStreamPlayer" parent="."]
+pitch_scale = 1.2
+
+[node name="Bue1" type="AudioStreamPlayer" parent="."]
+pitch_scale = 1.2
+bus = "Sounds"
+
+[node name="Bue2" type="AudioStreamPlayer" parent="."]
+pitch_scale = 1.2
+bus = "Sounds"
+
+[node name="Bue3" type="AudioStreamPlayer" parent="."]
+pitch_scale = 1.2
+bus = "Sounds"
+
+[node name="Web" type="AudioStreamPlayer" parent="."]
+pitch_scale = 1.2
+bus = "Sounds"
 [connection signal="animation_finished" from="VBoxContainer/ActorSpace/EnemyAttack" to="." method="_on_EnemyAttack_animation_finished"]
 [connection signal="animation_finished" from="VBoxContainer/ActorSpace/PlayerAttack" to="." method="_on_PlayerAttack_animation_finished"]
 [connection signal="pressed" from="VBoxContainer/ButtonSpace/StartFight" to="." method="_on_StartFight_pressed"]
@@ -500,3 +519,7 @@ __meta__ = {
 [connection signal="pressed" from="EndScreen/PlayerDies/ButtonPlayerDies" to="." method="_on_ButtonPlayerDies_pressed"]
 [connection signal="pressed" from="EndScreen/PlayerVictory/ButtonPlayerVictory" to="." method="_on_ButtonPlayerVictory_pressed"]
 [connection signal="timeout" from="TimerEnemyAttack" to="." method="_on_TimerEnemyAttack_timeout"]
+[connection signal="finished" from="He" to="." method="_on_He_finished"]
+[connection signal="finished" from="Bue1" to="." method="_on_Bue1_finished"]
+[connection signal="finished" from="Bue2" to="." method="_on_Bue2_finished"]
+[connection signal="finished" from="Bue3" to="." method="_on_Bue3_finished"]

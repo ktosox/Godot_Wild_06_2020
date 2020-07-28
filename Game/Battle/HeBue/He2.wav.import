@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/He2.wav-074733c05eda79a037cf4722b271cc24.sample"
+
+[deps]
+
+source_file="res://Battle/HeBue/He2.wav"
+dest_files=[ "res://.import/He2.wav-074733c05eda79a037cf4722b271cc24.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

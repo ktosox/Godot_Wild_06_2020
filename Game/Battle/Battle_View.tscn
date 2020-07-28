@@ -1,10 +1,65 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Battle/Battle_View.gd" type="Script" id=1]
 [ext_resource path="res://Battle/AvatarScene.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Battle/Skill_Button.tscn" type="PackedScene" id=3]
 [ext_resource path="res://textfieldFont.tres" type="DynamicFont" id=4]
 [ext_resource path="res://Battle/StatBAr.shader" type="Shader" id=5]
+[ext_resource path="res://Battle/AttackAnimations.tres" type="SpriteFrames" id=6]
+
+[sub_resource type="Animation" id=8]
+resource_name = "Smash"
+tracks/0/type = "value"
+tracks/0/path = NodePath("EnemyAnims:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.9 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0, 9 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("EnemyAnims:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.9 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "Slash"
+tracks/0/type = "value"
+tracks/0/path = NodePath("PlayerAnims:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.9 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0, 9 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("PlayerAnims:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.9 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 5 )
@@ -113,6 +168,26 @@ margin_left = 32.0
 margin_top = 56.0
 margin_right = -512.0
 margin_bottom = -8.0
+
+[node name="EnemyAttack" type="AnimationPlayer" parent="VBoxContainer/ActorSpace"]
+anims/Smash = SubResource( 8 )
+
+[node name="PlayerAttack" type="AnimationPlayer" parent="VBoxContainer/ActorSpace"]
+anims/Slash = SubResource( 7 )
+
+[node name="PlayerAnims" type="AnimatedSprite" parent="VBoxContainer/ActorSpace"]
+visible = false
+position = Vector2( 636.779, 191.435 )
+scale = Vector2( -4, 4 )
+frames = ExtResource( 6 )
+animation = "Slash"
+
+[node name="EnemyAnims" type="AnimatedSprite" parent="VBoxContainer/ActorSpace"]
+visible = false
+position = Vector2( 165.707, 208.47 )
+scale = Vector2( 4, 4 )
+frames = ExtResource( 6 )
+animation = "Smash"
 
 [node name="BarSpace" type="ColorRect" parent="VBoxContainer"]
 self_modulate = Color( 1, 1, 1, 0.741176 )
@@ -405,7 +480,7 @@ anims/lower = SubResource( 5 )
 anims/rise = SubResource( 6 )
 
 [node name="TimerEnemyAttack" type="Timer" parent="."]
-wait_time = 1.3
+wait_time = 0.7
 one_shot = true
 
 [node name="TurnInd" type="ColorRect" parent="."]
@@ -417,6 +492,8 @@ margin_bottom = 160.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
+[connection signal="animation_finished" from="VBoxContainer/ActorSpace/EnemyAttack" to="." method="_on_EnemyAttack_animation_finished"]
+[connection signal="animation_finished" from="VBoxContainer/ActorSpace/PlayerAttack" to="." method="_on_PlayerAttack_animation_finished"]
 [connection signal="pressed" from="VBoxContainer/ButtonSpace/StartFight" to="." method="_on_StartFight_pressed"]
 [connection signal="pressed" from="VBoxContainer/ButtonSpace/Options" to="." method="_on_Options_pressed"]
 [connection signal="pressed" from="EndScreen/EnemyDies/ButtonEnemyDies" to="." method="_on_ButtonEnemyDies_pressed"]

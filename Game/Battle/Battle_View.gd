@@ -215,7 +215,7 @@ func enemy_turn():
 		if(enemyStatus[1]<1):
 			enemyStatus.clear()
 		#match that deals with statuses goes here
-	$VBoxContainer/ButtonSpace/ButtonBlocker.visible = true
+	
 	$TurnInd.color = Color(1,0,0)
 	$TimerEnemyAttack.start()
 	pass
@@ -250,19 +250,10 @@ func use_skill(bttn):
 	# else skip dealing dmg
 	
 
-
-
-	enemy_turn()
+	$VBoxContainer/ActorSpace/PlayerAttack.play("Slash")
+	$VBoxContainer/ButtonSpace/ButtonBlocker.visible = true
+	
 	pass
-
-
-#func update_button(bttn):
-#	var trgt_bttn = button_map[bttn]
-#
-##	trgt_bttn.texture_normal = load("res://Battle/Icons/"+String(skill_map[bttn])+".png")
-##	trgt_bttn.toggle_border(true)
-##	trgt_bttn.hint_tooltip = skill_data[0] +  '\n' + skill_data[1] 
-#	pass
 
 func enemy_attack():
 	#pick an attack
@@ -290,11 +281,6 @@ func enemy_attack():
 		playerMod = selected_skill["PlayerMod"]
 	if(selected_skill["EnemyMod"]!=0):
 		enemyMod = selected_skill["EnemyMod"]
-
-
-
-
-
 		
 #	if(skill[4]<0):
 #		GM.set_player_HP(skill[4])
@@ -307,14 +293,11 @@ func enemy_attack():
 #		enemy_morale += skill[3]
 #
 #		enemy_hp_bar.value = enemy_morale
-
 	#player_hp_bar.value = GM.playerHP
+	$VBoxContainer/ActorSpace/EnemyAttack.play("Smash")
+
+func attack_animation(ID):
 	
-#	textField.append_bbcode("The enemy decided to "+skill[0])
-#	textField.newline()
-#	if(textField.get_line_count()>6):
-#		textField.remove_line(0)
-	player_turn()
 	pass
 
 
@@ -566,9 +549,7 @@ func player_victory():
 	get_tree().paused = true
 	pass
 
-func _on_TimerEnemyAttack_timeout():
-	enemy_attack()
-	pass # Replace with function body.
+
 
 
 
@@ -597,4 +578,18 @@ func _on_ButtonEnemyDies_pressed():
 
 func _on_StartFight_pressed():
 	start_fight()
+	pass # Replace with function body.
+
+
+func _on_TimerEnemyAttack_timeout():
+	enemy_attack()
+	pass # Replace with function body.
+
+func _on_PlayerAttack_animation_finished(anim_name):
+	enemy_turn()
+	pass # Replace with function body.
+
+
+func _on_EnemyAttack_animation_finished(anim_name):
+	player_turn()
 	pass # Replace with function body.

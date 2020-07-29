@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Battle/Battle_View.gd" type="Script" id=1]
 [ext_resource path="res://Battle/AvatarScene.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://textfieldFont.tres" type="DynamicFont" id=4]
 [ext_resource path="res://Battle/StatBAr.shader" type="Shader" id=5]
 [ext_resource path="res://Battle/AttackAnimations.tres" type="SpriteFrames" id=6]
+[ext_resource path="res://Battle/slot_04.png" type="Texture" id=7]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Smash"
@@ -163,11 +164,24 @@ margin_right = 224.0
 margin_bottom = -8.0
 rect_scale = Vector2( -1, 1 )
 
+[node name="NinePatchRect" type="NinePatchRect" parent="VBoxContainer/ActorSpace/Enemy"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 7 )
+
 [node name="Player" parent="VBoxContainer/ActorSpace" instance=ExtResource( 2 )]
 margin_left = 32.0
 margin_top = 56.0
 margin_right = -512.0
 margin_bottom = -8.0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="VBoxContainer/ActorSpace/Player"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="EnemyAttack" type="AnimationPlayer" parent="VBoxContainer/ActorSpace"]
 anims/Smash = SubResource( 1 )

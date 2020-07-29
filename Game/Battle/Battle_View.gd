@@ -301,6 +301,7 @@ func attack_animation(ID):
 	pass
 
 func hebuebue():
+	var audios = [$He,$Bue1,$Bue2,$Bue3,$Web]
 	randomize()
 	var he = [load("res://Battle/HeBue/He1.wav"),load("res://Battle/HeBue/He2.wav")]
 	var bue = [load("res://Battle/HeBue/Bue1.wav"),load("res://Battle/HeBue/Bue2.wav"),load("res://Battle/HeBue/Bue3.wav"),load("res://Battle/HeBue/Bue4.wav"),load("res://Battle/HeBue/Bue5.wav"),load("res://Battle/HeBue/Bue6.wav")]
@@ -315,6 +316,9 @@ func hebuebue():
 	hold = randi()%bue.size()
 	$Bue3.stream = bue[hold]
 	$Web.stream = web[randi()%web.size()]
+	for h in audios:
+		h.pitch_scale = 1.2+randf()*0.3
+	
 	$He.play()
 	pass
 

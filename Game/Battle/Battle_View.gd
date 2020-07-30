@@ -54,6 +54,21 @@ export var dialogSkills ={
 	13:["Try to bribe him with one of your items",0,0,0,0,0]
 }
 
+var dialogSkillTextures ={
+	1:load("res://Battle/Icons/ancient-ruins.png"),
+	2:load("res://Battle/Icons/tentacles-barrier.png"),
+	3:load("res://Battle/Icons/convince.png"),
+	4:load("res://Battle/Icons/broken-axe.png"),
+	5:load("res://Battle/Icons/slavery-whip.png"),
+	6:load("res://Battle/Icons/upgrade.png"),
+	7:load("res://Battle/Icons/uprising.png"),
+	8:load("res://Battle/Icons/giant.png"),
+	9:load("res://Battle/Icons/tentacles-barrier.png"),
+	10:load("res://Battle/Icons/mona-lisa.png"),
+	11:load("res://Battle/Icons/team-upgrade.png"),
+	12:load("res://Battle/Icons/stairs-goal.png"),
+	13:load("res://Battle/Icons/spartan.png")
+}
 
 onready var enemy_type = randi()%4
 
@@ -328,12 +343,16 @@ func negociate_step1():
 	#load buttons 
 	button_map[1].toggle_border(true)
 	button_map[1].hint_tooltip = dialogSkills[1][0]
+	button_map[1].texture_normal = dialogSkillTextures[1]
 	button_map[2].toggle_border(true)
 	button_map[2].hint_tooltip = dialogSkills[2][0]
+	button_map[2].texture_normal = dialogSkillTextures[2]
 	button_map[3].toggle_border(true)
 	button_map[3].hint_tooltip = dialogSkills[3][0]
+	button_map[3].texture_normal = dialogSkillTextures[3]
 	button_map[4].toggle_border(true)
 	button_map[4].hint_tooltip = dialogSkills[4][0]
+	button_map[4].texture_normal = dialogSkillTextures[4]
 	pass
 func negociate_step2(selection):
 	negotiation_branch = selection
@@ -341,24 +360,37 @@ func negociate_step2(selection):
 	match(selection):
 		1:
 			button_map[1].hint_tooltip = dialogSkills[6][0]
+			button_map[1].texture_normal = dialogSkillTextures[6]
 			button_map[2].hint_tooltip = dialogSkills[5][0]
-			button_map[3].hint_tooltip = "Give him nice decoration to his room"
+			button_map[2].texture_normal = dialogSkillTextures[5]
+			button_map[3].hint_tooltip = dialogSkills[10][0]
+			button_map[3].texture_normal = dialogSkillTextures[10]
 		2:
 			button_map[1].hint_tooltip = dialogSkills[6][0]
+			button_map[1].texture_normal = dialogSkillTextures[6]
 			button_map[2].hint_tooltip = dialogSkills[7][0]
-			button_map[3].hint_tooltip = "Convince him to join you [PH]"
+			button_map[2].texture_normal = dialogSkillTextures[7]
+			button_map[3].hint_tooltip = dialogSkills[11][0]
+			button_map[3].texture_normal = dialogSkillTextures[11]
 		3:
 			button_map[1].hint_tooltip = dialogSkills[7][0]
+			button_map[1].texture_normal = dialogSkillTextures[7]
 			button_map[2].hint_tooltip = dialogSkills[8][0]
-			button_map[3].hint_tooltip = "Promise high position in new dungeon order"
+			button_map[2].texture_normal = dialogSkillTextures[8]
+			button_map[3].hint_tooltip = dialogSkills[12][0]
+			button_map[3].texture_normal = dialogSkillTextures[12]
 		4:
 			button_map[1].hint_tooltip = dialogSkills[5][0]
+			button_map[1].texture_normal = dialogSkillTextures[5]
 			button_map[2].hint_tooltip = dialogSkills[8][0]
-			button_map[3].hint_tooltip = "Try to bribe him with one of your items"
+			button_map[2].texture_normal = dialogSkillTextures[8]
+			button_map[3].hint_tooltip = dialogSkills[13][0]
+			button_map[3].texture_normal = dialogSkillTextures[13]
 
-	print("current phase 2")
+#	print("current phase 2")
 	button_map[4].toggle_border(false)
 	button_map[4].hint_tooltip = ""
+	button_map[4].texture_normal = null
 	#load buttons 
 	pass
 func negociate_step3(selection):
@@ -367,49 +399,69 @@ func negociate_step3(selection):
 		1:
 			match(selection):
 				1:
-					button_map[1].hint_tooltip = "Address bad living conditions"
-					button_map[2].hint_tooltip = "Tell him, current dungeon master doesnt deserve his services"
+					button_map[1].hint_tooltip = dialogSkills[5][0]
+					button_map[1].texture_normal = dialogSkillTextures[5]
+					button_map[2].hint_tooltip = dialogSkills[7][0]
+					button_map[2].texture_normal = dialogSkillTextures[7]
 				2:
-					button_map[1].hint_tooltip = "Tell him, he deserves better than this"
-					button_map[2].hint_tooltip = "Complain how dungeon master isnt taking care of his employees"
+					button_map[1].hint_tooltip = dialogSkills[6][0]
+					button_map[1].texture_normal = dialogSkillTextures[6]
+					button_map[2].hint_tooltip = dialogSkills[8][0]
+					button_map[2].texture_normal = dialogSkillTextures[8]
 		2:
 			match(selection):
 				1:
-					button_map[1].hint_tooltip = "Address bad living conditions"
-					button_map[2].hint_tooltip = "Tell him, current dungeon master doesnt deserve his services"
+					button_map[1].hint_tooltip = dialogSkills[5][0]
+					button_map[1].texture_normal = dialogSkillTextures[5]
+					button_map[2].hint_tooltip = dialogSkills[7][0]
+					button_map[2].texture_normal = dialogSkillTextures[7]
 				2:
-					button_map[1].hint_tooltip = "Complain how dungeon master isnt taking care of his employees"
-					button_map[2].hint_tooltip = "Tell him, he deserves better than this"
+					button_map[1].hint_tooltip = dialogSkills[8][0]
+					button_map[1].texture_normal = dialogSkillTextures[8]
+					button_map[2].hint_tooltip = dialogSkills[6][0]
+					button_map[2].texture_normal = dialogSkillTextures[6]
 		3:
 			match(selection):
 				1:
-					button_map[1].hint_tooltip = "Complain how dungeon master isnt taking care of his employees"
-					button_map[2].hint_tooltip = "Tell him, current dungeon master doesnt deserve his services"
+					button_map[1].hint_tooltip = dialogSkills[8][0]
+					button_map[1].texture_normal = dialogSkillTextures[8]
+					button_map[2].hint_tooltip = dialogSkills[7][0]
+					button_map[2].texture_normal = dialogSkillTextures[7]
 				2:
-					button_map[1].hint_tooltip = "Address bad living conditions"
-					button_map[2].hint_tooltip = "Tell him, current dungeon master doesnt deserve his services"
+					button_map[1].hint_tooltip = dialogSkills[5][0]
+					button_map[1].texture_normal = dialogSkillTextures[5]
+					button_map[2].hint_tooltip = dialogSkills[7][0]
+					button_map[2].texture_normal = dialogSkillTextures[7]
 		4:
 			match(selection):
 				1:
-					button_map[1].hint_tooltip = "Complain how dungeon master isnt taking care of his employees"
-					button_map[2].hint_tooltip = "Tell him, he deserves better than this"
+					button_map[1].hint_tooltip = dialogSkills[8][0]
+					button_map[1].texture_normal = dialogSkillTextures[8]
+					button_map[2].hint_tooltip = dialogSkills[6][0]
+					button_map[2].texture_normal = dialogSkillTextures[6]
 				2:
-					button_map[1].hint_tooltip = "Tell him, current dungeon master doesnt deserve his services"
-					button_map[2].hint_tooltip = "Address bad living conditions"
+					button_map[1].hint_tooltip = dialogSkills[7][0]
+					button_map[1].texture_normal = dialogSkillTextures[7]
+					button_map[2].hint_tooltip = dialogSkills[5][0]
+					button_map[2].texture_normal = dialogSkillTextures[5]
 	current_step = 3
 	#load buttons 
-	button_map[3].hint_tooltip = "Tell how you would improve it"
-	print("current phase 3")
+	button_map[3].hint_tooltip = dialogSkills[9][0]
+	button_map[3].texture_normal = dialogSkillTextures[9]
+#	print("current phase 3")
 	pass
 func negociate_step4(selection):
 	current_step = 4
-	print("current phase 4")
-	button_map[1].hint_tooltip = "Tell how you would improve it"
+#	print("current phase 4")
+	button_map[1].hint_tooltip = dialogSkills[9][0]
+	button_map[1].texture_normal = dialogSkillTextures[9]
 	#load buttons 
 	button_map[2].toggle_border(false)
 	button_map[2].hint_tooltip = ""
+	button_map[2].texture_normal = null
 	button_map[3].toggle_border(false)
 	button_map[3].hint_tooltip = ""
+	button_map[3].texture_normal = null
 	pass
 
 func progress_negotiation(bttn):

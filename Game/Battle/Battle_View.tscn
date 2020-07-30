@@ -332,6 +332,7 @@ margin_left = 24.0
 margin_top = 24.0
 margin_right = -712.0
 margin_bottom = -152.0
+expand = true
 bttnID = 1
 
 [node name="Skill_Button2" parent="VBoxContainer/ButtonSpace" instance=ExtResource( 3 )]
@@ -339,6 +340,7 @@ margin_left = 112.0
 margin_top = 24.0
 margin_right = -624.0
 margin_bottom = -152.0
+expand = true
 bttnID = 2
 
 [node name="Skill_Button3" parent="VBoxContainer/ButtonSpace" instance=ExtResource( 3 )]
@@ -346,6 +348,7 @@ margin_left = 24.0
 margin_top = 112.0
 margin_right = -712.0
 margin_bottom = -64.0
+expand = true
 bttnID = 3
 
 [node name="Skill_Button4" parent="VBoxContainer/ButtonSpace" instance=ExtResource( 3 )]
@@ -356,6 +359,7 @@ margin_bottom = -64.0
 hint_tooltip = "HEBUBUE
 jgjhgjgjyyyy
 -thrhrh"
+expand = true
 bttnID = 4
 
 [node name="StartFight" type="Button" parent="VBoxContainer/ButtonSpace"]
